@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Find the best PG, hostels, and rooms for rent in Pune. Affordable accommodation options for students and professionals.">
+  <meta name="keywords"
+    content="Pune rooms, PG in Pune, hostels in Pune, accommodation, rent, student housing, Pune rentals, Pune flats, Pune shared accommodation">
+  <meta name="author" content="Pune Rooms">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pune Rooms - Find Your Perfect Accommodation">
+  <meta property="og:description"
+    content="Find the best PG, hostels, and rooms for rent in Pune. Affordable accommodation options for students and professionals.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.punerooms.com">
+  <meta property="og:image" content="https://www.punerooms.com/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Pune Rooms - Find Your Perfect Accommodation | PG, Hostels & Rooms for Rent</title>
+  <link rel="canonical" href="https://www.punerooms.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Preload important fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  </noscript>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Pune Rooms",
+      "image": "https://www.punerooms.com/images/logo.jpg",
+      "@id": "https://www.punerooms.com",
+      "url": "https://www.punerooms.com",
+      "telephone": "+919876543210",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 MG Road",
+        "addressLocality": "Pune",
+        "postalCode": "411001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.5204,
+        "longitude": 73.8567
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/punerooms",
+        "https://www.instagram.com/punerooms",
+        "https://twitter.com/punerooms"
+      ]
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background-color: #f8fafc;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary-light);
+    }
+
+    .room-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .room-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .room-image {
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .property-type-badge {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--secondary);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .favorite-btn i {
+      color: #f43f5e;
+    }
+
+    .favorite-btn.active i {
+      font-weight: 900;
+    }
+
+    .amenity-badge {
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      padding: 5px 12px;
+      font-size: 12px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    .search-bar {
+      border-radius: 50px;
+      padding: 10px 20px;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    /* Mobile bottom navigation */
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .mobile-nav-item i {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .mobile-nav-item.active {
+      color: var(--primary);
+    }
+
+    /* Add property button */
+    .add-property-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      font-size: 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .add-property-btn:hover {
+      transform: scale(1.1);
+      background-color: var(--primary-light);
+      color: white;
+    }
+
+    /* Accessibility improvements */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Performance optimizations */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Lazy loading for images */
+    .lazy {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .lazy.loaded {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header/Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Left: Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="Pune Rooms Home">
+        <i class="fas fa-home me-2" aria-hidden="true"></i>Pune Rooms
+      </a>
+
+      <!-- Right: Logout Icon Button -->
+      <a href="logout.html" aria-label="Logout" class="btn btn-outline-danger">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+
+    </div>
+  </nav>
+
+
+
+  <!-- Mobile Search Bar -->
+  <div class="container d-lg-none search-container mt-3">
+    <form class="d-flex" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control search-bar" placeholder="Search for rooms, PG, hostels..."
+          aria-label="Search properties">
+        <button class="btn btn-primary rounded-end" type="submit" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mt-4 main-container">
+    <!-- Featured Properties Section -->
+    <section id="featured-properties" aria-labelledby="featured-properties-heading">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 id="featured-properties-heading" class="section-title">Featured Properties in Pune</h1>
+        <a href="explore.html" class="btn btn-outline-primary btn-sm d-none d-md-block">View All</a>
+      </div>
+
+      <div class="row" id="properties-container">
+        <!-- Properties will be loaded here via API -->
+      </div>
+    </section>
+
+    <!-- Popular Areas Section -->
+    <section id="popular-areas" class="mt-5" aria-labelledby="popular-areas-heading">
+      <h2 id="popular-areas-heading" class="section-title">Popular Areas in Pune</h2>
+      <div class="row">
+        <div class="col-6 col-md-3 mb-3">
+          <a href="explore.html?area=kothrud" class="card text-decoration-none text-dark h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marker-alt mb-2 text-primary"></i>
+              <h3 class="h6 mb-0">Kothrud</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <a href="explore.html?area=viman-nagar" class="card text-decoration-none text-dark h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marker-alt mb-2 text-primary"></i>
+              <h3 class="h6 mb-0">Viman Nagar</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <a href="explore.html?area=baner" class="card text-decoration-none text-dark h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marker-alt mb-2 text-primary"></i>
+              <h3 class="h6 mb-0">Baner</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <a href="explore.html?area=hinjewadi" class="card text-decoration-none text-dark h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marker-alt mb-2 text-primary"></i>
+              <h3 class="h6 mb-0">Hinjewadi</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add Property Button (Mobile) -->
+  <a href="add-property.html" class="add-property-btn" aria-label="Add new property">
+    <i class="fas fa-plus"></i>
+  </a>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col">
+          <a href="index.html" class="mobile-nav-item active" aria-current="page">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="explore.html" class="mobile-nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="add-property.html" class="mobile-nav-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Add</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="favorites.html" class="mobile-nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Saved</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="profile.html" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap JS with defer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+    defer></script>
+
+  <script>
+    // Enhanced property data with more SEO-friendly information
+    const propertiesData = [
+      {
+        id: 1,
+        title: "Women's PG in Kothrud | Safe & Affordable Accommodation",
+        location: "Kothrud, Pune",
+        type: "PG",
+        price: 7500,
+        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "Food", "Furnished"],
+        isFavorite: false,
+        rating: 4.5,
+        distance: "1.2 km from COEP"
+      },
+      {
+        id: 2,
+        title: "Single Room in Viman Nagar | Near Airport & IT Parks",
+        location: "Viman Nagar, Pune",
+        type: "Room",
+        price: 9000,
+        image: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "Furnished", "AC"],
+        isFavorite: false,
+        rating: 4.2,
+        distance: "800m from Phoenix Marketcity"
+      },
+      {
+        id: 3,
+        title: "Student Hostel Near Symbiosis | Best for University Students",
+        location: "Lavale, Pune",
+        type: "Hostel",
+        price: 6500,
+        image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "Food", "Transport"],
+        isFavorite: false,
+        rating: 4.7,
+        distance: "500m from Symbiosis Campus"
+      },
+      {
+        id: 4,
+        title: "Luxury Apartment in Koregaon Park | Premium Living Space",
+        location: "Koregaon Park, Pune",
+        type: "Apartment",
+        price: 15000,
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "AC", "Furnished", "Parking"],
+        isFavorite: false,
+        rating: 4.8,
+        distance: "300m from Main Street"
+      },
+      {
+        id: 5,
+        title: "Co-working Space with Living | Perfect for Professionals",
+        location: "Hinjewadi, Pune",
+        type: "Shared Space",
+        price: 8000,
+        image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "Workspace", "Food", "Laundry"],
+        isFavorite: false,
+        rating: 4.3,
+        distance: "1.5 km from Hinjewadi IT Park"
+      },
+      {
+        id: 6,
+        title: "Private Room in Baner | Near Tech Parks & Restaurants",
+        location: "Baner, Pune",
+        type: "Room",
+        price: 8500,
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        amenities: ["WiFi", "Furnished", "Laundry"],
+        isFavorite: false,
+        rating: 4.4,
+        distance: "1 km from Balewadi High Street"
+      }
+    ];
+
+    // Function to render properties with better performance
+    function renderProperties() {
+      const propertiesContainer = document.getElementById('properties-container');
+
+      // Use document fragment for better performance
+      const fragment = document.createDocumentFragment();
+
+      propertiesData.forEach(property => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4 mb-4';
+
+        // Create property card
+        const card = document.createElement('div');
+        card.className = 'card room-card h-100';
+        card.innerHTML = `
+          <div class="position-relative">
+            <span class="property-type-badge">${property.type}</span>
+            <button class="favorite-btn ${property.isFavorite ? 'active' : ''}" 
+                    onclick="toggleFavorite(${property.id})"
+                    aria-label="${property.isFavorite ? 'Remove from favorites' : 'Add to favorites'}">
+              <i class="fa${property.isFavorite ? 's' : 'r'} fa-heart"></i>
+            </button>
+            <img src="${property.image}" 
+                 class="card-img-top room-image lazy" 
+                 alt="${property.title}" 
+                 loading="lazy">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h2 class="card-title h5">${property.title}</h2>
+            <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-2"></i>${property.location}</p>
+            <p class="small text-muted mb-2"><i class="fas fa-star text-warning me-1"></i>${property.rating} (${property.distance})</p>
+            <div class="d-flex flex-wrap mb-3">
+              ${property.amenities.map(amenity => {
+          let iconClass = '';
+          switch (amenity.toLowerCase()) {
+            case 'wifi': iconClass = 'fa-wifi'; break;
+            case 'food': iconClass = 'fa-utensils'; break;
+            case 'furnished': iconClass = 'fa-couch'; break;
+            case 'ac': iconClass = 'fa-fan'; break;
+            case 'transport': iconClass = 'fa-bus'; break;
+            case 'parking': iconClass = 'fa-parking'; break;
+            case 'workspace': iconClass = 'fa-laptop'; break;
+            case 'laundry': iconClass = 'fa-tshirt'; break;
+            default: iconClass = 'fa-check';
+          }
+          return `<span class="amenity-badge"><i class="fas ${iconClass} me-1"></i> ${amenity}</span>`;
+        }).join('')}
+            </div>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <div>
+                <span class="price h5">₹${property.price.toLocaleString()}</span>
+                <span class="text-muted small">/month</span>
+              </div>
+              <a href="property-details.html?id=${property.id}" class="btn btn-sm btn-primary">View Details</a>
+            </div>
+          </div>
+        `;
+
+        col.appendChild(card);
+        fragment.appendChild(col);
+      });
+
+      propertiesContainer.appendChild(fragment);
+
+      // Initialize lazy loading
+      initLazyLoading();
+    }
+
+    // Initialize lazy loading for images
+    function initLazyLoading() {
+      const lazyImages = document.querySelectorAll('.lazy');
+
+      if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const lazyImage = entry.target;
+              lazyImage.src = lazyImage.src;
+              lazyImage.classList.add('loaded');
+              lazyImageObserver.unobserve(lazyImage);
+            }
+          });
+        });
+
+        lazyImages.forEach((lazyImage) => {
+          lazyImageObserver.observe(lazyImage);
+        });
+      } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach((lazyImage) => {
+          lazyImage.src = lazyImage.src;
+          lazyImage.classList.add('loaded');
+        });
+      }
+    }
+
+    // Function to toggle favorite status
+    function toggleFavorite(propertyId) {
+      const property = propertiesData.find(p => p.id === propertyId);
+      if (property) {
+        property.isFavorite = !property.isFavorite;
+        renderProperties();
+
+        // In a real app, you would save this to the server
+        console.log(`Property ${propertyId} is now ${property.isFavorite ? 'favorited' : 'unfavorited'}`);
+
+        // Track this event for analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'favorite_toggle', {
+            'event_category': 'engagement',
+            'event_label': propertyId,
+            'value': property.isFavorite ? 1 : 0
+          });
+        }
+      }
+    }
+
+    // Initialize the page when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      renderProperties();
+
+      // Add any additional initialization code here
+    });
+  </script>
+
+  <!-- Analytics tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+</body>
+
+</html>

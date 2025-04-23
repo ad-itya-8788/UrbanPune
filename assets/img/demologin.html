@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find your perfect room in Pune - Login or Register to access Pune Rooms">
+  <title>Pune Rooms - Login or Register</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+
+  <style>
+    :root {
+      --primary-color: #4a6bff;
+      --secondary-color: #6c757d;
+      --dark-color: #343a40;
+      --light-color: #f8f9fa;
+      --success-color: #28a745;
+      --danger-color: #dc3545;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      padding: 0;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .auth-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 15px;
+    }
+
+    .auth-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth-image {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+      background-size: cover;
+      min-height: 500px;
+      position: relative;
+      color: white;
+    }
+
+    .auth-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 2px solid #dee2e6;
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--secondary-color);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .auth-tab.active {
+      color: var(--primary-color);
+    }
+
+    .auth-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+
+    .otp-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
+    .otp-input {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.2rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      margin: 0 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .otp-input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 0.25rem rgba(74, 107, 255, 0.25);
+    }
+
+    .resend-otp {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .resend-otp a {
+      color: var(--primary-color);
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .resend-otp a:hover {
+      text-decoration: underline;
+      color: #3a54d6;
+    }
+
+    .countdown {
+      color: var(--secondary-color);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #3a54d6;
+      border-color: #3a54d6;
+    }
+
+    .form-floating>.form-control:focus~label,
+    .form-floating>.form-control:not(:placeholder-shown)~label {
+      color: var(--primary-color);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(74, 107, 255, 0.25);
+    }
+
+    @media (max-width: 767.98px) {
+      .auth-container {
+        margin: 1rem auto;
+        padding: 0 10px;
+      }
+
+      .auth-image {
+        min-height: 200px;
+      }
+
+      .auth-overlay {
+        padding: 1rem;
+      }
+
+      .otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .otp-input {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        margin: 0 2px;
+      }
+    }
+
+    .d-none {
+      display: none !important;
+    }
+
+    .footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="/assets/img/logo.png" alt="Pune Rooms Logo"
+            onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'100\' height=\'50\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'100\' height=\'50\' fill=\'%234a6bff\'/%3E%3Ctext x=\'50\' y=\'25\' font-size=\'12\' text-anchor=\'middle\' alignment-baseline=\'middle\' fill=\'white\'%3EPune Rooms%3C/text%3E%3C/svg%3E';">
+          Pune Rooms
+        </a>
+        <a href="/" class="btn btn-outline-primary">
+          <i class="fas fa-arrow-left me-2"></i>Back to Home
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+    <div class="container auth-container">
+      <div class="row g-0 auth-card shadow">
+        <!-- Image Column -->
+        <div class="col-md-6 d-none d-md-block auth-image">
+          <div class="auth-overlay">
+            <h2 class="fw-bold mb-3">Find Your Perfect Room in Pune</h2>
+            <p class="mb-0">Join our community to discover the best accommodations across Pune city.</p>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="col-md-6 bg-white p-4 p-lg-5">
+          <div class="auth-tabs">
+            <div class="auth-tab active" id="login-tab">Login</div>
+            <div class="auth-tab" id="register-tab">Register</div>
+          </div>
+
+          <!-- Login Form -->
+          <div id="login-form">
+            <h1 class="fw-bold mb-4" style="font-size: 1.75rem;">Welcome back!</h1>
+
+            <form id="loginInitForm" novalidate>
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="loginMobile" name="mobile" placeholder="Enter Mobile Number"
+                  pattern="[0-9]{10}" title="Please enter a 10-digit mobile number" required>
+                <label for="loginMobile">Mobile Number</label>
+                <div class="invalid-feedback">Please enter a valid 10-digit mobile number</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">
+                <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true"
+                  id="loginSpinner"></span>
+                Send OTP
+              </button>
+            </form>
+
+            <div class="text-center mt-4">
+              <p>Don't have an account? <a href="#" id="show-register" class="text-primary fw-semibold">Register now</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Register Form -->
+          <div id="register-form" style="display: none;">
+            <h1 class="fw-bold mb-4" style="font-size: 1.75rem;">Create an account</h1>
+
+            <form id="registerInitForm" novalidate>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name"
+                      pattern="[A-Za-z]{2,}" required>
+                    <label for="firstName">First Name</label>
+                    <div class="invalid-feedback">Please enter a valid first name (letters only)</div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name"
+                      pattern="[A-Za-z]{2,}" required>
+                    <label for="lastName">Last Name</label>
+                    <div class="invalid-feedback">Please enter a valid last name (letters only)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number"
+                  pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+                <label for="phone">Phone Number</label>
+                <div class="invalid-feedback">Please enter a valid 10-digit phone number</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">
+                <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true"
+                  id="registerSpinner"></span>
+                Send OTP
+              </button>
+            </form>
+
+            <div class="text-center mt-4">
+              <p>Already have an account? <a href="#" id="show-login" class="text-primary fw-semibold">Login</a></p>
+            </div>
+          </div>
+
+          <!-- OTP Verification Form -->
+          <div id="otp-verification" class="d-none">
+            <h1 class="fw-bold mb-4" style="font-size: 1.75rem;">Verify OTP</h1>
+            <p class="mb-4">We've sent a 6-digit OTP to <span id="otp-mobile-number" class="fw-bold"></span></p>
+
+            <form id="otpVerificationForm" novalidate>
+              <div class="otp-container">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+              </div>
+
+              <input type="hidden" id="full-otp" name="otp">
+              <input type="hidden" id="verification-mobile" name="mobile">
+              <input type="hidden" id="verification-type" name="type">
+
+              <div class="resend-otp">
+                <p>Didn't receive OTP? <a id="resend-otp-btn">Resend OTP</a> <span id="countdown"
+                    class="countdown">(60s)</span></p>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">
+                <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true"
+                  id="verifySpinner"></span>
+                Verify & Continue
+              </button>
+            </form>
+
+            <div class="text-center mt-4">
+              <a href="#" id="back-to-forms" class="text-primary fw-semibold">
+                <i class="fas fa-arrow-left me-2"></i>Back to login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white py-3 text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Pune Rooms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // DOM Elements
+      const loginTab = document.getElementById('login-tab');
+      const registerTab = document.getElementById('register-tab');
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const otpVerification = document.getElementById('otp-verification');
+      const showLogin = document.getElementById('show-login');
+      const showRegister = document.getElementById('show-register');
+      const backToForms = document.getElementById('back-to-forms');
+      const otpMobileNumber = document.getElementById('otp-mobile-number');
+      const verificationMobile = document.getElementById('verification-mobile');
+      const verificationType = document.getElementById('verification-type');
+      const resendOtpBtn = document.getElementById('resend-otp-btn');
+      const countdownElement = document.getElementById('countdown');
+      const fullOtpInput = document.getElementById('full-otp');
+      const loginSpinner = document.getElementById('loginSpinner');
+      const registerSpinner = document.getElementById('registerSpinner');
+      const verifySpinner = document.getElementById('verifySpinner');
+
+      // Tab switching functions
+      function switchToLogin() {
+        loginTab.classList.add('active');
+        registerTab.classList.remove('active');
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        otpVerification.classList.add('d-none');
+        document.getElementById('loginInitForm').reset();
+        document.getElementById('registerInitForm').reset();
+        resetOtpInputs();
+      }
+
+      function switchToRegister() {
+        registerTab.classList.add('active');
+        loginTab.classList.remove('active');
+        registerForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        otpVerification.classList.add('d-none');
+        document.getElementById('loginInitForm').reset();
+        document.getElementById('registerInitForm').reset();
+        resetOtpInputs();
+      }
+
+      // Event listeners for tab switching
+      loginTab.addEventListener('click', switchToLogin);
+      registerTab.addEventListener('click', switchToRegister);
+      showLogin.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchToLogin();
+      });
+      showRegister.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchToRegister();
+      });
+      backToForms.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (verificationType.value === 'login') {
+          switchToLogin();
+        } else {
+          switchToRegister();
+        }
+      });
+
+      // OTP Input Handling
+      const otpInputs = document.querySelectorAll('.otp-input');
+
+      otpInputs.forEach((input, index) => {
+        // Handle input
+        input.addEventListener('input', function (e) {
+          // Allow only numbers
+          this.value = this.value.replace(/[^0-9]/g, '');
+
+          if (this.value.length === 1) {
+            if (index < otpInputs.length - 1) {
+              otpInputs[index + 1].focus();
+            }
+          }
+          updateFullOtp();
+        });
+
+        // Handle paste event for OTP
+        input.addEventListener('paste', function (e) {
+          e.preventDefault();
+          const pastedData = (e.clipboardData || window.clipboardData).getData('text');
+          const numericData = pastedData.replace(/[^0-9]/g, '').substring(0, 6);
+
+          if (numericData.length > 0) {
+            // Fill all inputs with pasted data
+            for (let i = 0; i < otpInputs.length; i++) {
+              if (i < numericData.length) {
+                otpInputs[i].value = numericData[i];
+              }
+            }
+
+            // Focus on the appropriate input
+            if (numericData.length < otpInputs.length) {
+              otpInputs[numericData.length].focus();
+            } else {
+              otpInputs[otpInputs.length - 1].focus();
+            }
+
+            updateFullOtp();
+          }
+        });
+
+        // Handle backspace
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Backspace' && this.value.length === 0) {
+            if (index > 0) {
+              otpInputs[index - 1].focus();
+            }
+          }
+        });
+      });
+
+      function updateFullOtp() {
+        let otp = '';
+        otpInputs.forEach(input => {
+          otp += input.value;
+        });
+        fullOtpInput.value = otp;
+      }
+
+      function resetOtpInputs() {
+        otpInputs.forEach(input => {
+          input.value = '';
+        });
+        fullOtpInput.value = '';
+      }
+
+      // Initialize OTP verification
+      function initOtpVerification(mobile, type) {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'none';
+        otpVerification.classList.remove('d-none');
+
+        otpMobileNumber.textContent = mobile;
+        verificationMobile.value = mobile;
+        verificationType.value = type;
+
+        // Focus on first OTP input
+        otpInputs[0].focus();
+
+        startCountdown();
+
+        // Show SweetAlert notification
+        Swal.fire({
+          title: 'OTP Sent!',
+          text: `A verification code has been sent to ${mobile}`,
+          icon: 'success',
+          confirmButtonColor: '#4a6bff',
+          timer: 3000,
+          timerProgressBar: true
+        });
+      }
+
+      // Countdown timer for resend OTP
+      let countdownInterval;
+      function startCountdown() {
+        clearInterval(countdownInterval);
+
+        let timeLeft = 60;
+        resendOtpBtn.style.pointerEvents = 'none';
+        resendOtpBtn.style.opacity = '0.5';
+        countdownElement.textContent = `(${timeLeft}s)`;
+
+        countdownInterval = setInterval(() => {
+          timeLeft--;
+          countdownElement.textContent = `(${timeLeft}s)`;
+
+          if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            resendOtpBtn.style.pointerEvents = 'auto';
+            resendOtpBtn.style.opacity = '1';
+            countdownElement.textContent = '';
+          }
+        }, 1000);
+      }
+
+      // Handle resend OTP
+      resendOtpBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (this.style.pointerEvents === 'none') return;
+
+        const mobile = verificationMobile.value;
+
+        // Show loading state
+        this.style.pointerEvents = 'none';
+        this.style.opacity = '0.5';
+
+        // Simulate API call with timeout
+        setTimeout(() => {
+          // Show SweetAlert notification
+          Swal.fire({
+            title: 'OTP Resent!',
+            text: `A new verification code has been sent to ${mobile}`,
+            icon: 'success',
+            confirmButtonColor: '#4a6bff',
+            timer: 3000,
+            timerProgressBar: true
+          });
+
+          startCountdown();
+          resetOtpInputs();
+          otpInputs[0].focus();
+        }, 1000);
+      });
+
+      // Form submissions
+      document.getElementById('loginInitForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        this.classList.add('was-validated');
+
+        if (this.checkValidity()) {
+          const mobile = document.getElementById('loginMobile').value;
+
+          // Show loading state
+          loginSpinner.classList.remove('d-none');
+
+          // Simulate API call with timeout
+          setTimeout(() => {
+            loginSpinner.classList.add('d-none');
+            initOtpVerification(mobile, 'login');
+          }, 1500);
+        }
+      });
+
+      document.getElementById('registerInitForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        this.classList.add('was-validated');
+
+        if (this.checkValidity()) {
+          const mobile = document.getElementById('phone').value;
+
+          // Show loading state
+          registerSpinner.classList.remove('d-none');
+
+          // Simulate API call with timeout
+          setTimeout(() => {
+            registerSpinner.classList.add('d-none');
+            initOtpVerification(mobile, 'register');
+          }, 1500);
+        }
+      });
+
+      document.getElementById('otpVerificationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const otp = fullOtpInput.value;
+
+        if (otp.length !== 6) {
+          Swal.fire({
+            title: 'Invalid OTP',
+            text: 'Please enter a 6-digit OTP',
+            icon: 'error',
+            confirmButtonColor: '#4a6bff'
+          });
+          return;
+        }
+
+        // Show loading state
+        verifySpinner.classList.remove('d-none');
+
+        // Simulate API call with timeout
+        setTimeout(() => {
+          verifySpinner.classList.add('d-none');
+
+          // For demo purposes, any OTP starting with '1' is valid
+          if (otp.startsWith('1')) {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Verification successful! Redirecting...',
+              icon: 'success',
+              confirmButtonColor: '#4a6bff',
+              timer: 2000,
+              timerProgressBar: true
+            }).then(() => {
+              window.location.href = 'dashboard.html';
+            });
+          } else {
+            Swal.fire({
+              title: 'Invalid OTP',
+              text: 'The OTP you entered is incorrect. Please try again.',
+              icon: 'error',
+              confirmButtonColor: '#4a6bff'
+            });
+            resetOtpInputs();
+            otpInputs[0].focus();
+          }
+        }, 1500);
+      });
+
+      // Mobile number validation
+      const phoneInputs = document.querySelectorAll('input[type="tel"]');
+      phoneInputs.forEach(input => {
+        input.addEventListener('input', function () {
+          this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10);
+        });
+      });
+
+      // Name validation
+      const nameInputs = document.querySelectorAll('#firstName, #lastName');
+      nameInputs.forEach(input => {
+        input.addEventListener('input', function () {
+          this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+        });
+      });
+
+      // Prevent form submission on Enter key for OTP inputs
+      otpInputs.forEach(input => {
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            if (fullOtpInput.value.length === 6) {
+              document.getElementById('otpVerificationForm').dispatchEvent(new Event('submit'));
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
