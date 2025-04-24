@@ -4,484 +4,636 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pune Rooms - Find Rooms for Rent in Pune</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Primary Meta Tags -->
+  <title>Urban Pune | No Brokerage Rooms, PG & Hostels in Pune</title>
+  <meta name="title" content="Urban Pune | No Brokerage Rooms, PG & Hostels in Pune">
+  <meta name="description"
+    content="Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.">
+  <meta name="keywords"
+    content="pune rooms, urban pune, rooms in pune, pg in pune, hostel pune, no brokerage pune, koregaon park rooms, hinjewadi accommodation, viman nagar pg, kothrud hostel">
+  <meta name="author" content="Urban Pune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.urbanpune.in/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.urbanpune.in/">
+  <meta property="og:title" content="Urban Pune | No Brokerage Rooms, PG & Hostels in Pune">
+  <meta property="og:description"
+    content="Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.">
+  <meta property="og:image" content="https://www.urbanpune.in/img/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.urbanpune.in/">
+  <meta property="twitter:title" content="Urban Pune | No Brokerage Rooms, PG & Hostels in Pune">
+  <meta property="twitter:description"
+    content="Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.">
+  <meta property="twitter:image" content="https://www.urbanpune.in/img/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Bootstrap 5 CSS with preload for performance -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  </noscript>
+
+  <!-- Font Awesome with preload for performance -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
+
+  <style>
+    :root {
+      --primary: #4e2a84;
+      --secondary: #ff6b35;
+    }
+
+    .btn-primary,
+    .bg-primary {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+
+    .text-primary {
+      color: var(--primary) !important;
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    .area-card {
+      overflow: hidden;
+      border-radius: 12px;
+      height: 180px;
+    }
+
+    .area-card img {
+      transition: transform 0.5s ease;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .area-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .area-card .overlay {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .room-card {
+      transition: all 0.3s ease;
+    }
+
+    .room-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .bg-gradient-custom {
+      background: linear-gradient(135deg, rgba(78, 42, 132, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .lazy-load {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .lazy-loaded {
+      opacity: 1;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .area-card {
+        height: 150px;
+      }
+    }
+  </style>
+
+  <!-- Structured Data / Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Urban Pune",
+      "alternateName": "Pune Rooms",
+      "url": "https://www.urbanpune.in/",
+      "logo": "https://www.urbanpune.in/img/logo.png",
+      "description": "Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street, Koregaon Park",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "18.5204",
+        "longitude": "73.8567"
+      },
+      "telephone": "+919876543210",
+      "email": "info@urbanpune.in",
+      "sameAs": [
+        "https://www.facebook.com/urbanpune",
+        "https://www.instagram.com/urbanpune",
+        "https://twitter.com/urbanpune"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+  </script>
+
+  
 </head>
 
-<body class="bg-light">
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold fs-4 text-primary" href="/">
-        <img src="img/logo.png" height="70px" width="auto" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/rooms">Browse Rooms</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/how-it-works">How It Works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/help">Help</a>
-          </li>
-        </ul>
-        <div class="ms-lg-3 mt-3 mt-lg-0">
-          <a href="/login" class="btn btn-primary px-4">Sign In</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="py-5 bg-gradient bg-primary bg-opacity-10 rounded-bottom-4">
-    <div class="container py-4">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <h1 class="display-5 fw-bold mb-4">Find your perfect room in Pune</h1>
-          <p class="lead text-muted mb-4">Hundreds of rooms available across Pune. Filter by price, location, and
-            amenities to find your ideal space.</p>
-          <div class="d-flex gap-2">
-            <a href="/rooms" class="btn btn-primary px-4 py-3">Browse Rooms</a>
-            <a href="#" class="btn btn-outline-dark px-4 py-3">
-              <i class="fas fa-play me-2"></i>How it works
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <img src="img/outdore.jpg" class="img-fluid rounded-3 shadow" alt="Room interior">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Areas in Pune -->
-  <section class="py-5">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">Popular Areas in Pune</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/kp.jpg" class="w-100 h-100 object-fit-cover" alt="Koregaon Park">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Koregaon Park</h5>
-              <small>220+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/hing.jpg" class="w-100 h-100 object-fit-cover" alt="Hinjewadi">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Hinjewadi</h5>
-              <small>450+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/VN.jpg" class="w-100 h-100 object-fit-cover" alt="Viman Nagar">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Viman Nagar</h5>
-              <small>500+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/koth.jpg" class="w-100 h-100 object-fit-cover" alt="Kothrud">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Kothrud</h5>
-              <small>250+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/karve.jpg" class="w-100 h-100 object-fit-cover" alt="karve Nagar">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">karve Nagar</h5>
-              <small>200+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/shivaji.jpeg" class="w-100 h-100 object-fit-cover" alt="shivaji Nagar">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">shivaji Nagar</h5>
-              <small>200+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/path.jpg" class="w-100 h-100 object-fit-cover" alt="path">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Peth Area</h5>
-              <small>200+ rooms</small>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 col-6">
-          <a href="#" class="d-block overflow-hidden rounded-3 position-relative" style="height: 180px;">
-            <img src="img/punecityother.jpg" class="w-100 h-100 object-fit-cover" alt="path">
-            <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-50 text-white p-3">
-              <h5 class="mb-0">Pune City Other</h5>
-              <small>1000+ rooms</small>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold mb-3">Why Choose Pune Rooms?</h2>
-        <p class="lead text-muted">The best platform for finding and listing accommodations in Pune</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="text-center">
-            <div
-              class="d-flex align-items-center justify-content-center mx-auto rounded-circle bg-primary bg-opacity-10 text-primary mb-3"
-              style="width: 70px; height: 70px;">
-              <i class="fas fa-search fs-4"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Easy Search</h5>
-            <p class="text-muted">Find your ideal accommodation with our powerful search filters</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="text-center">
-            <div
-              class="d-flex align-items-center justify-content-center mx-auto rounded-circle bg-success bg-opacity-10 text-success mb-3"
-              style="width: 70px; height: 70px;">
-              <i class="fas fa-shield-alt fs-4"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Verified Listings</h5>
-            <p class="text-muted">All properties are verified to ensure quality and safety</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="text-center">
-            <div
-              class="d-flex align-items-center justify-content-center mx-auto rounded-circle bg-warning bg-opacity-10 text-warning mb-3"
-              style="width: 70px; height: 70px;">
-              <i class="fas fa-rupee-sign fs-4"></i>
-            </div>
-            <h5 class="fw-bold mb-2">No Brokerage</h5>
-            <p class="text-muted">Connect directly with owners and save on brokerage fees</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="text-center">
-            <div
-              class="d-flex align-items-center justify-content-center mx-auto rounded-circle bg-info bg-opacity-10 text-info mb-3"
-              style="width: 70px; height: 70px;">
-              <i class="fas fa-comments fs-4"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Direct Communication</h5>
-            <p class="text-muted">Chat directly with property owners or tenants</p>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-4 text-primary d-flex align-items-center" href="/"
+          title="Urban Pune - No Brokerage Rooms in Pune">
+          <img src="img/logo.png" height="60" width="auto" alt="Urban Pune Logo - No Brokerage Rooms in Pune"
+            class="me-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="/rooms" title="Browse Rooms in Pune"><i class="fas fa-search me-1"></i>
+                Browse Rooms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="/how-it-works" title="How Urban Pune Works"><i
+                  class="fas fa-info-circle me-1"></i> How It Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="/help" title="Urban Pune Help Center"><i
+                  class="fas fa-question-circle me-1"></i> Help</a>
+            </li>
+          </ul>
+          <div class="ms-lg-3 mt-3 mt-lg-0">
+            <a href="/login" class="btn btn-outline-primary me-2 fw-bold" title="Login to Urban Pune">Login</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- Featured Rooms -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">Featured Rooms in Pune</h2>
-        <div>
-          <a href="#" class="btn btn-outline-primary me-2">All rooms</a>
-          <a href="#" class="btn btn-primary">List your space</a>
-        </div>
-      </div>
+  <main>
+    <!-- Hero Section -->
+    <section class="py-5 bg-gradient-custom">
+      <div class="container py-3">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <span class="badge bg-primary px-3 py-2 mb-2 fw-bold">Top Rated Room Rental in Pune</span>
+            <h1 class="display-5 fw-bold mb-3">Find Your <span class="text-primary">Perfect Room</span> in Pune</h1>
+            <p class="lead mb-4"><strong>Hundreds of verified rooms</strong> available across Pune. <strong>No brokerage
+                fees!</strong></p>
 
-      <div class="row g-4">
-        <!-- Room 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0 overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              class="card-img-top" alt="Room">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <span class="badge bg-success bg-opacity-10 text-success">Available now</span>
-                <span class="badge bg-warning bg-opacity-10 text-warning">First month 10% off</span>
-              </div>
-              <h5 class="card-title">Sunny Private Room - Koregaon Park</h5>
-              <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-muted me-2"></i>Koregaon Park, Pune</p>
-
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bed fa-xs"></i>
-                  </span>
-                  1 Bed
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bath fa-xs"></i>
-                  </span>
-                  Shared bath
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-ruler-combined fa-xs"></i>
-                  </span>
-                  12 m²
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-wifi fa-xs"></i>
-                  </span>
-                  WiFi
-                </span>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <div>
-                  <span class="h5 text-primary">₹8,500</span>
-                  <span class="text-muted small">/month</span>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <div class="d-flex align-items-center">
+                <div class="bg-white rounded-circle p-2 shadow-sm me-2">
+                  <i class="fas fa-check text-primary"></i>
                 </div>
-                <a href="#" class="btn btn-sm btn-outline-primary">View details</a>
+                <span class="fw-bold">Verified Listings</span>
               </div>
+              <div class="d-flex align-items-center">
+                <div class="bg-white rounded-circle p-2 shadow-sm me-2">
+                  <i class="fas fa-check text-primary"></i>
+                </div>
+                <span class="fw-bold">No Brokerage</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <a href="/rooms" class="btn btn-primary px-4 py-2 fw-bold hover-scale" title="Browse Rooms in Pune">Browse
+                Rooms</a>
+              <a href="#how-it-works" class="btn btn-outline-dark px-4 py-2 fw-bold hover-scale"
+                title="How Urban Pune Works">How it works</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="img/outdore.jpg" class="img-fluid rounded-4 shadow hover-scale lazy-load"
+              alt="Modern room interior in Pune - Urban Pune" width="600" height="400" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Popular Areas in Pune -->
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold">Popular Areas in Pune</h2>
+      <a href="#" class="btn btn-outline-primary fw-bold d-none d-md-block" title="View All Areas in Pune">View
+        All</a>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Koregaon Park Pune">
+          <img src="img/kp.jpg" class="w-100 lazy-load" alt="Koregaon Park Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Koregaon Park</h3>
+            <span class="badge bg-primary">220+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Hinjewadi Pune">
+          <img src="img/hing.jpg" class="w-100 lazy-load" alt="Hinjewadi IT Park Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Hinjewadi</h3>
+            <span class="badge bg-primary">450+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Viman Nagar Pune">
+          <img src="img/VN.jpg" class="w-100 lazy-load" alt="Viman Nagar Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Viman Nagar</h3>
+            <span class="badge bg-primary">500+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Kothrud Pune">
+          <img src="img/koth.jpg" class="w-100 lazy-load" alt="Kothrud Pune - Urban Pune Rooms" width="300" height="180"
+            loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Kothrud</h3>
+            <span class="badge bg-primary">250+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Karve Nagar Pune">
+          <img src="img/karve.jpg" class="w-100 lazy-load" alt="Karve Nagar Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Karve Nagar</h3>
+            <span class="badge bg-primary">200+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Shivaji Nagar Pune">
+          <img src="img/shivaji.jpeg" class="w-100 lazy-load" alt="Shivaji Nagar Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Shivaji Nagar</h3>
+            <span class="badge bg-primary">200+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Peth Area Pune">
+          <img src="img/path.jpg" class="w-100 lazy-load" alt="Peth Area Pune - Urban Pune Rooms" width="300"
+            height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Peth Area</h3>
+            <span class="badge bg-primary">200+ rooms</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <a href="#" class="area-card d-block position-relative shadow-sm" title="Rooms in Pune City Other Areas">
+          <img src="img/punecityother.jpg" class="w-100 lazy-load" alt="Pune City Other Areas - Urban Pune Rooms"
+            width="300" height="180" loading="lazy">
+          <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
+            <h3 class="h5 mb-0 fw-bold">Pune City Other</h3>
+            <span class="badge bg-primary">1000+ rooms</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-gradient-custom" id="how-it-works">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold mb-3">Why Choose Urban Pune?</h2>
+          <p class="lead">The <strong>best platform</strong> for finding rooms in Pune</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-primary bg-opacity-10 text-primary mb-3">
+                <i class="fas fa-search fs-3"></i>
+              </div>
+              <h3 class="h4 fw-bold mb-2">Easy Search</h3>
+              <p class="text-muted mb-0">Find your ideal accommodation with powerful search filters</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-success bg-opacity-10 text-success mb-3">
+                <i class="fas fa-shield-alt fs-3"></i>
+              </div>
+              <h3 class="h4 fw-bold mb-2">Verified Listings</h3>
+              <p class="text-muted mb-0">All properties are verified to ensure quality and safety</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-warning bg-opacity-10 text-warning mb-3">
+                <i class="fas fa-rupee-sign fs-3"></i>
+              </div>
+              <h3 class="h4 fw-bold mb-2">No Brokerage</h3>
+              <p class="text-muted mb-0">Connect directly with owners and save on brokerage fees</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-info bg-opacity-10 text-info mb-3">
+                <i class="fas fa-comments fs-3"></i>
+              </div>
+              <h3 class="h4 fw-bold mb-2">Direct Contact</h3>
+              <p class="text-muted mb-0">Chat directly with property owners or tenants</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Room 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0 overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              class="card-img-top" alt="Room">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <span class="badge bg-success bg-opacity-10 text-success">Available now</span>
-                <span class="badge bg-primary bg-opacity-10 text-primary">Verified landlord</span>
+    <!-- Featured Rooms -->
+    <section class="py-5">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="fw-bold">Featured Rooms in Pune</h2>
+          <a href="#" class="btn btn-primary fw-bold d-none d-md-block"
+            title="List your property on Urban Pune">List your space</a>
+        </div>
+
+        <div class="row g-4">
+          <!-- Room 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden room-card">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  class="card-img-top lazy-load" alt="Single Room in Koregaon Park Pune - Urban Pune" width="500"
+                  height="200" loading="lazy" style="height: 200px; object-fit: cover;">
+                <span class="position-absolute top-0 end-0 bg-success m-3 badge">Available now</span>
               </div>
-              <h5 class="card-title">Modern Shared Apartment - Hinjewadi</h5>
-              <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-muted me-2"></i>Hinjewadi, Pune</p>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold">Sunny Private Room - Koregaon Park</h3>
+                <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i>Koregaon Park, Pune
+                </p>
 
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bed fa-xs"></i>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bed text-primary me-1"></i>
+                    <strong>1 Bed</strong>
                   </span>
-                  2 Beds
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bath fa-xs"></i>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bath text-primary me-1"></i>
+                    <strong>Shared bath</strong>
                   </span>
-                  Private bath
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-ruler-combined fa-xs"></i>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-wifi text-primary me-1"></i>
+                    <strong>WiFi</strong>
                   </span>
-                  25 m²
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-utensils fa-xs"></i>
-                  </span>
-                  Kitchen
-                </span>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <div>
-                  <span class="h5 text-primary">₹12,000</span>
-                  <span class="text-muted small">/month</span>
                 </div>
-                <a href="#" class="btn btn-sm btn-outline-primary">View details</a>
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="h5 text-primary fw-bold">₹8,500</span>
+                    <span class="text-muted small">/month</span>
+                  </div>
+                  <a href="/rooms/koregaon-park-sunny-room" class="btn btn-sm btn-primary fw-bold"
+                    title="View details of Koregaon Park Room">View details</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Room 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0 overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              class="card-img-top" alt="Room">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <span class="badge bg-secondary bg-opacity-10 text-secondary">Available Jun 1</span>
-                <span class="badge bg-danger bg-opacity-10 text-danger">Popular</span>
+          <!-- Room 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden room-card">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  class="card-img-top lazy-load" alt="Modern Shared Apartment in Hinjewadi Pune - Urban Pune"
+                  width="500" height="200" loading="lazy" style="height: 200px; object-fit: cover;">
+                <span class="position-absolute top-0 end-0 bg-success m-3 badge">Available now</span>
               </div>
-              <h5 class="card-title">Luxury Studio - Viman Nagar</h5>
-              <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-muted me-2"></i>Viman Nagar, Pune</p>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold">Modern Shared Apartment - Hinjewadi</h3>
+                <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i>Hinjewadi, Pune</p>
 
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bed fa-xs"></i>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bed text-primary me-1"></i>
+                    <strong>2 Beds</strong>
                   </span>
-                  1 Bed
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-bath fa-xs"></i>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bath text-primary me-1"></i>
+                    <strong>Private bath</strong>
                   </span>
-                  Private bath
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-ruler-combined fa-xs"></i>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-utensils text-primary me-1"></i>
+                    <strong>Kitchen</strong>
                   </span>
-                  30 m²
-                </span>
-                <span class="d-flex align-items-center small text-muted">
-                  <span
-                    class="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary me-2"
-                    style="width: 24px; height: 24px;">
-                    <i class="fas fa-dumbbell fa-xs"></i>
-                  </span>
-                  Gym
-                </span>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <div>
-                  <span class="h5 text-primary">₹15,000</span>
-                  <span class="text-muted small">/month</span>
                 </div>
-                <a href="#" class="btn btn-sm btn-outline-primary">View details</a>
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="h5 text-primary fw-bold">₹12,000</span>
+                    <span class="text-muted small">/month</span>
+                  </div>
+                  <a href="/rooms/hinjewadi-modern-apartment" class="btn btn-sm btn-primary fw-bold"
+                    title="View details of Hinjewadi Apartment">View details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden room-card">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  class="card-img-top lazy-load" alt="Luxury Studio in Viman Nagar Pune - Urban Pune" width="500"
+                  height="200" loading="lazy" style="height: 200px; object-fit: cover;">
+                <span class="position-absolute top-0 end-0 bg-secondary m-3 badge">Available Jun 1</span>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold">Luxury Studio - Viman Nagar</h3>
+                <p class="text-muted mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i>Viman Nagar, Pune</p>
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bed text-primary me-1"></i>
+                    <strong>1 Bed</strong>
+                  </span>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-bath text-primary me-1"></i>
+                    <strong>Private bath</strong>
+                  </span>
+                  <span class="d-flex align-items-center small text-muted">
+                    <i class="fas fa-dumbbell text-primary me-1"></i>
+                    <strong>Gym</strong>
+                  </span>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="h5 text-primary fw-bold">₹15,000</span>
+                    <span class="text-muted small">/month</span>
+                  </div>
+                  <a href="/rooms/viman-nagar-luxury-studio" class="btn btn-sm btn-primary fw-bold"
+                    title="View details of Viman Nagar Studio">View details</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="py-5 bg-primary text-white">
-    <div class="container text-center py-4">
-      <h2 class="fw-bold mb-4">Ready to find your new home in Pune?</h2>
-      <p class="lead mb-5">Join hundreds of happy renters who found their perfect space through Pune Rooms.</p>
-      <a href="/rooms" class="btn btn-light btn-lg px-5">Browse Rooms</a>
-    </div>
-  </section>
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+      <div class="container text-center py-3">
+        <h2 class="fw-bold mb-3">Ready to find your new home in Pune?</h2>
+        <p class="lead mb-4">Join hundreds of happy renters who found their perfect space through Urban Pune.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="#" class="btn btn-light btn-lg px-4 fw-bold hover-scale" title="Browse Rooms in Pune">Browse
+            Rooms</a>
+          <a href="/list-property" class="btn btn-outline-light btn-lg px-4 fw-bold hover-scale"
+            title="List Your Property on Urban Pune">List Your Property</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-5">
+  <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
-          <h4 class="fw-bold text-white mb-4"><i class="fas fa-home me-2"></i>Pune Rooms</h4>
-          <p class="text-white-50">Pune Rooms is the leading platform for finding and listing rental accommodations in
-            Pune. We connect property owners with tenants, making the rental process simple and transparent.</p>
+          <h4 class="fw-bold text-white mb-3">Urban Pune</h4>
+          <p class="text-white-50">The leading platform for finding and listing rental accommodations in Pune with no
+            brokerage fees.</p>
           <div class="social-icons">
-            <a href="#"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2"
-              style="width: 40px; height: 40px;">
+            <a href="https://facebook.com/urbanpune" aria-label="Urban Pune on Facebook"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
+              style="width: 36px; height: 36px;">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2"
-              style="width: 40px; height: 40px;">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2"
-              style="width: 40px; height: 40px;">
+            <a href="https://instagram.com/urbanpune" aria-label="Urban Pune on Instagram"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
+              style="width: 36px; height: 36px;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2"
-              style="width: 40px; height: 40px;">
-              <i class="fab fa-linkedin-in"></i>
+            <a href="https://twitter.com/urbanpune" aria-label="Urban Pune on Twitter"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
+              style="width: 36px; height: 36px;">
+              <i class="fab fa-twitter"></i>
             </a>
           </div>
         </div>
         <div class="col-lg-2 col-md-4">
-          <h5 class="text-white mb-4">Quick Links</h5>
+          <h5 class="text-white mb-3 fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
             <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Browse Rooms</a></li>
-            <li class="mb-2"><a href="/privacy-policy" class="text-white-50 text-decoration-none">Privacy Policy</a>
-            </li>
             <li class="mb-2"><a href="/help" class="text-white-50 text-decoration-none">Support</a></li>
-            <li class="mb-2"><a href="/about" class="text-white-50 text-decoration-none">About Us</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4">
-          <h5 class="text-white mb-4">Popular Areas</h5>
+          <h5 class="text-white mb-3 fw-bold">Popular Areas</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Koregaon Park</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Viman Nagar</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Koregaon Park</a>
+            </li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Viman Nagar</a>
+            </li>
             <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Hinjewadi</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Kothrud</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Baner</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
-          <h5 class="text-white mb-4">Contact Us</h5>
+          <h5 class="text-white mb-3 fw-bold">Contact Us</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Main Street, Koregaon Park, Pune,
-              Maharashtra 411001</li>
-            <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 *****</li>
-            <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@puneroomscomingsoon.com</li>
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> 123 Main Street, Koregaon Park,
+              Pune</li>
+            <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 98765 *****</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@urbanpune.in</li>
           </ul>
-          <form class="mt-4">
+          <form class="mt-3" id="newsletter-form">
             <div class="input-group">
-              <input type="email" class="form-control" placeholder="Your email address">
-              <button class="btn btn-primary" type="submit">Subscribe</button>
+              <input type="email" class="form-control" placeholder="Your email" aria-label="Your email">
+              <button class="btn btn-primary fw-bold" type="submit">Subscribe</button>
             </div>
           </form>
         </div>
       </div>
-      <hr class="my-4 border-secondary">
+      <hr class="my-3 border-secondary">
       <div class="row">
         <div class="col-md-6 text-center text-md-start">
-          <p class="small mb-0 text-white-50">© 2025 PuneRooms | urbanpune.in — All Rights Reserved.
-          </p>
+          <p class="small mb-0 text-white-50">© 2025 Urban Pune | urbanpune.in — All Rights Reserved.</p>
         </div>
         <div class="col-md-6 text-center text-md-end">
           <p class="small mb-0">
-            <a href="/privacy-policy" class="text-white-50 text-decoration-none me-3">Privacy & Policy</a>
+            <a href="/privacy-policy" class="text-white-50 text-decoration-none me-3">Privacy</a>
+            <a href="/terms" class="text-white-50 text-decoration-none me-3">Terms</a>
             <a href="/help" class="text-white-50 text-decoration-none">Support</a>
           </p>
         </div>
@@ -489,28 +641,76 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS with defer for performance -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Sitemap generation -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.urbanpune.in/",
+      "name": "Urban Pune - No Brokerage Rooms in Pune",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.urbanpune.in/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
+  <!-- Performance optimizations -->
   <script>
+    // Lazy loading images
     document.addEventListener('DOMContentLoaded', function () {
-      // Area click tracking
-      const cityCards = document.querySelectorAll('.city-card');
-      cityCards.forEach(card => {
-        card.addEventListener('click', function () {
-          const areaName = this.querySelector('h5').textContent;
-          console.log(`User clicked on area: ${areaName}`);
+      // Lazy load images
+      const lazyImages = document.querySelectorAll('.lazy-load');
+
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.classList.add('lazy-loaded');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        lazyImages.forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => {
+          img.classList.add('lazy-loaded');
+        });
+      }
+
+      // Room card hover effect
+      const roomCards = document.querySelectorAll('.room-card');
+      roomCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+          this.classList.add('shadow');
+        });
+        card.addEventListener('mouseleave', function () {
+          this.classList.remove('shadow');
         });
       });
 
-      // Room click tracking
-      const roomCards = document.querySelectorAll('.room-card');
-      roomCards.forEach(card => {
-        card.addEventListener('click', function (e) {
-          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-          const roomTitle = this.querySelector('.card-title').textContent;
-          console.log(`User clicked on room: ${roomTitle}`);
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          if (email) {
+            // Here you would normally send this to your server
+            alert('Thank you for subscribing to Urban Pune updates!');
+            this.reset();
+          }
         });
-      });
+      }
     });
   </script>
 </body>
