@@ -49,6 +49,8 @@ app.get("/login", serveStatic("login.html"));
 app.get("/about", serveStatic("aboutus.html"));
 app.get("/privacy-policy", serveStatic("privacy-policy.html"));
 app.get("/dashboard", serveStatic("dashboard.html"));
+app.get("/profile", serveStatic("profile.html"));
+app.get("/profile2", serveStatic("profile2.html"));
 
 // Helper function for mobile number validation - FIXED
 const validateMobileNumber = (mobile) => {

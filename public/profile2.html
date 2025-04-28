@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>My Profile | Urban Pune</title>
+  <meta name="title" content="My Profile | Urban Pune">
+  <meta name="description" content="Manage your Urban Pune profile, listings, and account settings.">
+  <meta name="author" content="Urban Pune">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #4e2a84;
+      --secondary: #ff6b35;
+      --light-bg: #f8f9fa;
+      --border-color: #e9ecef;
+      --story-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #262626;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .btn-primary,
+    .bg-primary {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+
+    .text-primary {
+      color: var(--primary) !important;
+    }
+
+    /* Instagram-style navbar */
+    .insta-navbar {
+      border-bottom: 1px solid #dbdbdb;
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .insta-logo {
+      height: 30px;
+    }
+
+    /* Profile section */
+    .profile-container {
+      background-color: white;
+      border-bottom: 1px solid #dbdbdb;
+      padding: 20px 0;
+    }
+
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #dbdbdb;
+      padding: 3px;
+    }
+
+    @media (max-width: 767px) {
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .profile-stat-count {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .profile-stat-label {
+      color: #8e8e8e;
+      font-size: 14px;
+    }
+
+    .profile-bio {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .edit-profile-btn {
+      border: 1px solid #dbdbdb;
+      background-color: transparent;
+      color: #262626;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .edit-profile-btn:hover {
+      background-color: #fafafa;
+    }
+
+    /* Stories/Highlights */
+    .stories-container {
+      padding: 15px 0;
+      border-bottom: 1px solid #dbdbdb;
+      background-color: white;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .stories-container::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari, Opera */
+    }
+
+    .story-item {
+      display: inline-block;
+      margin-right: 15px;
+      text-align: center;
+    }
+
+    .story-circle {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: var(--story-gradient);
+      padding: 2px;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .story-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid white;
+      object-fit: cover;
+    }
+
+    .story-text {
+      font-size: 12px;
+      color: #262626;
+      max-width: 66px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Post grid */
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 3px;
+    }
+
+    @media (max-width: 576px) {
+      .post-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .post-item {
+      position: relative;
+      padding-bottom: 100%;
+      /* Square aspect ratio */
+      overflow: hidden;
+    }
+
+    .post-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .post-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .post-item:hover .post-overlay {
+      opacity: 1;
+    }
+
+    .post-stats {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+    }
+
+    .post-stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Tab navigation */
+    .profile-tabs {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #dbdbdb;
+      background-color: white;
+    }
+
+    .profile-tab {
+      padding: 15px 0;
+      flex: 1;
+      text-align: center;
+      color: #8e8e8e;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .profile-tab.active {
+      color: var(--primary);
+      border-top: 1px solid var(--primary);
+    }
+
+    .profile-tab:hover {
+      color: #262626;
+    }
+
+    /* Modals */
+    .modal-content {
+      border-radius: 12px;
+      border: none;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* Toast notification */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1100;
+    }
+
+    .custom-toast {
+      background-color: rgba(38, 38, 38, 0.9);
+      color: white;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 10px;
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Bottom navigation for mobile */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      border-top: 1px solid #dbdbdb;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .bottom-nav-item {
+      color: #262626;
+      font-size: 24px;
+    }
+
+    .bottom-nav-item.active {
+      color: var(--primary);
+    }
+
+    /* Add listing button */
+    .add-listing-btn {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+
+    .add-listing-btn:hover {
+      transform: scale(1.1);
+      background-color: var(--secondary);
+    }
+
+    /* Room card for saved tab */
+    .room-card {
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background-color: white;
+    }
+
+    .room-header {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    .room-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .room-username {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .room-location {
+      font-size: 12px;
+      color: #8e8e8e;
+    }
+
+    .room-img-container {
+      position: relative;
+      padding-bottom: 100%;
+      /* Square aspect ratio */
+    }
+
+    .room-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .room-actions {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .room-action {
+      font-size: 24px;
+      color: #262626;
+      cursor: pointer;
+    }
+
+    .room-action.liked {
+      color: #ed4956;
+    }
+
+    .room-action.saved {
+      color: var(--primary);
+    }
+
+    .room-likes {
+      padding: 0 10px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .room-caption {
+      padding: 0 10px 10px;
+      font-size: 14px;
+    }
+
+    .room-price {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .room-comments {
+      padding: 10px;
+      border-top: 1px solid #dbdbdb;
+      font-size: 14px;
+      color: #8e8e8e;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Toast notification container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Instagram-style Navbar -->
+  <nav class="insta-navbar py-2">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="/" class="text-decoration-none">
+          <img src="img/urbanpune.jpg" height="80px" width="auto" alt="Urban Pune" class="insta-logo">
+        </a>
+        <div class="d-flex align-items-center">
+          <a href="/messages" class="text-dark me-3 position-relative">
+            <i class="far fa-paper-plane fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              3
+            </span>
+          </a>
+          <div class="dropdown">
+            <a href="#" class="text-dark" id="profileDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img src="img/user.jpg" alt="Rahul Sharma" width="30" height="30" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="/profile"><i class="fas fa-user me-2"></i>Profile</a></li>
+              <li><a class="dropdown-item" href="/saved"><i class="fas fa-bookmark me-2"></i>Saved</a></li>
+              <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog me-2"></i>Settings</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Header -->
+  <section class="profile-container">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="img/user.jpg" alt="Rahul Sharma" class="profile-avatar">
+        </div>
+        <div class="col-md-8">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h1 class="h5 mb-0">rahul_sharma</h1>
+            <div class="d-flex gap-2">
+              <button class="edit-profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit
+                Profile</button>
+              <button class="edit-profile-btn"><i class="fas fa-cog"></i></button>
+            </div>
+          </div>
+
+          <div class="profile-stats d-md-flex d-none">
+            <div>
+              <div class="profile-stat-count">3</div>
+              <div class="profile-stat-label">Listings</div>
+            </div>
+            <div>
+              <div class="profile-stat-count">128</div>
+              <div class="profile-stat-label">Views</div>
+            </div>
+            <div>
+              <div class="profile-stat-count">15</div>
+              <div class="profile-stat-label">Messages</div>
+            </div>
+          </div>
+
+          <div class="profile-bio">
+            <div class="profile-name">Rahul Sharma</div>
+            <p class="mb-0">IT professional living in Pune for 5 years. I own multiple properties and am looking to
+              connect with reliable tenants.</p>
+            <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i> Koregaon Park, Pune</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Stats -->
+      <div class="profile-stats d-md-none d-flex mt-3">
+        <div>
+          <div class="profile-stat-count">3</div>
+          <div class="profile-stat-label">Listings</div>
+        </div>
+        <div>
+          <div class="profile-stat-count">128</div>
+          <div class="profile-stat-label">Views</div>
+        </div>
+        <div>
+          <div class="profile-stat-count">15</div>
+          <div class="profile-stat-label">Messages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories/Highlights -->
+  <section class="stories-container">
+    <div class="container">
+      <div class="d-flex">
+        <div class="story-item">
+          <div class="story-circle">
+            <img src="img/kp.jpg" alt="Koregaon Park" class="story-img">
+          </div>
+          <div class="story-text">KP Rooms</div>
+        </div>
+        <div class="story-item">
+          <div class="story-circle">
+            <img src="img/hing.jpg" alt="Hinjewadi" class="story-img">
+          </div>
+          <div class="story-text">Hinjewadi</div>
+        </div>
+        <div class="story-item">
+          <div class="story-circle">
+            <img src="img/VN.jpg" alt="Viman Nagar" class="story-img">
+          </div>
+          <div class="story-text">Viman Nagar</div>
+        </div>
+        <div class="story-item">
+          <div class="story-circle">
+            <img src="img/koth.jpg" alt="Kothrud" class="story-img">
+          </div>
+          <div class="story-text">Kothrud</div>
+        </div>
+        <div class="story-item">
+          <div class="story-circle">
+            <img src="img/karve.jpg" alt="Karve Nagar" class="story-img">
+          </div>
+          <div class="story-text">Karve Nagar</div>
+        </div>
+        <div class="story-item">
+          <div class="story-circle d-flex align-items-center justify-content-center"
+            style="background: #fafafa; border: 1px dashed #dbdbdb;">
+            <i class="fas fa-plus text-muted"></i>
+          </div>
+          <div class="story-text">New</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Tabs -->
+  <section class="profile-tabs">
+    <div class="profile-tab active" data-tab="posts">
+      <i class="fas fa-th"></i>
+    </div>
+    <div class="profile-tab" data-tab="saved">
+      <i class="far fa-bookmark"></i>
+    </div>
+    <div class="profile-tab" data-tab="tagged">
+      <i class="fas fa-tag"></i>
+    </div>
+  </section>
+
+  <!-- Tab Content -->
+  <div class="container mt-1 mb-5 pb-5">
+    <!-- Posts Tab (Grid View) -->
+    <div class="tab-content" id="posts-tab">
+      <div class="post-grid">
+        <!-- Post 1 -->
+        <div class="post-item">
+          <img
+            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Room in Koregaon Park" class="post-img">
+          <div class="post-overlay">
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>45</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post-item">
+          <img
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Modern Shared Apartment in Hinjewadi" class="post-img">
+          <div class="post-overlay">
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>32</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post-item">
+          <img
+            src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Luxury Studio in Viman Nagar" class="post-img">
+          <div class="post-overlay">
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>18</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Tab (Feed View) -->
+    <div class="tab-content d-none" id="saved-tab">
+      <!-- Saved Room 1 -->
+      <div class="room-card">
+        <div class="room-header">
+          <img src="img/user1.jpg" alt="Owner" class="room-avatar">
+          <div>
+            <div class="room-username">priya_patel</div>
+            <div class="room-location">Aundh, Pune</div>
+          </div>
+          <div class="ms-auto">
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div class="room-img-container">
+          <img
+            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Luxury Apartment in Aundh" class="room-img">
+        </div>
+        <div class="room-actions">
+          <i class="far fa-heart room-action"></i>
+          <i class="far fa-comment room-action"></i>
+          <i class="far fa-paper-plane room-action"></i>
+          <i class="fas fa-bookmark room-action saved ms-auto"></i>
+        </div>
+        <div class="room-likes">
+          <span>24 likes</span>
+        </div>
+        <div class="room-caption">
+          <span class="room-username">priya_patel</span>
+          <span> Luxury 3BHK Apartment in Aundh with swimming pool and gym. </span>
+          <span class="room-price">₹25,000/month</span>
+        </div>
+        <div class="room-comments">
+          View all 8 comments
+        </div>
+      </div>
+
+      <!-- Saved Room 2 -->
+      <div class="room-card">
+        <div class="room-header">
+          <img src="img/user2.jpg" alt="Owner" class="room-avatar">
+          <div>
+            <div class="room-username">amit_kumar</div>
+            <div class="room-location">Kothrud, Pune</div>
+          </div>
+          <div class="ms-auto">
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div class="room-img-container">
+          <img
+            src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Cozy Studio in Kothrud" class="room-img">
+        </div>
+        <div class="room-actions">
+          <i class="fas fa-heart room-action liked"></i>
+          <i class="far fa-comment room-action"></i>
+          <i class="far fa-paper-plane room-action"></i>
+          <i class="fas fa-bookmark room-action saved ms-auto"></i>
+        </div>
+        <div class="room-likes">
+          <span>18 likes</span>
+        </div>
+        <div class="room-caption">
+          <span class="room-username">amit_kumar</span>
+          <span> Cozy studio apartment with balcony in Kothrud. Perfect for students or working professionals. </span>
+          <span class="room-price">₹10,500/month</span>
+        </div>
+        <div class="room-comments">
+          View all 5 comments
+        </div>
+      </div>
+    </div>
+
+    <!-- Tagged Tab -->
+    <div class="tab-content d-none" id="tagged-tab">
+      <div class="text-center py-5">
+        <i class="fas fa-tag fs-1 text-muted mb-3"></i>
+        <h5>No Tagged Posts</h5>
+        <p class="text-muted">When people tag you in their listings, they'll appear here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Listing Button (Floating) -->
+  <a href="#" class="add-listing-btn" data-bs-toggle="modal" data-bs-target="#addListingModal">
+    <i class="fas fa-plus"></i>
+  </a>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <div class="bottom-nav d-md-none">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+    </a>
+    <a href="/search" class="bottom-nav-item">
+      <i class="fas fa-search"></i>
+    </a>
+    <a href="/add" class="bottom-nav-item">
+      <i class="far fa-plus-square"></i>
+    </a>
+    <a href="/notifications" class="bottom-nav-item">
+      <i class="far fa-heart"></i>
+    </a>
+    <a href="/profile" class="bottom-nav-item active">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="text-center mb-4">
+              <img src="img/profile-avatar.jpg" alt="Rahul Sharma" class="rounded-circle" width="100" height="100">
+              <div class="mt-2">
+                <label for="imageUpload" class="text-primary" style="cursor: pointer;">Change Profile Photo</label>
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" value="rahul_sharma">
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" value="Rahul Sharma">
+            </div>
+            <div class="mb-3">
+              <label for="bio" class="form-label">Bio</label>
+              <textarea class="form-control" id="bio"
+                rows="3">IT professional living in Pune for 5 years. I own multiple properties and am looking to connect with reliable tenants.</textarea>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" value="rahul.sharma@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" value="+91 98765 43210">
+            </div>
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" value="Koregaon Park, Pune">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Listing Modal -->
+  <div class="modal fade" id="addListingModal" tabindex="-1" aria-labelledby="addListingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addListingModalLabel">New Listing</h5>
+          <button type="button" class="btn-close" data id="addListingModalLabel">New Listing</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="listingTitle" class="form-label">Listing Title</label>
+              <input type="text" class="form-control" id="listingTitle" placeholder="e.g. Cozy 1BHK in Koregaon Park">
+            </div>
+            <div class="mb-3">
+              <label for="listingPhotos" class="form-label">Upload Photos</label>
+              <input type="file" class="form-control" id="listingPhotos" multiple accept="image/*">
+              <div class="form-text">You can upload up to 10 photos. First photo will be used as the cover image.</div>
+            </div>
+            <div class="mb-3">
+              <label for="listingArea" class="form-label">Area</label>
+              <select class="form-select" id="listingArea">
+                <option selected disabled>Select area</option>
+                <option>Koregaon Park</option>
+                <option>Viman Nagar</option>
+                <option>Hinjewadi</option>
+                <option>Kothrud</option>
+                <option>Aundh</option>
+                <option>Shivaji Nagar</option>
+                <option>Peth Area</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="listingType" class="form-label">Property Type</label>
+              <select class="form-select" id="listingType">
+                <option selected disabled>Select property type</option>
+                <option>Single Room</option>
+                <option>1BHK</option>
+                <option>2BHK</option>
+                <option>3BHK</option>
+                <option>PG/Hostel</option>
+                <option>Studio Apartment</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="listingRent" class="form-label">Monthly Rent (₹)</label>
+              <input type="number" class="form-control" id="listingRent" placeholder="e.g. 10000">
+            </div>
+            <div class="mb-3">
+              <label for="listingDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="listingDescription" rows="3"
+                placeholder="Describe your property..."></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Amenities</label>
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="amenityWifi">
+                    <label class="form-check-label" for="amenityWifi">WiFi</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="amenityAC">
+                    <label class="form-check-label" for="amenityAC">Air Conditioning</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="amenityKitchen">
+                    <label class="form-check-label" for="amenityKitchen">Kitchen</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="amenityParking">
+                    <label class="form-check-label" for="amenityParking">Parking</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Show toast notification
+      const showToast = (message) => {
+        const toastContainer = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'custom-toast';
+        toast.textContent = message;
+
+        toastContainer.appendChild(toast);
+
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      };
+
+      // Handle profile image upload
+      const imageUpload = document.getElementById('imageUpload');
+      if (imageUpload) {
+        imageUpload.addEventListener('change', function () {
+          if (this.files && this.files[0]) {
+            showToast('Profile picture updated');
+          }
+        });
+      }
+
+      // Tab switching
+      const tabs = document.querySelectorAll('.profile-tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+
+          // Add active class to clicked tab
+          this.classList.add('active');
+
+          // Hide all tab contents
+          tabContents.forEach(content => content.classList.add('d-none'));
+
+          // Show the selected tab content
+          const tabName = this.getAttribute('data-tab');
+          document.getElementById(`${tabName}-tab`).classList.remove('d-none');
+        });
+      });
+
+      // Like/unlike functionality
+      const heartIcons = document.querySelectorAll('.fa-heart');
+      heartIcons.forEach(icon => {
+        icon.addEventListener('click', function () {
+          this.classList.toggle('far');
+          this.classList.toggle('fas');
+          this.classList.toggle('liked');
+
+          if (this.classList.contains('liked')) {
+            showToast('Added to your likes');
+          }
+        });
+      });
+
+      // Save/unsave functionality
+      const bookmarkIcons = document.querySelectorAll('.fa-bookmark');
+      bookmarkIcons.forEach(icon => {
+        icon.addEventListener('click', function () {
+          this.classList.toggle('far');
+          this.classList.toggle('fas');
+          this.classList.toggle('saved');
+
+          if (this.classList.contains('saved')) {
+            showToast('Saved to your collection');
+          } else {
+            showToast('Removed from your collection');
+          }
+        });
+      });
+
+      // Post click functionality
+      const postItems = document.querySelectorAll('.post-item');
+      postItems.forEach(item => {
+        item.addEventListener('click', function () {
+          // In a real app, this would open the post detail view
+          showToast('Opening listing details...');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
