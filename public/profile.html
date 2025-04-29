@@ -1004,74 +1004,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Add Listing Modal -->
-  <div class="modal fade" id="addListingModal" tabindex="-1" aria-labelledby="addListingModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addListingModalLabel">Add New Listing</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Basic Information</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="listingTitle" class="form-label">Listing Title</label>
-                  <input type="text" class="form-control" id="listingTitle"
-                    placeholder="e.g. Cozy 1BHK in Koregaon Park">
-                </div>
-                <div class="col-md-6">
-                  <label for="propertyType" class="form-label">Property Type</label>
-                  <select class="form-select" id="propertyType">
-                    <option selected disabled>Select property type</option>
-                    <option>Single Room</option>
-                    <option>1BHK</option>
-                    <option>2BHK</option>
-                    <option>3BHK</option>
-                    <option>PG/Hostel</option>
-                    <option>Studio Apartment</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingArea" class="form-label">Area</label>
-                  <select class="form-select" id="listingArea">
-                    <option selected disabled>Select area</option>
-                    <option>Koregaon Park</option>
-                    <option>Viman Nagar</option>
-                    <option>Hinjewadi</option>
-                    <option>Kothrud</option>
-                    <option>Aundh</option>
-                    <option>Shivaji Nagar</option>
-                    <option>Peth Area</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingRent" class="form-label">Monthly Rent (₹)</label>
-                  <input type="number" class="form-control" id="listingRent" placeholder="e.g. 10000">
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Photos</h6>
-              <div class="input-group mb-3">
-                <input type="file" class="form-control" id="listingPhotos" multiple accept="image/*">
-                <label class="input-group-text" for="listingPhotos">Upload</label>
-              </div>
-              <div class="form-text">You can upload up to 10 photos. First photo will be used as the cover image.</div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Description</h6>
-              <textarea class="form-control" id="listingDescription" rows="4"
-                placeholder="Describe your property in detail..."></textarea>
-            </div>
-          </form>
-        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-primary">Post</button>
@@ -1170,34 +1102,6 @@
         }, 5000);
       };
 
-      // Handle profile image upload
-      const imageUpload = document.getElementById('imageUpload');
-      const imageUploadModal = document.getElementById('imageUploadModal');
-
-      if (imageUpload) {
-        imageUpload.addEventListener('change', function () {
-          if (this.files && this.files[0]) {
-            showToast('Profile picture updated successfully!', 'success');
-          }
-        });
-      }
-
-      if (imageUploadModal) {
-        imageUploadModal.addEventListener('change', function () {
-          if (this.files && this.files[0]) {
-            showToast('Profile picture updated successfully!', 'success');
-          }
-        });
-      }
-
-      // Handle form submissions
-      const forms = document.querySelectorAll('form');
-      forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          showToast('Changes saved successfully!', 'success');
-        });
-      });
     });
   </script>
 </body>
