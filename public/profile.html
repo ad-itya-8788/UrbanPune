@@ -22,214 +22,471 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #4e2a84;
+      --primary: #5e17eb;
+      --primary-dark: #4512b9;
+      --primary-light: #7b43f8;
       --secondary: #ff6b35;
-      --light-bg: #f8f9fa;
+      --secondary-dark: #e55a2a;
+      --secondary-light: #ff8c61;
+      --accent: #00c2cb;
+      --dark: #2d3142;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
       --border-color: #e9ecef;
+      --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
+      --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--secondary-light));
     }
 
-    .btn-primary,
-    .bg-primary {
-      background-color: var(--primary) !important;
-      border-color: var(--primary) !important;
+    body {
+      background-color: #f5f7fa;
+      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
     }
 
-    .text-primary {
-      color: var(--primary) !important;
-    }
-
-    .btn-secondary,
-    .bg-secondary {
-      background-color: var(--secondary) !important;
-      border-color: var(--secondary) !important;
-    }
-
-    .text-secondary {
-      color: var(--secondary) !important;
-    }
-
-    .hover-scale {
-      transition: transform 0.3s ease;
-    }
-
-    .hover-scale:hover {
-      transform: scale(1.05);
-    }
-
-    .bg-gradient-custom {
-      background: linear-gradient(135deg, rgba(78, 42, 132, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
-    }
-
-    /* Navbar animations */
-    .navbar {
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      padding-top: 0.5rem !important;
-      padding-bottom: 0.5rem !important;
-    }
-
-    .nav-link {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .navbar-brand img {
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Profile specific styles */
-    .profile-header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      padding: 2rem 0;
+    /* Header styles */
+    .app-header {
+      background: #201933;
       color: white;
-      margin-bottom: 2rem;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-username {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .header-icon {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+    }
+
+    .header-icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* Profile section */
+    .profile-section {
+      background: white;
+      padding: 30px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 20px;
     }
 
     .profile-avatar {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
 
-    .profile-avatar-sm {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
+    .profile-avatar:hover {
+      transform: scale(1.05);
     }
 
-    .profile-stats-card {
-      border-radius: 10px;
+    @media (min-width: 768px) {
+      .profile-avatar {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .camera-btn {
+      background: var(--primary);
+      color: white;
+      border: 2px solid white;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .camera-btn:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 20px 0;
+      background: var(--light);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-stat-count {
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--primary);
+    }
+
+    .profile-stat-label {
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .profile-bio {
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .profile-bio h6 {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .profile-bio p {
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+
+    .edit-profile-btn {
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 50px;
       border: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.3);
+      transition: all 0.3s;
+      width: 100%;
     }
 
-    .profile-stats-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .edit-profile-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(94, 23, 235, 0.4);
     }
 
-    .nav-pills .nav-link.active {
-      background-color: var(--primary);
+    .verified-badge {
+      color: var(--primary);
+      margin-left: 5px;
+      font-size: 18px;
     }
 
-    .nav-pills .nav-link {
-      color: #495057;
-      border-radius: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      margin-bottom: 0.5rem;
-      transition: all 0.3s ease;
+    /* Tabs section */
+    .profile-tabs {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      border-radius: 15px;
+      margin: 0 10px 20px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
     }
 
-    .nav-pills .nav-link:hover:not(.active) {
-      background-color: rgba(78, 42, 132, 0.1);
+    .profile-tab {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      color: var(--gray);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
     }
 
-    .room-card {
+    .profile-tab.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background-color: rgba(94, 23, 235, 0.05);
+    }
+
+    .profile-tab:hover {
+      background-color: rgba(94, 23, 235, 0.05);
+    }
+
+    .profile-tab i {
+      font-size: 22px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      margin: 0 10px 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Grid layout for posts */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .post-item {
+      position: relative;
+      padding-bottom: 100%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .post-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .post-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .post-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(45, 49, 66, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .post-item:hover .post-overlay {
+      opacity: 1;
+    }
+
+    .post-stats {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      gap: 20px;
+    }
+
+    .post-stats span {
+      display: flex;
+      align-items: center;
+    }
+
+    .post-stats i {
+      margin-right: 8px;
+      color: var(--secondary);
+    }
+
+    /* Room card (for saved tab) */
+    .room-card {
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s;
+      border: none;
     }
 
     .room-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .room-img {
-      height: 180px;
+      width: 100%;
+      height: 200px;
       object-fit: cover;
+      transition: transform 0.5s;
     }
 
-    .form-control:focus,
-    .form-select:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 0.25rem rgba(78, 42, 132, 0.25);
+    .room-card:hover .room-img {
+      transform: scale(1.05);
     }
 
-    .avatar-upload {
-      position: relative;
-      max-width: 120px;
-      margin: 0 auto;
+    .room-info {
+      padding: 15px;
     }
 
-    .avatar-edit {
-      position: absolute;
-      right: 5px;
-      bottom: 5px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .room-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: var(--dark);
+    }
+
+    .room-location {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .room-price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .room-badges {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
     }
 
-    .avatar-edit:hover {
+    .room-badge {
+      background-color: rgba(94, 23, 235, 0.1);
+      color: var(--primary);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    .view-btn {
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 50px;
+      padding: 5px 15px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.2);
+      transition: all 0.3s;
+    }
+
+    .view-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(94, 23, 235, 0.3);
+    }
+
+    /* Messages styling */
+    .message-item {
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .message-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-light);
+    }
+
+    .message-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .message-name {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0;
+    }
+
+    .message-time {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    .message-preview {
+      color: var(--gray);
+      font-size: 13px;
+      margin-bottom: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .message-badge {
       background: var(--primary);
       color: white;
-    }
-
-    .avatar-edit input {
-      display: none;
-    }
-
-    .badge-verified {
-      background-color: #28a745;
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
+      font-size: 11px;
+      padding: 3px 8px;
       border-radius: 50px;
+      font-weight: 500;
     }
 
-    .badge-pending {
-      background-color: #ffc107;
-      color: #212529;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 50px;
+    /* Bottom navigation (mobile) */
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 20px 20px 0 0;
     }
 
-    .badge-inactive {
-      background-color: #6c757d;
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 50px;
+    .mobile-nav-item {
+      color: var(--gray);
+      font-size: 22px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .mobile-nav-item:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .mobile-nav-item.active {
+      color: var(--primary);
     }
 
     /* Toast notification */
@@ -241,11 +498,11 @@
     }
 
     .custom-toast {
-      min-width: 250px;
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      min-width: 280px;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       border-left: 4px solid var(--primary);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 15px;
       margin-bottom: 10px;
       animation: slideIn 0.3s ease-out forwards;
@@ -263,20 +520,129 @@
       }
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .profile-avatar {
-        width: 100px;
-        height: 100px;
+    /* Modal styles */
+    .modal-content {
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      border-bottom: none;
+      padding: 20px 20px 10px;
+    }
+
+    .modal-footer {
+      border-top: none;
+      padding: 10px 20px 20px;
+    }
+
+    .modal-title {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      padding: 8px 20px;
+      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.2);
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(94, 23, 235, 0.3);
+    }
+
+    .btn-outline-secondary {
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 8px;
+      padding: 10px 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 0.25rem rgba(94, 23, 235, 0.25);
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    /* Hide mobile nav on larger screens */
+    @media (min-width: 768px) {
+      .mobile-nav {
+        display: none;
       }
 
-      .profile-header {
-        text-align: center;
+      .main-container {
+        margin-bottom: 0;
       }
+    }
 
-      .profile-header .btn {
-        margin-top: 1rem;
-      }
+    /* Add padding to main container on mobile to account for bottom nav */
+    .main-container {
+      margin-bottom: 70px;
+    }
+
+    /* Badge styles */
+    .badge-verified {
+      background-color: var(--success);
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 50px;
+    }
+
+    .badge-pending {
+      background-color: var(--warning);
+      color: var(--dark);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 50px;
+    }
+
+    /* Menu items */
+    .menu-item {
+      padding: 12px 15px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item:hover {
+      background-color: rgba(94, 23, 235, 0.05);
+      transform: translateX(5px);
+    }
+
+    .menu-item i {
+      margin-right: 10px;
+      color: var(--primary);
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .menu-item.danger {
+      color: var(--danger);
+    }
+
+    .menu-item.danger i {
+      color: var(--danger);
     }
   </style>
 </head>
@@ -285,751 +651,302 @@
   <!-- Toast notification container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-4 text-primary d-flex align-items-center" href="/"
-          title="Urban Pune - No Brokerage Rooms in Pune">
-          <img src="img/urbanpune.jpg" height="70" width="auto"
-            alt="Urban Pune Logo - No Brokerage Rooms in Pune" class="me-2">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/" title="Home"><i class="fas fa-home me-1"></i> Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/rooms" title="Browse Rooms in Pune"><i class="fas fa-search me-1"></i>
-                Browse Rooms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/how-it-works" title="How Urban Pune Works"><i
-                  class="fas fa-info-circle me-1"></i> How It Works</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link fw-bold dropdown-toggle d-flex align-items-center active" href="#" id="profileDropdown"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="img/user.jpg" alt="Rahul Sharma" class="profile-avatar-sm me-2">
-                <span>Rahul</span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" aria-labelledby="profileDropdown">
-                <li><a class="dropdown-item" href="/profile"><i class="fas fa-user me-2"></i>My Profile</a></li>
-                <li><a class="dropdown-item" href="/profile#listings"><i class="fas fa-list me-2"></i>My Listings</a>
-                </li>
-                <li><a class="dropdown-item" href="/profile#messages"><i class="fas fa-envelope me-2"></i>Messages <span
-                      class="badge bg-primary rounded-pill ms-2">3</span></a></li>
-                <li><a class="dropdown-item" href="/profile#saved"><i class="fas fa-heart me-2"></i>Saved Rooms</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item text-danger" href="/logout"><i
-                      class="fas fa-sign-out-alt me-2"></i>Logout</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Profile Header -->
-  <section class="profile-header">
+  <!-- Header -->
+  <header class="app-header">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-8 d-flex align-items-center">
-          <div class="avatar-upload me-4">
-            <img src="img/user.jpg" alt="Rahul Sharma" class="profile-avatar">
-            <div class="avatar-edit">
-              <label for="imageUpload">
-                <i class="fas fa-camera"></i>
-                <input type="file" id="imageUpload" accept="image/*" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <h1 class="h3 fw-bold mb-1">Rahul Sharma <i class="fas fa-check-circle text-info ms-2"
-                title="Verified User"></i></h1>
-            <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Koregaon Park, Pune</p>
-            <p class="mb-0"><i class="fas fa-user-clock me-2"></i>Member since June 2023</p>
-          </div>
-        </div>
-        <div class="col-md-4 text-md-end">
-          <button class="btn btn-light px-4 fw-bold" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-            <i class="fas fa-edit me-2"></i>Edit Profile
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="profile-username">Rahul_sharma</div>
+        <div>
+        <a href="/add"><button class="btn" data-bs-toggle="modal" data-bs-target="#addListingModal">
+          <i class="fas fa-plus-square header-icon"></i>
+        </button></a>
+          <button class="btn" data-bs-toggle="modal" data-bs-target="#menuModal">
+            <i class="fas fa-bars header-icon"></i>
           </button>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Main Content -->
-  <div class="container pb-5">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-lg-3 mb-4">
-        <div class="card border-0 shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="fw-bold mb-3">Profile Completion</h5>
-            <div class="progress mb-3" style="height: 10px;">
-              <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85"
-                aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="main-container">
+    <!-- Profile section -->
+    <section class="profile-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-4 text-center">
+            <div class="position-relative">
+              <img src="img/user.jpg" alt="Rahul Sharma" class="profile-avatar">
+              <div class="position-absolute bottom-0 end-0">
+                <label for="imageUpload" class="btn camera-btn rounded-circle">
+                  <i class="fas fa-camera"></i>
+                  <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+                </label>
+              </div>
             </div>
-            <p class="small text-muted mb-0">85% complete. <a href="#" data-bs-toggle="modal"
-                data-bs-target="#editProfileModal">Complete your profile</a> to increase visibility.</p>
+          </div>
+          <div class="col-8">
+            <div class="d-flex align-items-center mb-2">
+              <h5 class="mb-0 me-2">Rahul Sharma</h5>
+              <i class="fas fa-check-circle verified-badge" title="Verified User"></i>
+            </div>
+            <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt me-1"></i>Koregaon Park, Pune</p>
+            <button class="edit-profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+              <i class="fas fa-edit me-2"></i>Edit Profile
+            </button>
           </div>
         </div>
 
-        <div class="nav flex-column nav-pills mb-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill" href="#v-pills-dashboard"
-            role="tab" aria-controls="v-pills-dashboard" aria-selected="true">
-            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-          </a>
-          <a class="nav-link" id="v-pills-listings-tab" data-bs-toggle="pill" href="#v-pills-listings" role="tab"
-            aria-controls="v-pills-listings" aria-selected="false">
-            <i class="fas fa-list me-2"></i>My Listings
-          </a>
-          <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
-            aria-controls="v-pills-messages" aria-selected="false">
-            <i class="fas fa-envelope me-2"></i>Messages <span class="badge bg-primary rounded-pill ms-2">3</span>
-          </a>
-          <a class="nav-link" id="v-pills-saved-tab" data-bs-toggle="pill" href="#v-pills-saved" role="tab"
-            aria-controls="v-pills-saved" aria-selected="false">
-            <i class="fas fa-heart me-2"></i>Saved Rooms
-          </a>
-          <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
-            aria-controls="v-pills-settings" aria-selected="false">
-            <i class="fas fa-cog me-2"></i>Account Settings
-          </a>
+        <div class="profile-bio mt-3">
+          <h6>Rahul Sharma</h6>
+          <p>IT professional living in Pune for 5 years. I own multiple properties and am looking to connect with
+            reliable tenants.</p>
+          <p class="text-muted small">Member since June 2023</p>
         </div>
 
-        <div class="card border-0 shadow-sm bg-gradient-custom">
-          <div class="card-body">
-            <h5 class="fw-bold mb-3">Need Help?</h5>
-            <p class="small mb-3">Have questions about your account or listings? Our support team is here to help.</p>
-            <a href="/help" class="btn btn-primary w-100 fw-bold">
-              <i class="fas fa-headset me-2"></i>Contact Support
-            </a>
+        <div class="profile-stats">
+          <div>
+            <div class="profile-stat-count">3</div>
+            <div class="profile-stat-label">Posts</div>
+          </div>
+          <div>
+            <div class="profile-stat-count">128</div>
+            <div class="profile-stat-label">Views</div>
+          </div>
+          <div>
+            <div class="profile-stat-count">15</div>
+            <div class="profile-stat-label">Messages</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs section -->
+    <section class="profile-tabs">
+      <div class="profile-tab active" data-tab="posts">
+        <i class="fas fa-th"></i>
+        <span>Posts</span>
+      </div>
+      <div class="profile-tab" data-tab="saved">
+        <i class="far fa-bookmark"></i>
+        <span>Saved</span>
+      </div>
+      <div class="profile-tab" data-tab="messages">
+        <i class="far fa-envelope"></i>
+        <span>Messages</span>
+      </div>
+    </section>
+
+    <!-- Tab content -->
+    <div class="container">
+      <!-- Posts tab -->
+      <div class="tab-content active" id="posts-tab">
+        <div class="posts-grid">
+          <!-- Post 1 -->
+          <div class="post-item">
+            <img
+              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Single Room in Koregaon Park">
+            <div class="post-overlay">
+              <div class="post-stats">
+                <span><i class="fas fa-heart"></i> 24</span>
+                <span><i class="fas fa-comment"></i> 3</span>
+              </div>
+            </div>
+          </div>
+          <!-- Post 2 -->
+          <div class="post-item">
+            <img
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Modern Shared Apartment in Hinjewadi">
+            <div class="post-overlay">
+              <div class="post-stats">
+                <span><i class="fas fa-heart"></i> 18</span>
+                <span><i class="fas fa-comment"></i> 5</span>
+              </div>
+            </div>
+          </div>
+          <!-- Post 3 -->
+          <div class="post-item">
+            <img
+              src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Luxury Studio in Viman Nagar">
+            <div class="post-overlay">
+              <div class="post-stats">
+                <span><i class="fas fa-heart"></i> 32</span>
+                <span><i class="fas fa-comment"></i> 7</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Main Content Area -->
-      <div class="col-lg-9">
-        <div class="tab-content" id="v-pills-tabContent">
-          <!-- Dashboard Tab -->
-          <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
-            aria-labelledby="v-pills-dashboard-tab">
-            <h3 class="fw-bold mb-4">Dashboard</h3>
-
-            <!-- Stats Cards -->
-            <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                <div class="card profile-stats-card h-100">
-                  <div class="card-body text-center">
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-                      <div
-                        class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center"
-                        style="width: 60px; height: 60px;">
-                        <i class="fas fa-home fs-3 text-primary"></i>
-                      </div>
-                    </div>
-                    <h2 class="fw-bold mb-1">3</h2>
-                    <p class="text-muted mb-0">Active Listings</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card profile-stats-card h-100">
-                  <div class="card-body text-center">
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-                      <div
-                        class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center"
-                        style="width: 60px; height: 60px;">
-                        <i class="fas fa-eye fs-3 text-success"></i>
-                      </div>
-                    </div>
-                    <h2 class="fw-bold mb-1">128</h2>
-                    <p class="text-muted mb-0">Profile Views</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card profile-stats-card h-100">
-                  <div class="card-body text-center">
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-                      <div class="rounded-circle bg-info bg-opacity-10 d-flex align-items-center justify-content-center"
-                        style="width: 60px; height: 60px;">
-                        <i class="fas fa-comments fs-3 text-info"></i>
-                      </div>
-                    </div>
-                    <h2 class="fw-bold mb-1">15</h2>
-                    <p class="text-muted mb-0">New Messages</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Recent Activity -->
-            <div class="card border-0 shadow-sm mb-4">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Recent Activity</h5>
-              </div>
-              <div class="card-body">
-                <div class="d-flex align-items-start mb-3 pb-3 border-bottom">
-                  <div
-                    class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center me-3"
-                    style="min-width: 45px; height: 45px;">
-                    <i class="fas fa-envelope text-primary"></i>
-                  </div>
+      <!-- Saved tab -->
+      <div class="tab-content" id="saved-tab">
+        <div class="row g-3">
+          <!-- Saved Room 1 -->
+          <div class="col-md-6">
+            <div class="room-card">
+              <img
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                class="room-img" alt="Luxury Apartment in Aundh">
+              <div class="room-info">
+                <div class="d-flex justify-content-between align-items-start mb-2">
                   <div>
-                    <h6 class="fw-bold mb-1">New message from Priya</h6>
-                    <p class="text-muted small mb-1">Regarding your Viman Nagar apartment listing</p>
-                    <p class="small text-muted mb-0">2 hours ago</p>
+                    <h5 class="room-title">Luxury Apartment - Aundh</h5>
+                    <p class="room-location mb-1"><i class="fas fa-map-marker-alt me-1"></i>Aundh, Pune</p>
                   </div>
+                  <button class="btn btn-sm p-0">
+                    <i class="fas fa-heart text-danger fs-5"></i>
+                  </button>
                 </div>
-                <div class="d-flex align-items-start mb-3 pb-3 border-bottom">
-                  <div
-                    class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3"
-                    style="min-width: 45px; height: 45px;">
-                    <i class="fas fa-check text-success"></i>
-                  </div>
-                  <div>
-                    <h6 class="fw-bold mb-1">Listing approved</h6>
-                    <p class="text-muted small mb-1">Your Koregaon Park room listing has been approved</p>
-                    <p class="small text-muted mb-0">Yesterday</p>
-                  </div>
+                <div class="room-badges">
+                  <span class="room-badge">3BHK</span>
+                  <span class="room-badge">Premium</span>
+                  <span class="room-badge">Pool</span>
                 </div>
-                <div class="d-flex align-items-start">
-                  <div
-                    class="rounded-circle bg-warning bg-opacity-10 d-flex align-items-center justify-content-center me-3"
-                    style="min-width: 45px; height: 45px;">
-                    <i class="fas fa-eye text-warning"></i>
-                  </div>
-                  <div>
-                    <h6 class="fw-bold mb-1">Profile view spike</h6>
-                    <p class="text-muted small mb-1">Your profile received 25 new views</p>
-                    <p class="small text-muted mb-0">2 days ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Quick Actions</h5>
-              </div>
-              <div class="card-body">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <a href="#" class="btn btn-primary w-100 py-3 fw-bold" data-bs-toggle="modal"
-                      data-bs-target="#addListingModal">
-                      <i class="fas fa-plus-circle me-2"></i>Add New Listing
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="#v-pills-messages" class="btn btn-outline-primary w-100 py-3 fw-bold"
-                      onclick="document.getElementById('v-pills-messages-tab').click()">
-                      <i class="fas fa-envelope me-2"></i>Check Messages
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="#" class="btn btn-outline-primary w-100 py-3 fw-bold">
-                      <i class="fas fa-share-alt me-2"></i>Share Profile
-                    </a>
-                  </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="room-price">₹25,000 <span class="text-muted small">/month</span></div>
+                  <a href="#" class="btn btn-sm btn-primary view-btn">View</a>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- My Listings Tab -->
-          <div class="tab-pane fade" id="v-pills-listings" role="tabpanel" aria-labelledby="v-pills-listings-tab">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-              <h3 class="fw-bold mb-0">My Listings</h3>
-              <button class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#addListingModal">
-                <i class="fas fa-plus-circle me-2"></i>Add New Listing
-              </button>
-            </div>
-
-            <!-- Listing Filters -->
-            <div class="card border-0 shadow-sm mb-4">
-              <div class="card-body">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <select class="form-select" id="listingStatusFilter">
-                      <option value="all">All Statuses</option>
-                      <option value="active">Active</option>
-                      <option value="pending">Pending Approval</option>
-                      <option value="inactive">Inactive</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <select class="form-select" id="listingTypeFilter">
-                      <option value="all">All Types</option>
-                      <option value="room">Room</option>
-                      <option value="apartment">Apartment</option>
-                      <option value="pg">PG</option>
-                      <option value="hostel">Hostel</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <select class="form-select" id="listingSortFilter">
-                      <option value="newest">Newest First</option>
-                      <option value="oldest">Oldest First</option>
-                      <option value="price_high">Price: High to Low</option>
-                      <option value="price_low">Price: Low to High</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Listings -->
-            <div class="row g-4">
-              <!-- Listing 1 -->
-              <div class="col-md-6">
-                <div class="card room-card h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="card-img-top room-img" alt="Single Room in Koregaon Park">
-                    <span class="position-absolute top-0 start-0 m-3 badge-verified">Active</span>
-                    <div class="position-absolute top-0 end-0 m-2">
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-light rounded-circle" type="button" id="dropdownMenuButton1"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#editListingModal"><i class="fas fa-edit me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line me-2"></i>Statistics</a>
-                          </li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#"><i
-                                class="fas fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold mb-1">Sunny Private Room - Koregaon Park</h5>
-                    <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt text-primary me-1"></i>Koregaon
-                      Park, Pune</p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                      <span class="badge bg-light text-dark">Single Room</span>
-                      <span class="badge bg-light text-dark">Furnished</span>
-                      <span class="badge bg-light text-dark">WiFi</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="h5 text-primary fw-bold">₹8,500</span>
-                        <span class="text-muted small">/month</span>
-                      </div>
-                      <div class="text-muted small">
-                        <i class="fas fa-eye me-1"></i> 45 views
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Listing 2 -->
-              <div class="col-md-6">
-                <div class="card room-card h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="card-img-top room-img" alt="Modern Shared Apartment in Hinjewadi">
-                    <span class="position-absolute top-0 start-0 m-3 badge-verified">Active</span>
-                    <div class="position-absolute top-0 end-0 m-2">
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-light rounded-circle" type="button" id="dropdownMenuButton2"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#editListingModal"><i class="fas fa-edit me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line me-2"></i>Statistics</a>
-                          </li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#"><i
-                                class="fas fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold mb-1">Modern Shared Apartment - Hinjewadi</h5>
-                    <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt text-primary me-1"></i>Hinjewadi,
-                      Pune</p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                      <span class="badge bg-light text-dark">2BHK</span>
-                      <span class="badge bg-light text-dark">Fully Furnished</span>
-                      <span class="badge bg-light text-dark">AC</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="h5 text-primary fw-bold">₹12,000</span>
-                        <span class="text-muted small">/month</span>
-                      </div>
-                      <div class="text-muted small">
-                        <i class="fas fa-eye me-1"></i> 32 views
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Listing 3 -->
-              <div class="col-md-6">
-                <div class="card room-card h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="card-img-top room-img" alt="Luxury Studio in Viman Nagar">
-                    <span class="position-absolute top-0 start-0 m-3 badge-pending">Pending</span>
-                    <div class="position-absolute top-0 end-0 m-2">
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-light rounded-circle" type="button" id="dropdownMenuButton3"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton3">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#editListingModal"><i class="fas fa-edit me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line me-2"></i>Statistics</a>
-                          </li>
-                          <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#"><i
-                                class="fas fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold mb-1">Luxury Studio - Viman Nagar</h5>
-                    <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt text-primary me-1"></i>Viman Nagar,
-                      Pune</p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                      <span class="badge bg-light text-dark">Studio</span>
-                      <span class="badge bg-light text-dark">Premium</span>
-                      <span class="badge bg-light text-dark">Gym</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="h5 text-primary fw-bold">₹15,000</span>
-                        <span class="text-muted small">/month</span>
-                      </div>
-                      <div class="text-muted small">
-                        <i class="fas fa-eye me-1"></i> 18 views
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Messages Tab -->
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-            <h3 class="fw-bold mb-4">Messages</h3>
-
-            <div class="card border-0 shadow-sm">
-              <div class="card-body p-0">
-                <div class="list-group list-group-flush">
-                  <!-- Message 1 -->
-                  <a href="#" class="list-group-item list-group-item-action p-3 bg-light">
-                    <div class="d-flex w-100 align-items-center">
-                      <img src="img/user1.jpg" alt="Priya Patel" class="profile-avatar-sm me-3">
-                      <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                          <h6 class="fw-bold mb-0">Priya Patel</h6>
-                          <small class="text-muted">2 hours ago</small>
-                        </div>
-                        <p class="mb-0 text-truncate">Hi, I'm interested in your Viman Nagar apartment. Is it still
-                          available?</p>
-                      </div>
-                      <span class="badge bg-primary rounded-pill ms-2">New</span>
-                    </div>
-                  </a>
-
-                  <!-- Message 2 -->
-                  <a href="#" class="list-group-item list-group-item-action p-3 bg-light">
-                    <div class="d-flex w-100 align-items-center">
-                      <img src="img/user2.jpg" alt="Amit Kumar" class="profile-avatar-sm me-3">
-                      <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                          <h6 class="fw-bold mb-0">Amit Kumar</h6>
-                          <small class="text-muted">Yesterday</small>
-                        </div>
-                        <p class="mb-0 text-truncate">Can I schedule a viewing for the Koregaon Park room this weekend?
-                        </p>
-                      </div>
-                      <span class="badge bg-primary rounded-pill ms-2">New</span>
-                    </div>
-                  </a>
-
-                  <!-- Message 3 -->
-                  <a href="#" class="list-group-item list-group-item-action p-3 bg-light">
-                    <div class="d-flex w-100 align-items-center">
-                      <img src="img/user3.jpg" alt="Neha Singh" class="profile-avatar-sm me-3">
-                      <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                          <h6 class="fw-bold mb-0">Neha Singh</h6>
-                          <small class="text-muted">2 days ago</small>
-                        </div>
-                        <p class="mb-0 text-truncate">Is WiFi included in the rent for the Hinjewadi apartment?</p>
-                      </div>
-                      <span class="badge bg-primary rounded-pill ms-2">New</span>
-                    </div>
-                  </a>
-
-                  <!-- Message 4 -->
-                  <a href="#" class="list-group-item list-group-item-action p-3">
-                    <div class="d-flex w-100 align-items-center">
-                      <img src="img/user4.jpg" alt="Raj Malhotra" class="profile-avatar-sm me-3">
-                      <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                          <h6 class="fw-bold mb-0">Raj Malhotra</h6>
-                          <small class="text-muted">1 week ago</small>
-                        </div>
-                        <p class="mb-0 text-truncate">Thanks for the information. I'll get back to you soon.</p>
-                      </div>
-                    </div>
-                  </a>
-
-                  <!-- Message 5 -->
-                  <a href="#" class="list-group-item list-group-item-action p-3">
-                    <div class="d-flex w-100 align-items-center">
-                      <img src="img/user5.jpg" alt="Ananya Desai" class="profile-avatar-sm me-3">
-                      <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                          <h6 class="fw-bold mb-0">Ananya Desai</h6>
-                          <small class="text-muted">2 weeks ago</small>
-                        </div>
-                        <p class="mb-0 text-truncate">I've sent the security deposit. Please confirm receipt.</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Saved Rooms Tab -->
-          <div class="tab-pane fade" id="v-pills-saved" role="tabpanel" aria-labelledby="v-pills-saved-tab">
-            <h3 class="fw-bold mb-4">Saved Rooms</h3>
-
-            <div class="row g-4">
-              <!-- Saved Room 1 -->
-              <div class="col-md-6">
-                <div class="card room-card h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="card-img-top room-img" alt="Luxury Apartment in Aundh">
-                    <span class="position-absolute top-0 end-0 m-3 badge bg-success">Available</span>
-                    <button class="btn btn-sm btn-light position-absolute top-0 start-0 m-3 rounded-circle">
-                      <i class="fas fa-heart text-danger"></i>
-                    </button>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold mb-1">Luxury Apartment - Aundh</h5>
-                    <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt text-primary me-1"></i>Aundh, Pune
-                    </p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                      <span class="badge bg-light text-dark">3BHK</span>
-                      <span class="badge bg-light text-dark">Premium</span>
-                      <span class="badge bg-light text-dark">Pool</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="h5 text-primary fw-bold">₹25,000</span>
-                        <span class="text-muted small">/month</span>
-                      </div>
-                      <a href="#" class="btn btn-sm btn-primary fw-bold">View Details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Saved Room 2 -->
-              <div class="col-md-6">
-                <div class="card room-card h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="card-img-top room-img" alt="Cozy Studio in Kothrud">
-                    <span class="position-absolute top-0 end-0 m-3 badge bg-success">Available</span>
-                    <button class="btn btn-sm btn-light position-absolute top-0 start-0 m-3 rounded-circle">
-                      <i class="fas fa-heart text-danger"></i>
-                    </button>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold mb-1">Cozy Studio - Kothrud</h5>
-                    <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt text-primary me-1"></i>Kothrud,
-                      Pune</p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                      <span class="badge bg-light text-dark">Studio</span>
-                      <span class="badge bg-light text-dark">Furnished</span>
-                      <span class="badge bg-light text-dark">Balcony</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="h5 text-primary fw-bold">₹10,500</span>
-                        <span class="text-muted small">/month</span>
-                      </div>
-                      <a href="#" class="btn btn-sm btn-primary fw-bold">View Details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Account Settings Tab -->
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <h3 class="fw-bold mb-4">Account Settings</h3>
-
-            <div class="card border-0 shadow-sm mb-4">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Personal Information</h5>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label for="fullName" class="form-label">Full Name</label>
-                      <input type="text" class="form-control" id="fullName" value="Rahul Sharma">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email" value="rahul.sharma@example.com">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="phone" class="form-label">Phone Number</label>
-                      <input type="tel" class="form-control" id="phone" value="+91 98765 43210">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="location" class="form-label">Location</label>
-                      <input type="text" class="form-control" id="location" value="Koregaon Park, Pune">
-                    </div>
-                    <div class="col-12">
-                      <label for="bio" class="form-label">Bio</label>
-                      <textarea class="form-control" id="bio"
-                        rows="3">IT professional living in Pune for 5 years. I own multiple properties and am looking to connect with reliable tenants.</textarea>
-                    </div>
-                    <div class="col-12">
-                      <button type="submit" class="btn btn-primary fw-bold">Save Changes</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div class="card border-0 shadow-sm mb-4">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Password</h5>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label for="currentPassword" class="form-label">Current Password</label>
-                      <input type="password" class="form-control" id="currentPassword">
-                    </div>
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <label for="newPassword" class="form-label">New Password</label>
-                      <input type="password" class="form-control" id="newPassword">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                      <input type="password" class="form-control" id="confirmPassword">
-                    </div>
-                    <div class="col-12">
-                      <button type="submit" class="btn btn-primary fw-bold">Update Password</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div class="card border-0 shadow-sm mb-4">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Notifications</h5>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="emailNotifications" checked>
-                    <label class="form-check-label" for="emailNotifications">Email Notifications</label>
-                    <div class="form-text">Receive emails about new messages, listing updates, and account activity.
-                    </div>
-                  </div>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="smsNotifications" checked>
-                    <label class="form-check-label" for="smsNotifications">SMS Notifications</label>
-                    <div class="form-text">Receive text messages for important updates and alerts.</div>
-                  </div>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="marketingEmails">
-                    <label class="form-check-label" for="marketingEmails">Marketing Emails</label>
-                    <div class="form-text">Receive promotional offers and newsletters from Urban Pune.</div>
-                  </div>
-                  <button type="submit" class="btn btn-primary fw-bold">Save Preferences</button>
-                </form>
-              </div>
-            </div>
-
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Account Actions</h5>
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-column gap-3">
+          <!-- Saved Room 2 -->
+          <div class="col-md-6">
+            <div class="room-card">
+              <img
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                class="room-img" alt="Cozy Studio in Kothrud">
+              <div class="room-info">
+                <div class="d-flex justify-content-between align-items-start mb-2">
                   <div>
-                    <a href="#" class="btn btn-outline-primary">Download My Data</a>
-                    <div class="form-text">Download a copy of your personal data and listing information.</div>
+                    <h5 class="room-title">Cozy Studio - Kothrud</h5>
+                    <p class="room-location mb-1"><i class="fas fa-map-marker-alt me-1"></i>Kothrud, Pune</p>
                   </div>
-                  <div>
-                    <a href="#" class="btn btn-outline-danger">Deactivate Account</a>
-                    <div class="form-text">Temporarily deactivate your account. You can reactivate anytime.</div>
-                  </div>
-                  <div>
-                    <a href="#" class="btn btn-danger" data-bs-toggle="modal"
-                      data-bs-target="#deleteAccountModal">Delete Account</a>
-                    <div class="form-text">Permanently delete your account and all associated data. This action cannot
-                      be undone.</div>
-                  </div>
+                  <button class="btn btn-sm p-0">
+                    <i class="fas fa-heart text-danger fs-5"></i>
+                  </button>
+                </div>
+                <div class="room-badges">
+                  <span class="room-badge">Studio</span>
+                  <span class="room-badge">Furnished</span>
+                  <span class="room-badge">Balcony</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="room-price">₹10,500 <span class="text-muted small">/month</span></div>
+                  <a href="#" class="btn btn-sm btn-primary view-btn">View</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Messages tab -->
+      <div class="tab-content" id="messages-tab">
+        <!-- Message 1 -->
+        <a href="#" class="d-block text-decoration-none">
+          <div class="message-item p-3">
+            <div class="d-flex align-items-center">
+              <img src="img/user1.jpg" alt="Priya Patel" class="message-avatar me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="message-name">Priya Patel</h6>
+                  <small class="message-time">2h</small>
+                </div>
+                <p class="message-preview">Hi, I'm interested in your Viman Nagar apartment. Is it still available?</p>
+              </div>
+              <span class="message-badge ms-2">New</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Message 2 -->
+        <a href="#" class="d-block text-decoration-none">
+          <div class="message-item p-3">
+            <div class="d-flex align-items-center">
+              <img src="img/user.jpg" alt="Amit Kumar" class="message-avatar me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="message-name">Amit Kumar</h6>
+                  <small class="message-time">1d</small>
+                </div>
+                <p class="message-preview">Can I schedule a viewing for the Koregaon Park room this weekend?</p>
+              </div>
+              <span class="message-badge ms-2">New</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Message 3 -->
+        <a href="#" class="d-block text-decoration-none">
+          <div class="message-item p-3">
+            <div class="d-flex align-items-center">
+              <img src="img/user3.jpg" alt="Neha Singh" class="message-avatar me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="message-name">Neha Singh</h6>
+                  <small class="message-time">2d</small>
+                </div>
+                <p class="message-preview">Is WiFi included in the rent for the Hinjewadi apartment?</p>
+              </div>
+              <span class="message-badge ms-2">New</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Message 4 -->
+        <a href="#" class="d-block text-decoration-none">
+          <div class="message-item p-3">
+            <div class="d-flex align-items-center">
+              <img src="img/user4.jpg" alt="Raj Malhotra" class="message-avatar me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="message-name">Raj Malhotra</h6>
+                  <small class="message-time">1w</small>
+                </div>
+                <p class="message-preview">Thanks for the information. I'll get back to you soon.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Message 5 -->
+        <a href="#" class="d-block text-decoration-none">
+          <div class="message-item p-3">
+            <div class="d-flex align-items-center">
+              <img src="img/user5.jpg" alt="Ananya Desai" class="message-avatar me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="message-name">Ananya Desai</h6>
+                  <small class="message-time">2w</small>
+                </div>
+                <p class="message-preview">I've sent the security deposit. Please confirm receipt.</p>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
+
+    <!-- Mobile bottom navigation -->
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item">
+        <i class="fas fa-home"></i>
+      </a>
+      <a href="/search" class="mobile-nav-item">
+        <i class="fas fa-search"></i>
+      </a>
+      <a href="#" class="mobile-nav-item" data-bs-toggle="modal" data-bs-target="#addListingModal">
+        <i class="fas fa-plus-square"></i>
+      </a>
+      <a href="/notifications" class="mobile-nav-item">
+        <i class="fas fa-heart"></i>
+      </a>
+      <a href="/profile" class="mobile-nav-item active">
+        <i class="fas fa-user"></i>
+      </a>
+    </nav>
   </div>
 
   <!-- Edit Profile Modal -->
@@ -1038,25 +955,28 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="editProfileModalLabel">Edit Profile</h5>
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="text-center mb-4">
-              <div class="avatar-upload">
-                <img src="img/profile-avatar.jpg" alt="Rahul Sharma" class="profile-avatar">
-                <div class="avatar-edit">
-                  <label for="imageUploadModal">
-                    <i class="fas fa-camera"></i>
-                    <input type="file" id="imageUploadModal" accept="image/*" />
-                  </label>
-                </div>
+              <div class="position-relative d-inline-block">
+                <img src="img/user.jpg" alt="Rahul Sharma" class="rounded-circle"
+                  style="width: 100px; height: 100px; object-fit: cover;">
+                <label for="imageUploadModal" class="position-absolute bottom-0 end-0 btn camera-btn rounded-circle">
+                  <i class="fas fa-camera"></i>
+                  <input type="file" id="imageUploadModal" accept="image/*" style="display: none;" />
+                </label>
               </div>
             </div>
             <div class="mb-3">
               <label for="modalFullName" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="modalFullName" value="Rahul Sharma">
+            </div>
+            <div class="mb-3">
+              <label for="modalUsername" class="form-label">Username</label>
+              <input type="text" class="form-control" id="modalUsername" value="rahul_sharma">
             </div>
             <div class="mb-3">
               <label for="modalEmail" class="form-label">Email</label>
@@ -1079,7 +999,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary fw-bold">Save Changes</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
         </div>
       </div>
     </div>
@@ -1090,7 +1010,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="addListingModalLabel">Add New Listing</h5>
+          <h5 class="modal-title" id="addListingModalLabel">Add New Listing</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -1137,393 +1057,59 @@
             </div>
 
             <div class="mb-4">
-              <h6 class="fw-bold mb-3">Location Details</h6>
-              <div class="row g-3">
-                <div class="col-md-12">
-                  <label for="listingAddress" class="form-label">Full Address</label>
-                  <input type="text" class="form-control" id="listingAddress" placeholder="Enter complete address">
-                </div>
-                <div class="col-md-6">
-                  <label for="listingLandmark" class="form-label">Landmark (Optional)</label>
-                  <input type="text" class="form-control" id="listingLandmark" placeholder="e.g. Near ABC Mall">
-                </div>
-                <div class="col-md-6">
-                  <label for="listingPincode" class="form-label">Pincode</label>
-                  <input type="text" class="form-control" id="listingPincode" placeholder="e.g. 411001">
-                </div>
+              <h6 class="fw-bold mb-3">Photos</h6>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="listingPhotos" multiple accept="image/*">
+                <label class="input-group-text" for="listingPhotos">Upload</label>
               </div>
+              <div class="form-text">You can upload up to 10 photos. First photo will be used as the cover image.</div>
             </div>
 
             <div class="mb-4">
-              <h6 class="fw-bold mb-3">Property Details</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="listingBedrooms" class="form-label">Bedrooms</label>
-                  <select class="form-select" id="listingBedrooms">
-                    <option selected disabled>Select</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4+</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingBathrooms" class="form-label">Bathrooms</label>
-                  <select class="form-select" id="listingBathrooms">
-                    <option selected disabled>Select</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4+</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingFurnishing" class="form-label">Furnishing</label>
-                  <select class="form-select" id="listingFurnishing">
-                    <option selected disabled>Select</option>
-                    <option>Fully Furnished</option>
-                    <option>Semi Furnished</option>
-                    <option>Unfurnished</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingAvailability" class="form-label">Available From</label>
-                  <input type="date" class="form-control" id="listingAvailability">
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Amenities</label>
-                  <div class="row g-2">
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityWifi">
-                        <label class="form-check-label" for="amenityWifi">WiFi</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityAC">
-                        <label class="form-check-label" for="amenityAC">Air Conditioning</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityTV">
-                        <label class="form-check-label" for="amenityTV">TV</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityKitchen">
-                        <label class="form-check-label" for="amenityKitchen">Kitchen</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityWasher">
-                        <label class="form-check-label" for="amenityWasher">Washing Machine</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityGym">
-                        <label class="form-check-label" for="amenityGym">Gym</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityParking">
-                        <label class="form-check-label" for="amenityParking">Parking</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenityBalcony">
-                        <label class="form-check-label" for="amenityBalcony">Balcony</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="amenitySecurity">
-                        <label class="form-check-label" for="amenitySecurity">Security</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Description & Photos</h6>
-              <div class="row g-3">
-                <div class="col-12">
-                  <label for="listingDescription" class="form-label">Description</label>
-                  <textarea class="form-control" id="listingDescription" rows="4"
-                    placeholder="Describe your property in detail..."></textarea>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Upload Photos</label>
-                  <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="listingPhotos" multiple accept="image/*">
-                    <label class="input-group-text" for="listingPhotos">Upload</label>
-                  </div>
-                  <div class="form-text">You can upload up to 10 photos. First photo will be used as the cover image.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Rules & Preferences</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="listingTenantType" class="form-label">Preferred Tenant</label>
-                  <select class="form-select" id="listingTenantType">
-                    <option selected disabled>Select</option>
-                    <option>Family</option>
-                    <option>Bachelor (Male)</option>
-                    <option>Bachelor (Female)</option>
-                    <option>Students</option>
-                    <option>Any</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="listingFoodPreference" class="form-label">Food Preference</label>
-                  <select class="form-select" id="listingFoodPreference">
-                    <option selected disabled>Select</option>
-                    <option>Veg Only</option>
-                    <option>Non-Veg Allowed</option>
-                    <option>No Restriction</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label for="listingRules" class="form-label">Additional Rules (Optional)</label>
-                  <textarea class="form-control" id="listingRules" rows="3"
-                    placeholder="Any specific rules or restrictions..."></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Contact Information</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="listingContactName" class="form-label">Contact Name</label>
-                  <input type="text" class="form-control" id="listingContactName" value="Rahul Sharma">
-                </div>
-                <div class="col-md-6">
-                  <label for="listingContactPhone" class="form-label">Contact Phone</label>
-                  <input type="tel" class="form-control" id="listingContactPhone" value="+91 98765 43210">
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="useProfileInfo" checked>
-                    <label class="form-check-label" for="useProfileInfo">Use my profile information</label>
-                  </div>
-                </div>
-              </div>
+              <h6 class="fw-bold mb-3">Description</h6>
+              <textarea class="form-control" id="listingDescription" rows="4"
+                placeholder="Describe your property in detail..."></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary fw-bold">Add Listing</button>
+          <button type="button" class="btn btn-primary">Post</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Edit Listing Modal -->
-  <div class="modal fade" id="editListingModal" tabindex="-1" aria-labelledby="editListingModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="editListingModalLabel">Edit Listing</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Basic Information</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="editListingTitle" class="form-label">Listing Title</label>
-                  <input type="text" class="form-control" id="editListingTitle"
-                    value="Sunny Private Room - Koregaon Park">
-                </div>
-                <div class="col-md-6">
-                  <label for="editPropertyType" class="form-label">Property Type</label>
-                  <select class="form-select" id="editPropertyType">
-                    <option>Single Room</option>
-                    <option>1BHK</option>
-                    <option>2BHK</option>
-                    <option>3BHK</option>
-                    <option>PG/Hostel</option>
-                    <option selected>Studio Apartment</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="editListingArea" class="form-label">Area</label>
-                  <select class="form-select" id="editListingArea">
-                    <option selected>Koregaon Park</option>
-                    <option>Viman Nagar</option>
-                    <option>Hinjewadi</option>
-                    <option>Kothrud</option>
-                    <option>Aundh</option>
-                    <option>Shivaji Nagar</option>
-                    <option>Peth Area</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="editListingRent" class="form-label">Monthly Rent (₹)</label>
-                  <input type="number" class="form-control" id="editListingRent" value="8500">
-                </div>
-              </div>
-            </div>
-
-            <!-- Other sections similar to Add Listing Modal but with pre-filled values -->
-            <div class="mb-4">
-              <h6 class="fw-bold mb-3">Current Photos</h6>
-              <div class="row g-2 mb-3">
-                <div class="col-md-3 col-6">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="img-thumbnail" alt="Room Photo">
-                    <button class="btn btn-sm btn-danger position-absolute top-0 end-0 rounded-circle"
-                      style="margin: 5px;">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                      class="img-thumbnail" alt="Room Photo">
-                    <button class="btn btn-sm btn-danger position-absolute top-0 end-0 rounded-circle"
-                      style="margin: 5px;">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="input-group">
-                <input type="file" class="form-control" id="editListingPhotos" multiple accept="image/*">
-                <label class="input-group-text" for="editListingPhotos">Add More</label>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary fw-bold">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Delete Account Modal -->
-  <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel"
-    aria-hidden="true">
+  <!-- Menu Modal -->
+  <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold text-danger" id="deleteAccountModalLabel">Delete Account</h5>
+          <h5 class="modal-title" id="menuModalLabel">Menu</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="alert alert-danger">
-            <i class="fas fa-exclamation-triangle me-2"></i> This action cannot be undone.
+          <div class="d-flex flex-column gap-2">
+            <a href="/settings" class="menu-item">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+            <a href="/saved" class="menu-item">
+              <i class="fas fa-bookmark"></i> Saved Items
+            </a>
+            <a href="/activity" class="menu-item">
+              <i class="fas fa-history"></i> Your Activity
+            </a>
+            <a href="/help" class="menu-item">
+              <i class="fas fa-question-circle"></i> Help
+            </a>
+            <a href="/logout" class="menu-item danger">
+              <i class="fas fa-sign-out-alt"></i> Log Out
+            </a>
           </div>
-          <p>Are you sure you want to permanently delete your account? This will remove all your data including:</p>
-          <ul>
-            <li>Your profile information</li>
-            <li>All your property listings</li>
-            <li>Messages and conversations</li>
-            <li>Saved rooms and preferences</li>
-          </ul>
-          <div class="mb-3">
-            <label for="deleteConfirmation" class="form-label">Please type "DELETE" to confirm:</label>
-            <input type="text" class="form-control" id="deleteConfirmation" placeholder="DELETE">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger">Delete Permanently</button>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-4 mt-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <h4 class="fw-bold text-white mb-3">Urban Pune</h4>
-          <p class="text-white-50">The leading platform for finding and listing rental accommodations in Pune with no
-            brokerage fees.</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Urban Pune on Facebook"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
-              style="width: 36px; height: 36px;">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" aria-label="Urban Pune on Instagram"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
-              style="width: 36px; height: 36px;">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="Urban Pune on Twitter"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
-              style="width: 36px; height: 36px;">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <h5 class="text-white mb-3 fw-bold">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Browse Rooms</a></li>
-            <li class="mb-2"><a href="/help" class="text-white-50 text-decoration-none">Support</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <h5 class="text-white mb-3 fw-bold">Popular Areas</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Koregaon Park</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Viman Nagar</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Hinjewadi</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <h5 class="text-white mb-3 fw-bold">Contact Us</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> 123 Main Street, Koregaon Park,
-              Pune</li>
-            <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 98765 *****</li>
-            <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@urbanpune.in</li>
-          </ul>
-        </div>
-      </div>
-      <hr class="my-3 border-secondary">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="small mb-0 text-white-50">© 2025 Urban Pune | urbanpune.in — All Rights Reserved.</p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <p class="small mb-0">
-            <a href="/privacy-policy" class="text-white-50 text-decoration-none me-3">Privacy</a>
-            <a href="/about" class="text-white-50 text-decoration-none me-3">About Us</a>
-            <a href="/help" class="text-white-50 text-decoration-none">Support</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -1531,14 +1117,25 @@
   <!-- Custom JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Navbar animation on scroll
-      const navbar = document.getElementById('mainNav');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
+      // Tab switching
+      const tabs = document.querySelectorAll('.profile-tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+
+          // Add active class to clicked tab
+          this.classList.add('active');
+
+          // Hide all tab contents
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          // Show the corresponding tab content
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId + '-tab').classList.add('active');
+        });
       });
 
       // Show toast notification
@@ -1601,16 +1198,6 @@
           showToast('Changes saved successfully!', 'success');
         });
       });
-
-      // Check for URL hash and activate corresponding tab
-      const hash = window.location.hash;
-      if (hash) {
-        const tabId = hash.replace('#', 'v-pills-') + '-tab';
-        const tabElement = document.getElementById(tabId);
-        if (tabElement) {
-          tabElement.click();
-        }
-      }
     });
   </script>
 </body>

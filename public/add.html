@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Property - Pune Rooms</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background-color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary-light);
+    }
+
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .form-card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+    }
+
+    .form-text {
+      color: var(--gray);
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .step-indicator::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--light-gray);
+      z-index: 1;
+    }
+
+    .step {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: 20%;
+    }
+
+    .step-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      border: 2px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-weight: 600;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+
+    .step.active .step-circle {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .step.completed .step-circle {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: white;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray);
+    }
+
+    .step.active .step-title {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .step.completed .step-title {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .step-content {
+      display: none;
+    }
+
+    .step-content.active {
+      display: block;
+    }
+
+    .amenity-checkbox {
+      display: none;
+    }
+
+    .amenity-label {
+      display: inline-block;
+      background-color: white;
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .amenity-label:hover {
+      border-color: var(--primary-light);
+    }
+
+    .amenity-checkbox:checked+.amenity-label {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .amenity-icon {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .photo-upload-container {
+      border: 2px dashed var(--light-gray);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .photo-upload-container:hover {
+      border-color: var(--primary-light);
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+
+    .upload-icon {
+      font-size: 48px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .preview-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .image-preview {
+      width: 150px;
+      height: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .remove-image {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #ef4444;
+      border: none;
+    }
+
+    .remove-image:hover {
+      background-color: white;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--dark);
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 10px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .success-icon {
+      font-size: 60px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .success-card {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .success-card h4 {
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .success-card p {
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .step-indicator {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .step {
+        width: 33%;
+        margin-bottom: 20px;
+      }
+
+      .step-indicator::before {
+        display: none;
+      }
+
+      .amenity-label {
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+
+      .image-preview {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .step {
+        width: 50%;
+      }
+
+      .photo-upload-container {
+        padding: 20px;
+      }
+
+      .upload-icon {
+        font-size: 36px;
+      }
+
+      .image-preview {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+     /* Header styles */
+    .app-header {
+      background: #201933;
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-username {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .btn
+    {
+      color:white;
+    }
+
+  </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="app-header">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="profile-username">Rahul_sharma</div>
+          <div>
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#addListingModal">
+              <i class="fas fa-plus-square header-icon"></i>
+            </button>
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#menuModal">
+              <i class="fas fa-bars header-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+  <!-- Main Content -->
+  <div class="container-fluid px-4">
+    <div class="row">
+      <div class="col-12 py-4">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-12">
+              <h4 class="fw-bold">Add New Property</h4>
+              <p class="text-muted">Fill in the details to list your property on Pune Rooms</p>
+            </div>
+          </div>
+
+          <!-- Step Indicator -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div class="step-indicator">
+                <div class="step active" id="step1-indicator">
+                  <div class="step-circle">1</div>
+                  <div class="step-title">Basic Info</div>
+                </div>
+                <div class="step" id="step2-indicator">
+                  <div class="step-circle">2</div>
+                  <div class="step-title">Details</div>
+                </div>
+                <div class="step" id="step3-indicator">
+                  <div class="step-circle">3</div>
+                  <div class="step-title">Amenities</div>
+                </div>
+                <div class="step" id="step4-indicator">
+                  <div class="step-circle">4</div>
+                  <div class="step-title">Photos</div>
+                </div>
+                <div class="step" id="step5-indicator">
+                  <div class="step-circle">5</div>
+                  <div class="step-title">Confirm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Card -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card form-card">
+                <div class="card-body p-4">
+                  <form id="property-form">
+                    <!-- Step 1: Basic Info -->
+                    <div class="step-content active" id="step1">
+                      <h5 class="section-title">Basic Information</h5>
+                      <div class="row g-4">
+                        <div class="col-md-6">
+                          <label for="propertyType" class="form-label">Property Type*</label>
+                          <select class="form-select" id="propertyType" required>
+                            <option value="" selected disabled>Select property type</option>
+                            <option value="room">Room</option>
+                            <option value="pg">PG Accommodation</option>
+                            <option value="hostel">Hostel</option>
+                            <option value="apartment">Apartment</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyFor" class="form-label">Property For*</label>
+                          <select class="form-select" id="propertyFor" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="all">Anyone</option>
+                            <option value="male">Male Only</option>
+                            <option value="female">Female Only</option>
+                            <option value="family">Family</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <label for="propertyTitle" class="form-label">Property Title*</label>
+                          <input type="text" class="form-control" id="propertyTitle"
+                            placeholder="e.g. Spacious Room in Kothrud" required>
+                          <div class="form-text">Create a catchy title that highlights the best features of your
+                            property</div>
+                        </div>
+                        <div class="col-12">
+                          <label for="propertyDescription" class="form-label">Description*</label>
+                          <textarea class="form-control" id="propertyDescription" rows="4"
+                            placeholder="Describe your property in detail..." required></textarea>
+                          <div class="form-text">Include details about the property, surroundings, and any special
+                            features</div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-end mt-4">
+                        <button type="button" class="btn btn-primary px-4" onclick="nextStep(1)">Next <i
+                            class="fas fa-arrow-right ms-2"></i></button>
+                      </div>
+                    </div>
+
+                    <!-- Step 2: Property Details -->
+                    <div class="step-content" id="step2">
+                      <h5 class="section-title">Property Details</h5>
+                      <div class="row g-4">
+                        <div class="col-md-6">
+                          <label for="propertyArea" class="form-label">Area (in sq.ft)</label>
+                          <input type="number" class="form-control" id="propertyArea" placeholder="e.g. 250">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyBedrooms" class="form-label">Bedrooms</label>
+                          <select class="form-select" id="propertyBedrooms">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4+">4+</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyBathrooms" class="form-label">Bathrooms</label>
+                          <select class="form-select" id="propertyBathrooms">
+                            <option value="" selected disabled>Select</option>
+                            <option value="shared">Shared</option>
+                            <option value="1">1 (Private)</option>
+                            <option value="2">2</option>
+                            <option value="3+">3+</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyFurnishing" class="form-label">Furnishing</label>
+                          <select class="form-select" id="propertyFurnishing">
+                            <option value="" selected disabled>Select</option>
+                            <option value="unfurnished">Unfurnished</option>
+                            <option value="semifurnished">Semi-Furnished</option>
+                            <option value="fullyfurnished">Fully Furnished</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyRent" class="form-label">Monthly Rent (₹)*</label>
+                          <input type="number" class="form-control" id="propertyRent" placeholder="e.g. 8000" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyDeposit" class="form-label">Security Deposit (₹)</label>
+                          <input type="number" class="form-control" id="propertyDeposit" placeholder="e.g. 15000">
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Food Included?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodOption" id="foodYes" value="yes">
+                            <label class="form-check-label" for="foodYes">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodOption" id="foodNo" value="no"
+                              checked>
+                            <label class="form-check-label" for="foodNo">
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-primary px-4" onclick="prevStep(2)"><i
+                            class="fas fa-arrow-left me-2"></i> Previous</button>
+                        <button type="button" class="btn btn-primary px-4" onclick="nextStep(2)">Next <i
+                            class="fas fa-arrow-right ms-2"></i></button>
+                      </div>
+                    </div>
+
+                    <!-- Step 3: Amenities -->
+                    <div class="step-content" id="step3">
+                      <h5 class="section-title">Amenities & Facilities</h5>
+                      <p class="text-muted mb-4">Select all the amenities and facilities available at your property</p>
+                      <div class="row g-3">
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="wifi">
+                          <label for="wifi" class="amenity-label">
+                            <i class="fas fa-wifi amenity-icon"></i> WiFi
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="ac">
+                          <label for="ac" class="amenity-label">
+                            <i class="fas fa-snowflake amenity-icon"></i> Air Conditioning
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="tv">
+                          <label for="tv" class="amenity-label">
+                            <i class="fas fa-tv amenity-icon"></i> TV
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="fridge">
+                          <label for="fridge" class="amenity-label">
+                            <i class="fas fa-temperature-low amenity-icon"></i> Refrigerator
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="washing">
+                          <label for="washing" class="amenity-label">
+                            <i class="fas fa-tshirt amenity-icon"></i> Washing Machine
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="parking">
+                          <label for="parking" class="amenity-label">
+                            <i class="fas fa-parking amenity-icon"></i> Parking
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="security">
+                          <label for="security" class="amenity-label">
+                            <i class="fas fa-shield-alt amenity-icon"></i> Security
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="gym">
+                          <label for="gym" class="amenity-label">
+                            <i class="fas fa-dumbbell amenity-icon"></i> Gym
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="power">
+                          <label for="power" class="amenity-label">
+                            <i class="fas fa-bolt amenity-icon"></i> Power Backup
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="water">
+                          <label for="water" class="amenity-label">
+                            <i class="fas fa-tint amenity-icon"></i> 24/7 Water Supply
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="kitchen">
+                          <label for="kitchen" class="amenity-label">
+                            <i class="fas fa-utensils amenity-icon"></i> Kitchen
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <input type="checkbox" class="amenity-checkbox" id="balcony">
+                          <label for="balcony" class="amenity-label">
+                            <i class="fas fa-door-open amenity-icon"></i> Balcony
+                          </label>
+                        </div>
+                      </div>
+
+                      <h5 class="section-title mt-5">House Rules</h5>
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="visitorsAllowed" class="form-label">Visitors Allowed</label>
+                          <select class="form-select" id="visitorsAllowed">
+                            <option value="" selected disabled>Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="limited">Limited Hours</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="smokingAllowed" class="form-label">Smoking Allowed</label>
+                          <select class="form-select" id="smokingAllowed">
+                            <option value="" selected disabled>Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="outdoor">Outdoor Only</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <label for="additionalRules" class="form-label">Additional Rules (Optional)</label>
+                          <textarea class="form-control" id="additionalRules" rows="3"
+                            placeholder="Any other rules or restrictions..."></textarea>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-primary px-4" onclick="prevStep(3)"><i
+                            class="fas fa-arrow-left me-2"></i> Previous</button>
+                        <button type="button" class="btn btn-primary px-4" onclick="nextStep(3)">Next <i
+                            class="fas fa-arrow-right ms-2"></i></button>
+                      </div>
+                    </div>
+
+                    <!-- Step 4: Photos -->
+                    <div class="step-content" id="step4">
+                      <h5 class="section-title">Property Photos</h5>
+                      <p class="text-muted mb-4">Upload clear photos of your property. You can upload up to 10 photos.
+                      </p>
+
+                      <div class="photo-upload-container" onclick="document.getElementById('propertyPhotos').click()">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h5 class="mb-2">Upload Photos</h5>
+                        <p class="text-muted mb-0">Click to browse or drag and drop your photos here</p>
+                        <p class="text-muted small">Supported formats: JPG, PNG, JPEG (Max size: 5MB per image)</p>
+                        <input type="file" id="propertyPhotos" multiple accept="image/*" style="display: none;"
+                          onchange="previewImages(event)">
+                      </div>
+
+                      <div class="preview-container" id="imagePreviewContainer">
+                        <!-- Image previews will be added here -->
+                      </div>
+
+                      <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-primary px-4" onclick="prevStep(4)"><i
+                            class="fas fa-arrow-left me-2"></i> Previous</button>
+                        <button type="button" class="btn btn-primary px-4" onclick="nextStep(4)">Next <i
+                            class="fas fa-arrow-right ms-2"></i></button>
+                      </div>
+                    </div>
+
+                    <!-- Step 5: Location & Contact -->
+                    <div class="step-content" id="step5">
+                      <h5 class="section-title">Location Information</h5>
+                      <div class="row g-4">
+                        <div class="col-md-6">
+                          <label for="propertyArea" class="form-label">Area/Locality*</label>
+                          <select class="form-select" id="propertyArea" required>
+                            <option value="" selected disabled>Select area</option>
+                            <option value="kothrud">Kothrud</option>
+                            <option value="koregaon-park">Koregaon Park</option>
+                            <option value="viman-nagar">Viman Nagar</option>
+                            <option value="hinjewadi">Hinjewadi</option>
+                            <option value="baner">Baner</option>
+                            <option value="hadapsar">Hadapsar</option>
+                            <option value="aundh">Aundh</option>
+                            <option value="shivaji-nagar">Shivaji Nagar</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="propertyPincode" class="form-label">Pincode*</label>
+                          <input type="text" class="form-control" id="propertyPincode" placeholder="e.g. 411038"
+                            required>
+                        </div>
+                        <div class="col-12">
+                          <label for="propertyAddress" class="form-label">Complete Address*</label>
+                          <textarea class="form-control" id="propertyAddress" rows="3"
+                            placeholder="Enter complete address with landmarks..." required></textarea>
+                        </div>
+                      </div>
+
+                      <h5 class="section-title mt-5">Contact Information</h5>
+                      <div class="row g-4">
+                        <div class="col-md-6">
+                          <label for="contactName" class="form-label">Contact Person*</label>
+                          <input type="text" class="form-control" id="contactName" placeholder="Your name"
+                            value="Aditya Chavan" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="contactPhone" class="form-label">Phone Number*</label>
+                          <input type="tel" class="form-control" id="contactPhone" placeholder="Your phone number"
+                            required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="contactEmail" class="form-label">Email Address*</label>
+                          <input type="email" class="form-control" id="contactEmail" placeholder="Your email address"
+                            required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="contactWhatsapp" class="form-label">WhatsApp Number (Optional)</label>
+                          <input type="tel" class="form-control" id="contactWhatsapp"
+                            placeholder="Your WhatsApp number">
+                        </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                              I agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a> and <a
+                                href="#" class="text-decoration-none">Privacy Policy</a>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-primary px-4" onclick="prevStep(5)"><i
+                            class="fas fa-arrow-left me-2"></i> Previous</button>
+                        <button type="submit" class="btn btn-primary px-4" onclick="submitForm(event)">Submit Property
+                          <i class="fas fa-check ms-2"></i></button>
+                      </div>
+                    </div>
+
+                    <!-- Success Message (Hidden initially) -->
+                    <div class="step-content" id="success">
+                      <div class="success-card">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h4>Property Listed Successfully!</h4>
+                        <p>Your property has been submitted for review. We'll notify you once it's approved and live on
+                          our platform.</p>
+                        <div class="d-flex justify-content-center gap-3">
+                          <a href="dashboard.html" class="btn btn-outline-primary px-4">Go to Dashboard</a>
+                          <a href="#" class="btn btn-primary px-4">View My Properties</a>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Step Navigation Functions
+    function nextStep(currentStep) {
+      // Validate current step
+      if (currentStep === 1) {
+        if (!document.getElementById('propertyType').value ||
+          !document.getElementById('propertyFor').value ||
+          !document.getElementById('propertyTitle').value ||
+          !document.getElementById('propertyDescription').value) {
+          alert('Please fill in all required fields before proceeding.');
+          return;
+        }
+      }
+
+      if (currentStep === 2) {
+        if (!document.getElementById('propertyRent').value) {
+          alert('Please enter the monthly rent before proceeding.');
+          return;
+        }
+      }
+
+      // Hide current step
+      document.getElementById('step' + currentStep).classList.remove('active');
+      document.getElementById('step' + currentStep + '-indicator').classList.remove('active');
+      document.getElementById('step' + currentStep + '-indicator').classList.add('completed');
+
+      // Show next step
+      document.getElementById('step' + (currentStep + 1)).classList.add('active');
+      document.getElementById('step' + (currentStep + 1) + '-indicator').classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    function prevStep(currentStep) {
+      // Hide current step
+      document.getElementById('step' + currentStep).classList.remove('active');
+      document.getElementById('step' + currentStep + '-indicator').classList.remove('active');
+
+      // Show previous step
+      document.getElementById('step' + (currentStep - 1)).classList.add('active');
+      document.getElementById('step' + (currentStep - 1) + '-indicator').classList.add('active');
+      document.getElementById('step' + (currentStep - 1) + '-indicator').classList.remove('completed');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Image Preview Function
+    function previewImages(event) {
+      const files = event.target.files;
+      const previewContainer = document.getElementById('imagePreviewContainer');
+
+      // Limit to 10 images
+      const maxImages = 10;
+      const totalImages = previewContainer.children.length + files.length;
+
+      if (totalImages > maxImages) {
+        alert(`You can upload a maximum of ${maxImages} images. Please remove some images.`);
+        return;
+      }
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        // Check file size (5MB limit)
+        if (file.size > 5 * 1024 * 1024) {
+          alert(`File "${file.name}" exceeds the 5MB size limit. Please choose a smaller file.`);
+          continue;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const preview = document.createElement('div');
+          preview.className = 'image-preview';
+
+          const img = document.createElement('img');
+          img.src = e.target.result;
+
+          const removeBtn = document.createElement('button');
+          removeBtn.className = 'remove-image';
+          removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+          removeBtn.onclick = function () {
+            previewContainer.removeChild(preview);
+          };
+
+          preview.appendChild(img);
+          preview.appendChild(removeBtn);
+          previewContainer.appendChild(preview);
+        }
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Form Submission
+    function submitForm(event) {
+      event.preventDefault();
+
+      // Validate final step
+      if (!document.getElementById('propertyArea').value ||
+        !document.getElementById('propertyPincode').value ||
+        !document.getElementById('propertyAddress').value ||
+        !document.getElementById('contactName').value ||
+        !document.getElementById('contactPhone').value ||
+        !document.getElementById('contactEmail').value ||
+        !document.getElementById('termsCheck').checked) {
+        alert('Please fill in all required fields and accept the terms before submitting.');
+        return;
+      }
+
+      // Hide final step
+      document.getElementById('step5').classList.remove('active');
+      document.getElementById('step5-indicator').classList.remove('active');
+      document.getElementById('step5-indicator').classList.add('completed');
+
+      // Show success message
+      document.getElementById('success').classList.add('active');
+
+      // In a real application, you would submit the form data to the server here
+      console.log('Form submitted successfully!');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+
+</html>
