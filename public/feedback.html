@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Feedback | UrbanPune - Find Rooms in Pune Without Brokerage</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Help us improve UrbanPune.in by sharing your experience with our room rental service in Pune. Your feedback matters to us!">
+  <meta name="keywords"
+    content="UrbanPune feedback, room rental Pune, accommodation feedback, Pune housing, no brokerage rooms">
+  <meta name="author" content="UrbanPune.in">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.urbanpune.in/feedback">
+  <meta property="og:title" content="Share Your Feedback | UrbanPune - Find Rooms in Pune Without Brokerage">
+  <meta property="og:description"
+    content="Help us improve UrbanPune.in by sharing your experience with our room rental service in Pune. Your feedback matters to us!">
+  <meta property="og:image" content="https://www.urbanpune.in/static/media/logo.a5b9cc5a.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.urbanpune.in/feedback">
+  <meta property="twitter:title" content="Share Your Feedback | UrbanPune - Find Rooms in Pune Without Brokerage">
+  <meta property="twitter:description"
+    content="Help us improve UrbanPune.in by sharing your experience with our room rental service in Pune. Your feedback matters to us!">
+  <meta property="twitter:image" content="https://www.urbanpune.in/static/media/logo.a5b9cc5a.png">
+
+  <!-- Canonical URL -->
+  <meta rel="canonical" href="https://www.urbanpune.in/feedback">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.urbanpune.in/favicon.ico" type="image/x-icon">
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Bootstrap 5 CSS (with integrity for security) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation Library (with defer for performance) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #1a5b9c;
+      /* UrbanPune blue */
+      --secondary-color: #f47920;
+      /* UrbanPune orange */
+      --accent-color: #5d2e8e;
+      /* Purple accent */
+      --light-bg: #f5f7ff;
+      --dark-color: #333333;
+      --border-radius: 8px;
+      --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--dark-color);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(120deg, rgba(245, 247, 255, 0.8) 0%, rgba(245, 247, 255, 0.9) 100%);
+    }
+
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a5b9c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled .navbar-brand img {
+      height: 35px;
+    }
+
+    .nav-link {
+      color: var(--dark-color);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-link.active {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .login-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid var(--primary-color);
+    }
+
+    .login-btn:hover {
+      background-color: transparent;
+      color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(26, 91, 156, 0.2);
+    }
+
+    /* Feedback Container */
+    .feedback-container {
+      max-width: 850px;
+      margin: 3rem auto;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      background: white;
+      transform: translateY(0);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .feedback-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Decorative Elements */
+    .feedback-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, transparent 50%, rgba(244, 121, 32, 0.1) 50%);
+      z-index: 0;
+      border-radius: 0 0 0 150px;
+    }
+
+    .feedback-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, rgba(26, 91, 156, 0.1) 50%, transparent 50%);
+      z-index: 0;
+      border-radius: 0 100px 0 0;
+    }
+
+    /* Header Styling */
+    .feedback-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #0c4a8c 100%);
+      color: white;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feedback-header::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .feedback-header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .feedback-header h1 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feedback-header p {
+      opacity: 0.9;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Form Styling */
+    .feedback-form {
+      padding: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    .form-control,
+    .form-select {
+      border: 2px solid #eaecf0;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(26, 91, 156, 0.15);
+    }
+
+    .form-check-input {
+      width: 1.2em;
+      height: 1.2em;
+      margin-top: 0.15em;
+      transition: var(--transition);
+    }
+
+    .form-check-input:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .form-check-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(26, 91, 156, 0.25);
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      background: linear-gradient(to right, var(--primary-color), #0c4a8c);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(to right, #0c4a8c, var(--primary-color));
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .btn-primary:hover::before {
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(26, 91, 156, 0.3);
+    }
+
+    .btn-outline-secondary {
+      color: var(--dark-color);
+      border: 2px solid #dee2e6;
+      background-color: white;
+      transition: var(--transition);
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #f8f9fa;
+      color: var(--dark-color);
+      border-color: #ced4da;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Question Card Styling */
+    .question-card {
+      border-radius: var(--border-radius);
+      border: 2px solid #eaecf0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      overflow: hidden;
+      transform: translateY(0);
+    }
+
+    .question-card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+      border-color: #d0d7e2;
+    }
+
+    .card-header {
+      background: linear-gradient(to right, rgba(26, 91, 156, 0.03), rgba(26, 91, 156, 0.08));
+      border-bottom: 2px solid #eaecf0;
+      font-weight: 600;
+      padding: 1.25rem 1.5rem;
+      color: #444;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    /* Rating Group Styling */
+    .rating-group {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5rem 0 0.5rem;
+      gap: 10px;
+    }
+
+    .rating-option {
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      padding: 1rem 0.5rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      border: 2px solid transparent;
+      background-color: #f8f9fa;
+    }
+
+    .rating-option:hover {
+      background-color: rgba(26, 91, 156, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .rating-option input {
+      display: none;
+    }
+
+    .rating-option.selected {
+      background-color: rgba(26, 91, 156, 0.1);
+      border-color: rgba(26, 91, 156, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(26, 91, 156, 0.15);
+    }
+
+    .rating-option label {
+      cursor: pointer;
+      display: block;
+      margin-bottom: 0;
+    }
+
+    .rating-option .rating-value {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .rating-option:hover .rating-value {
+      transform: scale(1.1);
+    }
+
+    .rating-option .rating-text {
+      font-size: 0.85rem;
+      color: var(--dark-color);
+      font-weight: 500;
+    }
+
+    /* Emoji Rating Styling */
+    .rating-option .rating-value i {
+      font-size: 2rem;
+      transition: var(--transition);
+    }
+
+    .rating-option:hover .rating-value i {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    /* Required Field Styling */
+    .required-field::after {
+      content: '*';
+      color: #dc3545;
+      margin-left: 4px;
+    }
+
+    /* Slider Styling */
+    .form-range {
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    .form-range::-webkit-slider-thumb {
+      background: var(--primary-color);
+      box-shadow: 0 0 10px rgba(26, 91, 156, 0.5);
+      height: 20px;
+      width: 20px;
+      margin-top: -6px;
+      transition: var(--transition);
+    }
+
+    .form-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .form-range::-webkit-slider-runnable-track {
+      background: linear-gradient(to right, #e9ecef 0%, var(--primary-color) 100%);
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    /* Footer Styling */
+    .feedback-footer {
+      background-color: #f8f9fa;
+      padding: 1.75rem 2.5rem;
+      border-top: 2px solid #eaecf0;
+    }
+
+    /* Success Message Styling */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .success-icon {
+      font-size: 5rem;
+      color: #28a745;
+      margin-bottom: 2rem;
+      animation: scaleIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    /* Checkbox Animation */
+    .form-check-input:checked {
+      animation: checkmark 0.3s ease-in-out;
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--box-shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .progress {
+      height: 8px;
+      border-radius: 4px;
+      background-color: #e9ecef;
+    }
+
+    .progress-bar {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      color: var(--dark-color);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Breadcrumb Styling */
+    .breadcrumb {
+      background-color: transparent;
+      padding: 0.75rem 0;
+    }
+
+    .breadcrumb-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .breadcrumb-item a:hover {
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb-item.active {
+      color: var(--dark-color);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #f8f9fa;
+      border-top: 1px solid #eaecf0;
+      padding: 3rem 0 1.5rem;
+      color: #6c757d;
+    }
+
+    .footer-heading {
+      color: var(--dark-color);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link {
+      color: #6c757d;
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-link:hover {
+      color: var(--primary-color);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #e9ecef;
+      color: var(--dark-color);
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #eaecf0;
+      margin-top: 2rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .feedback-container {
+        margin: 1.5rem 1rem;
+      }
+
+      .feedback-header,
+      .feedback-form,
+      .feedback-footer {
+        padding: 1.5rem;
+      }
+
+      .rating-option .rating-value {
+        font-size: 1.5rem;
+      }
+
+      .rating-option .rating-value i {
+        font-size: 1.75rem;
+      }
+
+      .rating-option .rating-text {
+        font-size: 0.75rem;
+      }
+
+      .rating-group {
+        flex-wrap: wrap;
+      }
+
+      .rating-option {
+        flex: 0 0 calc(50% - 5px);
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .feedback-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .btn-primary,
+      .btn-outline-secondary {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .feedback-footer {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Floating Labels (Modern Form Style) */
+    .form-floating>.form-control,
+    .form-floating>.form-select {
+      height: calc(3.5rem + 2px);
+      padding: 1rem 0.75rem;
+    }
+
+    .form-floating>label {
+      padding: 1rem 0.75rem;
+    }
+
+    /* Pulse Animation for Submit Button */
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(26, 91, 156, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(26, 91, 156, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(26, 91, 156, 0);
+      }
+    }
+
+    .btn-primary:focus {
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Skip to content for accessibility */
+    .skip-to-content {
+      position: absolute;
+      left: -9999px;
+      z-index: 999;
+      padding: 1em;
+      background-color: white;
+      color: var(--primary-color);
+      opacity: 0;
+    }
+
+    .skip-to-content:focus {
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+
+    /* Lazy loading for images */
+    .lazy-load {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .lazy-load.loaded {
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Feedback Form | UrbanPune",
+      "description": "Share your feedback about your experience with UrbanPune.in room rental service in Pune.",
+      "url": "https://www.urbanpune.in/feedback",
+      "publisher": {
+        "@type": "Organization",
+        "name": "UrbanPune",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.urbanpune.in/static/media/logo.a5b9cc5a.png"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.urbanpune.in"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Feedback",
+            "item": "https://www.urbanpune.in/feedback"
+          }
+        ]
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- Background Animation -->
+  <div class="bg-animation" aria-hidden="true"></div>
+
+  <!-- Navbar (matching your site) -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.urbanpune.in" data-aos="fade-right" data-aos-duration="800">
+        <img src="https://www.urbanpune.in/static/media/logo.a5b9cc5a.png" alt="UrbanPune Logo" width="180" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.urbanpune.in">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.urbanpune.in/browse-rooms">Browse Rooms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.urbanpune.in/how-it-works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.urbanpune.in/help">Help</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a href="https://www.urbanpune.in/login" class="btn login-btn">
+              <i class="fas fa-sign-in-alt me-2"></i>Login
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <!-- Breadcrumb for SEO and navigation -->
+    <nav aria-label="breadcrumb" class="mt-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="https://www.urbanpune.in">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+      </ol>
+    </nav>
+
+    <div class="feedback-container" data-aos="fade-up" data-aos-duration="1000" id="main-content">
+      <div class="feedback-header">
+        <h1 class="h3 mb-3" data-aos="fade-up" data-aos-delay="200">We Value Your Feedback</h1>
+        <p class="mb-0" data-aos="fade-up" data-aos-delay="300">Help us improve UrbanPune by sharing your experience.
+          Your feedback is important to us!</p>
+      </div>
+
+      <!-- Progress Tracker -->
+      <div class="progress-container" data-aos="fade-down" data-aos-delay="400">
+        <div class="progress" role="progressbar" aria-label="Feedback form completion progress">
+          <div class="progress-bar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="progress-text">
+          <span class="progress-percentage">0%</span> completed
+          <span class="float-end"><span class="current-question">0</span>/<span class="total-questions">7</span>
+            questions</span>
+        </div>
+      </div>
+
+      <form id="feedbackForm" class="feedback-form needs-validation" novalidate>
+        <!-- Question 1: Overall Experience -->
+        <div class="question-card" data-aos="fade-up" data-aos-delay="200" data-question="1">
+          <div class="card-header">
+            <span class="required-field">1. How would you rate your overall experience with UrbanPune?</span>
+          </div>
+          <div class="card-body">
+            <div class="rating-group">
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="300">
+                <input type="radio" id="rating1" name="overall_rating" value="1" required>
+                <label for="rating1">
+                  <div class="rating-value">1</div>
+                  <div class="rating-text">Poor</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="400">
+                <input type="radio" id="rating2" name="overall_rating" value="2">
+                <label for="rating2">
+                  <div class="rating-value">2</div>
+                  <div class="rating-text">Fair</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="500">
+                <input type="radio" id="rating3" name="overall_rating" value="3">
+                <label for="rating3">
+                  <div class="rating-value">3</div>
+                  <div class="rating-text">Good</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="600">
+                <input type="radio" id="rating4" name="overall_rating" value="4">
+                <label for="rating4">
+                  <div class="rating-value">4</div>
+                  <div class="rating-text">Very Good</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="700">
+                <input type="radio" id="rating5" name="overall_rating" value="5">
+                <label for="rating5">
+                  <div class="rating-value">5</div>
+                  <div class="rating-text">Excellent</div>
+                </label>
+              </div>
+            </div>
+            <div class="invalid-feedback">Please rate your overall experience</div>
+          </div>
+        </div>
+
+        <!-- Question 2: Website Usability -->
+        <div class="question-card" data-aos="fade-up" data-question="2">
+          <div class="card-header">
+            <span class="required-field">2. How easy was it to navigate our website?</span>
+          </div>
+          <div class="card-body">
+            <select class="form-select" id="usability" name="usability" required>
+              <option value="" selected disabled>Please select an option</option>
+              <option value="Very Easy">Very Easy</option>
+              <option value="Easy">Easy</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Difficult">Difficult</option>
+              <option value="Very Difficult">Very Difficult</option>
+            </select>
+            <div class="invalid-feedback">Please select an option</div>
+          </div>
+        </div>
+
+        <!-- Question 3: Features Used -->
+        <div class="question-card" data-aos="fade-up" data-question="3">
+          <div class="card-header">
+            <span class="required-field">3. Which features did you use on our website?</span>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="100">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature1" name="features"
+                    value="Room Search">
+                  <label class="form-check-label" for="feature1">Room Search</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="200">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature2" name="features"
+                    value="Area Browsing">
+                  <label class="form-check-label" for="feature2">Area Browsing</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="300">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature3" name="features"
+                    value="Property Details">
+                  <label class="form-check-label" for="feature3">Property Details</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="100">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature4" name="features"
+                    value="Contact Owner">
+                  <label class="form-check-label" for="feature4">Contact Owner</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="200">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature5" name="features"
+                    value="Property Listing">
+                  <label class="form-check-label" for="feature5">Property Listing</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="300">
+                  <input class="form-check-input feature-checkbox" type="checkbox" id="feature6" name="features"
+                    value="Other">
+                  <label class="form-check-label" for="feature6">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="invalid-feedback">Please select at least one feature</div>
+          </div>
+        </div>
+
+        <!-- Question 4: Satisfaction with Property Listings -->
+        <div class="question-card" data-aos="fade-up" data-question="4">
+          <div class="card-header">
+            <span class="required-field">4. How satisfied were you with the quality of property listings?</span>
+          </div>
+          <div class="card-body">
+            <div class="rating-group">
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="100">
+                <input type="radio" id="satisfaction1" name="listing_satisfaction" value="Very Dissatisfied" required>
+                <label for="satisfaction1">
+                  <div class="rating-value"><i class="far fa-frown"></i></div>
+                  <div class="rating-text">Very Dissatisfied</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="200">
+                <input type="radio" id="satisfaction2" name="listing_satisfaction" value="Dissatisfied">
+                <label for="satisfaction2">
+                  <div class="rating-value"><i class="far fa-meh"></i></div>
+                  <div class="rating-text">Dissatisfied</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="300">
+                <input type="radio" id="satisfaction3" name="listing_satisfaction" value="Neutral">
+                <label for="satisfaction3">
+                  <div class="rating-value"><i class="far fa-meh-blank"></i></div>
+                  <div class="rating-text">Neutral</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="400">
+                <input type="radio" id="satisfaction4" name="listing_satisfaction" value="Satisfied">
+                <label for="satisfaction4">
+                  <div class="rating-value"><i class="far fa-smile"></i></div>
+                  <div class="rating-text">Satisfied</div>
+                </label>
+              </div>
+
+              <div class="rating-option" data-aos="zoom-in" data-aos-delay="500">
+                <input type="radio" id="satisfaction5" name="listing_satisfaction" value="Very Satisfied">
+                <label for="satisfaction5">
+                  <div class="rating-value"><i class="far fa-grin"></i></div>
+                  <div class="rating-text">Very Satisfied</div>
+                </label>
+              </div>
+            </div>
+            <div class="invalid-feedback">Please indicate your satisfaction level</div>
+          </div>
+        </div>
+
+        <!-- Question 5: Recommendation Likelihood -->
+        <div class="question-card" data-aos="fade-up" data-question="5">
+          <div class="card-header">
+            <span class="required-field">5. How likely are you to recommend UrbanPune to others?</span>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <input type="range" class="form-range" min="0" max="10" step="1" id="recommendationSlider"
+                name="recommendation" value="7" required>
+              <div class="d-flex justify-content-between mt-2">
+                <span>0<br><small>Not likely</small></span>
+                <span class="text-center">5<br><small>Neutral</small></span>
+                <span class="text-end">10<br><small>Very likely</small></span>
+              </div>
+            </div>
+            <div class="text-center mt-3" data-aos="zoom-in">
+              <div class="display-6 mb-2" style="color: var(--primary-color);">
+                <span id="recommendationValue">7</span><span class="fs-4">/10</span>
+              </div>
+              <div class="recommendation-label">Likely to recommend</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 6: Areas for Improvement -->
+        <div class="question-card" data-aos="fade-up" data-question="6">
+          <div class="card-header">
+            6. What areas do you think we need to improve? (Select all that apply)
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="100">
+                  <input class="form-check-input" type="checkbox" id="improve1" name="improvements"
+                    value="Website Design">
+                  <label class="form-check-label" for="improve1">Website Design</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="200">
+                  <input class="form-check-input" type="checkbox" id="improve2" name="improvements"
+                    value="Property Listings">
+                  <label class="form-check-label" for="improve2">Property Listings</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="300">
+                  <input class="form-check-input" type="checkbox" id="improve3" name="improvements"
+                    value="Search Functionality">
+                  <label class="form-check-label" for="improve3">Search Functionality</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-right" data-aos-delay="400">
+                  <input class="form-check-input" type="checkbox" id="improve4" name="improvements"
+                    value="Mobile Experience">
+                  <label class="form-check-label" for="improve4">Mobile Experience</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="100">
+                  <input class="form-check-input" type="checkbox" id="improve5" name="improvements"
+                    value="Customer Support">
+                  <label class="form-check-label" for="improve5">Customer Support</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="200">
+                  <input class="form-check-input" type="checkbox" id="improve6" name="improvements"
+                    value="Listing Process">
+                  <label class="form-check-label" for="improve6">Listing Process</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="300">
+                  <input class="form-check-input" type="checkbox" id="improve7" name="improvements"
+                    value="Communication Tools">
+                  <label class="form-check-label" for="improve7">Communication Tools</label>
+                </div>
+                <div class="form-check mb-3" data-aos="fade-left" data-aos-delay="400">
+                  <input class="form-check-input" type="checkbox" id="improve8" name="improvements" value="Other">
+                  <label class="form-check-label" for="improve8">Other</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 7: Additional Comments -->
+        <div class="question-card" data-aos="fade-up" data-question="7">
+          <div class="card-header">
+            7. Do you have any additional comments or suggestions for improvement?
+          </div>
+          <div class="card-body">
+            <textarea class="form-control" id="additionalComments" name="additional_comments" rows="4"
+              placeholder="Please share your thoughts here..."></textarea>
+          </div>
+        </div>
+
+        <!-- Contact Information (Optional) -->
+        <div class="question-card" data-aos="fade-up">
+          <div class="card-header">
+            Contact Information (Optional)
+          </div>
+          <div class="card-body">
+            <p class="text-muted mb-4">If you'd like us to follow up with you regarding your feedback, please provide
+              your contact information:</p>
+
+            <div class="row g-3">
+              <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your name">
+                  <label for="name">Name</label>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com">
+                  <label for="email">Email</label>
+                  <div class="invalid-feedback">Please enter a valid email address</div>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="form-floating mb-3">
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your phone number">
+                  <label for="phone">Phone Number</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-footer d-flex justify-content-between align-items-center" data-aos="fade-up">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="contactConsent" name="contact_consent">
+            <label class="form-check-label" for="contactConsent">
+              I consent to being contacted about my feedback
+            </label>
+          </div>
+
+          <div>
+      
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-2"></i>Submit Feedback
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Success Message (Hidden by default) -->
+      <div id="successMessage" class="success-message">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="h4 mb-3">Thank You for Your Feedback!</h2>
+        <p>We appreciate you taking the time to share your thoughts with us. Your feedback is invaluable in helping us
+          improve UrbanPune.</p>
+        <div class="mt-4">
+          <a href="https://www.urbanpune.in" class="btn btn-outline-secondary me-2">
+            <i class="fas fa-home me-2"></i>Return to Home
+          </a>
+          <button type="button" class="btn btn-primary" onclick="resetForm()">
+            <i class="fas fa-redo me-2"></i>Submit Another Response
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-heading">About UrbanPune</h5>
+          <p>UrbanPune helps you find verified rooms and accommodations in Pune without any brokerage fees. We connect
+            room seekers directly with property owners.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-heading">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.urbanpune.in" class="footer-link">Home</a></li>
+            <li><a href="https://www.urbanpune.in/browse-rooms" class="footer-link">Browse Rooms</a></li>
+            <li><a href="https://www.urbanpune.in/how-it-works" class="footer-link">How It Works</a></li>
+            <li><a href="https://www.urbanpune.in/help" class="footer-link">Help</a></li>
+            <li><a href="https://www.urbanpune.in/feedback" class="footer-link">Feedback</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-heading">Popular Areas</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="footer-link">Koregaon Park</a></li>
+            <li><a href="#" class="footer-link">Hinjewadi</a></li>
+            <li><a href="#" class="footer-link">Viman Nagar</a></li>
+            <li><a href="#" class="footer-link">Kothrud</a></li>
+            <li><a href="#" class="footer-link">View All Areas</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-heading">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Pune, Maharashtra, India</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2"></i> contact@urbanpune.in</li>
+            <li class="mb-2"><i class="fas fa-phone me-2"></i> +91 1234567890</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 UrbanPune.in. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper (with defer for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+    defer></script>
+
+  <!-- AOS Animation Library (with defer for performance) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
+  <script>
+    // Initialize AOS Animation Library
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+
+      // Update progress bar initially
+      updateProgress();
+
+      // Implement lazy loading for images
+      const lazyImages = document.querySelectorAll('.lazy-load');
+
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.add('loaded');
+              observer.unobserve(img);
+            }
+          });
+        });
+
+        lazyImages.forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => {
+          img.src = img.dataset.src;
+          img.classList.add('loaded');
+        });
+      }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Update recommendation slider value display with animation
+    const recommendationSlider = document.getElementById('recommendationSlider');
+    const recommendationValue = document.getElementById('recommendationValue');
+    const recommendationLabel = document.querySelector('.recommendation-label');
+
+    recommendationSlider.addEventListener('input', function () {
+      // Animate the number change
+      animateValue(recommendationValue, parseInt(recommendationValue.textContent), parseInt(this.value), 300);
+
+      // Update the label based on the value
+      updateRecommendationLabel(this.value);
+    });
+
+    function updateRecommendationLabel(value) {
+      const labels = {
+        0: 'Not at all likely',
+        1: 'Extremely unlikely',
+        2: 'Very unlikely',
+        3: 'Unlikely',
+        4: 'Somewhat unlikely',
+        5: 'Neutral',
+        6: 'Somewhat likely',
+        7: 'Likely to recommend',
+        8: 'Very likely',
+        9: 'Extremely likely',
+        10: 'Definitely will recommend'
+      };
+
+      recommendationLabel.textContent = labels[value] || 'Neutral';
+    }
+
+    function animateValue(element, start, end, duration) {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Handle rating option selection with animation
+    const ratingOptions = document.querySelectorAll('.rating-option');
+
+    ratingOptions.forEach(option => {
+      option.addEventListener('click', function () {
+        // Find the parent rating group
+        const ratingGroup = this.closest('.rating-group');
+
+        // Remove selected class from all options in this group
+        ratingGroup.querySelectorAll('.rating-option').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+
+        // Add selected class to clicked option with animation
+        this.classList.add('selected');
+
+        // Check the radio input
+        const radioInput = this.querySelector('input[type="radio"]');
+        if (radioInput) {
+          radioInput.checked = true;
+        }
+
+        // Update progress after selection
+        updateProgress();
+      });
+    });
+
+    // Progress tracking
+    function updateProgress() {
+      const totalQuestions = document.querySelectorAll('[data-question]').length;
+      const answeredQuestions = countAnsweredQuestions();
+      const progressPercentage = Math.round((answeredQuestions / totalQuestions) * 100);
+
+      // Update progress bar
+      const progressBar = document.querySelector('.progress-bar');
+      progressBar.style.width = progressPercentage + '%';
+      progressBar.setAttribute('aria-valuenow', progressPercentage);
+
+      // Update text
+      document.querySelector('.progress-percentage').textContent = progressPercentage;
+      document.querySelector('.current-question').textContent = answeredQuestions;
+      document.querySelector('.total-questions').textContent = totalQuestions;
+    }
+
+    function countAnsweredQuestions() {
+      let count = 0;
+
+      // Question 1: Overall rating
+      if (document.querySelector('input[name="overall_rating"]:checked')) {
+        count++;
+      }
+
+      // Question 2: Usability
+      if (document.getElementById('usability').value) {
+        count++;
+      }
+
+      // Question 3: Features
+      let featuresChecked = false;
+      document.querySelectorAll('.feature-checkbox').forEach(checkbox => {
+        if (checkbox.checked) featuresChecked = true;
+      });
+      if (featuresChecked) count++;
+
+      // Question 4: Satisfaction
+      if (document.querySelector('input[name="listing_satisfaction"]:checked')) {
+        count++;
+      }
+
+      // Question 5: Recommendation (slider always has a value)
+      count++;
+
+      // Question 6: Improvements (optional)
+      let improvementsChecked = false;
+      document.querySelectorAll('input[name="improvements"]').forEach(checkbox => {
+        if (checkbox.checked) improvementsChecked = true;
+      });
+      if (improvementsChecked) count++;
+
+      // Question 7: Comments (optional)
+      if (document.getElementById('additionalComments').value.trim() !== '') {
+        count++;
+      }
+
+      return count;
+    }
+
+    // Form validation and submission with animations
+    const form = document.getElementById('feedbackForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Listen for input changes to update progress
+    form.addEventListener('change', updateProgress);
+    document.getElementById('additionalComments').addEventListener('input', updateProgress);
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Check if at least one feature is selected
+      const featureCheckboxes = document.querySelectorAll('.feature-checkbox');
+      let featureSelected = false;
+
+      featureCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          featureSelected = true;
+        }
+      });
+
+      if (!featureSelected) {
+        document.querySelector('.feature-checkbox').parentElement.parentElement.parentElement.querySelector('.invalid-feedback').style.display = 'block';
+      }
+
+      if (!this.checkValidity() || !featureSelected) {
+        event.stopPropagation();
+        this.classList.add('was-validated');
+
+        // Scroll to the first invalid element
+        const firstInvalid = document.querySelector('.form-control:invalid, .form-select:invalid, input[type="radio"][required]:not(:checked)');
+        if (firstInvalid) {
+          const questionCard = firstInvalid.closest('.question-card');
+          if (questionCard) {
+            questionCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      } else {
+        // Form is valid, show success message with animation
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+
+        // In a real application, you would submit the form data to your server here
+        console.log('Form submitted successfully');
+
+        // Get form data
+        const formData = new FormData(form);
+        const formDataObj = {};
+
+        formData.forEach((value, key) => {
+          // Handle multiple values for the same key (like checkboxes)
+          if (formDataObj[key]) {
+            if (Array.isArray(formDataObj[key])) {
+              formDataObj[key].push(value);
+            } else {
+              formDataObj[key] = [formDataObj[key], value];
+            }
+          } else {
+            formDataObj[key] = value;
+          }
+        });
+
+        console.log('Form data:', formDataObj);
+
+        // Analytics tracking (if implemented)
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submission', {
+            'event_category': 'Feedback',
+            'event_label': 'Feedback Form Submission'
+          });
+        }
+      }
+    });
+
+    // Reset form function with animations
+    function resetForm() {
+      form.reset();
+      form.classList.remove('was-validated');
+
+      // Fade out success message
+      successMessage.style.animation = 'fadeOut 0.5s forwards';
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+        form.style.display = 'block';
+        successMessage.style.animation = '';
+
+        // Reset all selected rating options
+        document.querySelectorAll('.rating-option').forEach(option => {
+          option.classList.remove('selected');
+        });
+
+        // Reset recommendation value
+        recommendationValue.textContent = '7';
+        updateRecommendationLabel('7');
+
+        // Reset progress
+        updateProgress();
+
+        // Reinitialize AOS for new elements
+        AOS.refresh();
+      }, 500);
+    }
+
+    // Add floating effect to cards
+    const cards = document.querySelectorAll('.question-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const moveX = (x - centerX) / 20;
+        const moveY = (y - centerY) / 20;
+
+        this.style.transform = `translateY(-3px) rotateX(${-moveY}deg) rotateY(${moveX}deg)`;
+      });
+
+      card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+      });
+    });
+
+    // Add input animations
+    const inputs = document.querySelectorAll('.form-control, .form-select');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function () {
+        this.parentElement.classList.add('input-focused');
+      });
+
+      input.addEventListener('blur', function () {
+        this.parentElement.classList.remove('input-focused');
+      });
+    });
+
+    // Performance optimization - defer non-critical operations
+    window.addEventListener('load', function () {
+      // Add event listeners for social sharing
+      document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const platform = this.getAttribute('aria-label').toLowerCase();
+          const url = encodeURIComponent(window.location.href);
+          const title = encodeURIComponent(document.title);
+
+          let shareUrl = '';
+          switch (platform) {
+            case 'facebook':
+              shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+              break;
+            case 'twitter':
+              shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+              break;
+            case 'linkedin':
+              shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+              break;
+          }
+
+          if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
