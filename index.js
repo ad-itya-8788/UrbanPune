@@ -45,6 +45,7 @@ dbClient
   .then(() => console.log("✅ Connected to database"))
   .catch((err) => {
     console.error("Database connection error:", err.message)
+    console.log(err);
     // Continue running the app even if DB connection fails
   })
 
