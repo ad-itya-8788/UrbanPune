@@ -32,22 +32,28 @@ const dbConfig = {
   },
 }
 
-console.log("Database config (without password):", {
-  ...dbConfig,
-  password: "******",
-})
 
-const dbClient = new Client(dbConfig)
+const dbClient = new Client(dbConfig);
 
-// Connect to database with better error handling
+// Connect to the database with better error handling
 dbClient
   .connect()
   .then(() => console.log("✅ Connected to database"))
   .catch((err) => {
-    console.error("Database connection error:", err.message)
-    console.log(err);
+    console.error("Database connection error:", err.message);
+
+    // Printing more detailed error information
+    console.error("Error details:", err);
+    console.error("Stack trace:", err.stack);
+
+    // Optional: Specific checks for error codes, if needed
+    if (err.code === 'ECONNREFUSED') {
+      console.error('Connection was refused. Please check if the database is running.');
+    }
+
     // Continue running the app even if DB connection fails
-  })
+  });
+
 
 // Twilio client
 const accountSid = process.env.TWILIO_ACCOUNT_SID
