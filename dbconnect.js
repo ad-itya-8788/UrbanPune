@@ -20,10 +20,17 @@ const testConnection = async () => {
     console.log("✅ Connected to PostgreSQL database");
     return true;
   } catch (err) {
-    console.error("❌ Database connection error:", err.message);
+    console.error("❌ Database connection error:");
+    console.error("  - Message:", err.message);
+    console.error("  - Code:", err.code);
+    console.error("  - Detail:", err.detail || "No additional details");
+    console.error("  - Hint:", err.hint || "No hint available");
+    console.error("  - Where:", err.where || "No location provided");
+    console.error("  - Stack Trace:\n", err.stack);
     return false;
   }
 };
+
 
 // General query executor with error handling
 const query = async (text, params) => {
