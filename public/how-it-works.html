@@ -3,74 +3,84 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>How It Works – Urban Pune | Find & List Rooms in Pune</title>
+
   <meta name="description"
-    content="Learn how Pune Rooms works. From searching for accommodations to posting your own property listing, here's how our platform simplifies room searches in Pune." />
+    content="Discover how Urban Pune simplifies finding rooms and accommodations in Pune. Browse listings, post your property, connect with owners, and secure your stay easily." />
+
   <meta name="keywords"
-    content="how it works, Pune Rooms, room search, property listings, Pune, accommodation platform, how to post ad" />
+    content="Urban Pune, rooms in Pune, Pune accommodation, property listings Pune, rent rooms Pune, PGs in Pune, hostels Pune, how Urban Pune works" />
+
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Pune Rooms" />
-  <meta property="og:title" content="How It Works – Pune Rooms" />
+  <meta name="author" content="Urban Pune" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="How It Works – Urban Pune" />
   <meta property="og:description"
-    content="Learn how Pune Rooms works. From searching for accommodations to posting your own property listing, here's how our platform simplifies room searches in Pune." />
+    content="Discover how Urban Pune simplifies finding rooms and accommodations in Pune. Browse listings, post your property, connect with owners, and secure your stay easily." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.punerooms.com/how-it-works" />
-  <meta property="og:image" content="https://www.punerooms.com/assets/images/how-it-works.jpg" />
-  <title>How It Works – Pune Rooms</title>
+  <meta property="og:url" content="https://urbanpune.in/how-it-works" />
+  <meta property="og:image" content="https://urbanpune.in/img/og.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How It Works – Urban Pune" />
+  <meta name="twitter:description"
+    content="Discover how Urban Pune simplifies finding rooms and accommodations in Pune. Browse listings, post your property, connect with owners, and secure your stay easily." />
+  <meta name="twitter:image" content="https://urbanpune.in/img/og.png" />
+
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+
   <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #e3f2fd;
+  margin: 0;
+  padding: 20px;
+  color: #212121;
+  line-height: 1.6;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(25, 118, 210, 0.3);
+}
 
-    h1 {
-      color: #00796b;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
+h1 {
+  color: #ff0000;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    h2 {
-      color: #ff5722;
-      font-size: 20px;
-      margin-top: 25px;
-    }
+h2 {
+  color: #fe7700;
+  font-size: 20px;
+  margin-top: 25px;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+.step {
+  background: #1fd21916;
+  color: rgb(17, 15, 15);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
+  transition: background-color 0.3s ease;
+}
 
-    p {
-      margin-top: 10px;
-    }
+.step:hover {
+  background: #07a71486;
+  cursor: pointer;
+}
 
-    .steps {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .step {
-      background: #00796b;
-      color: white;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 8px;
-      flex: 1;
-      min-width: 280px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
 
     footer {
       margin-top: 40px;
@@ -82,10 +92,10 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>How It Works – Pune Rooms</h1>
+  <div class="container" role="main">
+    <h1>How It Works – Urban Pune</h1>
 
-    <p>At Pune Rooms, we make finding a place to stay easy, fast, and secure. Here's how our platform works:</p>
+    <p>At Urban Pune, we make finding a place to stay easy, fast, and secure. Here's how our platform works:</p>
 
     <h2>1. Browse Accommodation Listings</h2>
     <p>Start by browsing through a variety of property listings including rooms, flats, PGs, and hostels across Pune.
@@ -111,23 +121,23 @@
     <p>Once your stay is complete, you can leave a review to help future users make informed decisions about their
       accommodation. Reviews help build trust and transparency in our community.</p>
 
-    <div class="steps">
-      <div class="step">
-        <h3>Step 1: Search & Filter</h3>
+    <section class="steps" aria-label="Steps to use Urban Pune">
+      <article class="step" tabindex="0" role="region" aria-labelledby="step1-title">
+        <h3 id="step1-title">Step 1: Search & Filter</h3>
         <p>Use the search bar and filter options to find the best accommodation in Pune based on your needs.</p>
-      </div>
-      <div class="step">
-        <h3>Step 2: Post Your Listing</h3>
+      </article>
+      <article class="step" tabindex="0" role="region" aria-labelledby="step2-title">
+        <h3 id="step2-title">Step 2: Post Your Listing</h3>
         <p>List your property with clear images, location details, and contact information.</p>
-      </div>
-      <div class="step">
-        <h3>Step 3: Connect with Owners</h3>
+      </article>
+      <article class="step" tabindex="0" role="region" aria-labelledby="step3-title">
+        <h3 id="step3-title">Step 3: Connect with Owners</h3>
         <p>Contact property owners directly through our secure platform for more details.</p>
-      </div>
-    </div>
+      </article>
+    </section>
 
     <footer>
-      Pune Rooms – Simplifying Room Search in Pune
+      &copy; 2025 Urban Pune – Simplifying Room Search in Pune
     </footer>
   </div>
 </body>

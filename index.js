@@ -158,6 +158,59 @@ const requireAuth = async (req, res, next) => {
 const serveStatic = (fileName) => (req, res) => {
   res.sendFile(path.join(__dirname, "public", fileName));
 };
+app.use((req, res, next) => {
+  const forbiddenExt = /\.(html|js|json|css)$/;
+  if (forbiddenExt.test(req.url)) {
+    return res.status(404).sendFile(path.join(__dirname,  '404.html'));
+  }
+  next();
+});
+
+
+
+// Add this route with your other API routes
+app.get("/check-auth", async (req, res) => {
+  const sessionId = req.cookies.sessionId;
+
+  if (!sessionId) {
+    return res.json({ authenticated: false });
+  }
+
+  try {
+    const session = await sessionManager.getSession(sessionId);
+
+    if (!session) {
+      res.clearCookie('sessionId');
+      return res.json({ authenticated: false });
+    }
+
+    // Update session expiry if needed
+    const lastUpdated = new Date(session.updated_at);
+    if (Date.now() - lastUpdated.getTime() > 60 * 60 * 1000) {
+      const newExpiry = await sessionManager.updateSession(sessionId);
+      res.cookie('sessionId', sessionId, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        expires: newExpiry,
+        sameSite: 'lax'
+      });
+    }
+
+    return res.json({
+      authenticated: true,
+      user: {
+        id: session.user_id,
+        name: session.name,
+        phone: session.phone,
+        gender: session.gender
+      },
+      redirectTo: "/rooms" // Tell frontend where to redirect
+    });
+  } catch (error) {
+    console.error("Auth check error:", error);
+    return res.json({ authenticated: false });
+  }
+});
 
 // Routes
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
@@ -566,6 +619,10 @@ app.get("/api/cleanup-sessions", async (req, res) => {
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).send("Something went wrong!");
+});
+// Serve 404.html for any undefined route
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
 // Start server

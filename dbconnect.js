@@ -1,19 +1,17 @@
+// db.js
 const { Pool } = require("pg");
-
-// No dotenv because env vars are from Render dashboard directly
+require("dotenv").config();
 
 const pool = new Pool({
-  user: process.env.DB_USER,              // e.g. 'aditya'
-  host: process.env.DB_HOST,              // full hostname like 'dpg-xxxxxx.render.com'
-  database: process.env.DB_NAME,          // your database name
-  password: process.env.DB_PASSWORD,      // your password
-  port: parseInt(process.env.DB_PORT, 10) || 5432,  // default to 5432 if not set
-  ssl: {
-    rejectUnauthorized: false,            // important for Render managed Postgres
-  },
-  max: 50,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 5000
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: parseInt(process.env.DB_PORT, 10),
+  ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
+  max: 50,                    // Max number of clients in the pool
+  idleTimeoutMillis: 30000,  // Close idle clients after 30s
+  connectionTimeoutMillis: 5000 // Wait max 5s for a new connection
 });
 
 const testConnection = async () => {
@@ -33,6 +31,8 @@ const testConnection = async () => {
   }
 };
 
+
+// General query executor with error handling
 const query = async (text, params) => {
   try {
     const result = await pool.query(text, params);

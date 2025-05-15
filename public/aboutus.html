@@ -2,35 +2,33 @@
 <html lang="en">
 
 <head>
-  <!-- Basic Meta -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us – Pune Rooms | PG, Hostel & Rooms Without Brokerage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us – UrbanPune | Rooms, PG, Hostels & Rentals Without Brokerage</title>
   <meta name="description"
-    content="Pune Rooms helps you find PGs, hostels, and rental rooms in Pune city directly from owners — no brokers, no commissions.">
+    content="UrbanPune is your trusted platform in Pune to find rooms, PGs, hostels, and rental flats without any brokerage or commission. Connect directly with owners and tenants for hassle-free renting." />
   <meta name="keywords"
-    content="Pune rooms, PG Pune, hostel Pune, rent Pune, no brokerage, direct owner, find PG in Pune, Pune shared flats, Pune accommodation, Pune room rent, rooms without broker Pune">
-  <meta name="author" content="Pune Rooms Team">
+    content="UrbanPune, Pune rooms, PG Pune, hostels in Pune, rent Pune, no brokerage rooms, direct owner rooms, PG without commission, Pune shared flats, affordable rooms Pune, hostels near colleges Pune, rent rooms online Pune, Pune accommodation, Pune room rent, PG booking Pune, hostel booking Pune, rental flats Pune, Pune rental platform, no middleman rentals, Pune housing, affordable PG Pune, Pune rental website, Pune PG portal, Pune hostels booking, rent flat Pune, Pune rental rooms, shared accommodation Pune, Pune room finder, Pune PG finder, rooms for students Pune, rooms for professionals Pune, Pune budget rooms, Pune rental marketplace, rental platform Pune, room sharing Pune, Pune real listings, rental rooms online Pune, Pune hostels listings, rent flats without brokers Pune, PG rooms for girls Pune, PG rooms for boys Pune, Pune home rental, Pune rental service, Pune room rent app, rent house Pune, PG flats Pune, Pune rental flats online, direct rental Pune, rooms near IT parks Pune" />
+  <meta name="author" content="UrbanPune Team" />
 
-  <!-- Open Graph Meta for social sharing -->
-  <meta property="og:title" content="About Pune Rooms – Find PGs, Hostels & Flats Without Brokerage">
+  <meta property="og:title" content="About UrbanPune – Trusted Rooms, PG, Hostels & Rentals Platform in Pune" />
   <meta property="og:description"
-    content="Search rooms, PGs, and hostels in Pune with zero brokerage. Direct owner listings only. Made for students and professionals.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://punerooms.in/about">
-  <meta property="og:image" content="https://punerooms.in/assets/images/og-cover.jpg">
+    content="Find genuine rooms, PGs, hostels, and flats in Pune with zero brokerage. Direct owner listings only on UrbanPune. Ideal for students and professionals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://urbanpune.in/about" />
+  <meta property="og:image" content="https://urbanpune.in/img/og.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+  <link rel="icon" href="https://urbanpune.in/img/favicon.png" type="image/png" />
 
-  <!-- Styles -->
   <style>
+    /* Reset and base */
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f8f8;
       margin: 0;
       padding: 20px;
-      color: #333;
+      color: #080707;
+      overflow-x: hidden;
     }
 
     .container {
@@ -39,28 +37,43 @@
       background: #fff;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.2s;
     }
 
     h1 {
-      color: #00796b;
-      font-size: 32px;
-      margin-bottom: 10px;
+      color: #e10000;
+      /* Red color */
+      font-size: 34px;
+      margin-bottom: 15px;
     }
 
     h2 {
-      color: #ff5722;
+      color: #ed3915;
       margin-top: 30px;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: fadeInRight 0.8s ease forwards;
+      animation-delay: 0.4s;
     }
 
     p,
     li {
       line-height: 1.7;
-      margin-top: 10px;
+      margin-top: 12px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.6s;
     }
 
     ul {
       padding-left: 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.6s;
     }
 
     footer {
@@ -68,42 +81,121 @@
       text-align: center;
       color: #777;
       font-size: 14px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    /* WhatsApp contact button */
+    .whatsapp-contact {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      will-change: transform;
+    }
+
+    .whatsapp-contact:hover,
+    .whatsapp-contact:focus {
+      background-color: #128c4a;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    .whatsapp-contact img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>About Pune Rooms</h1>
-    <p><strong>Pune Rooms</strong> is a free and simple platform for people in Pune looking to share or find rooms,
-      flats, PGs, and hostels directly from owners — no brokers, no commission.</p>
+  <main class="container" role="main">
+    <h1>About UrbanPune</h1>
+    <p>
+      <strong>UrbanPune</strong> is Pune's premier platform for discovering rooms, PGs, hostels, and rental flats
+      without any brokerage or commission.
+      We connect renters directly with owners for a transparent and hassle-free renting experience.
+    </p>
 
-    <h2>Why We Started</h2>
-    <p>Finding a room in Pune can be confusing and expensive. We created a platform where you can post genuine room ads
-      or find roommates easily — just like scrolling Instagram.</p>
+    <h2>Why UrbanPune?</h2>
+    <p>
+      Renting in Pune can be challenging with middlemen and hidden charges. UrbanPune was created to eliminate these
+      hassles by providing a platform where
+      genuine owners list their spaces directly, ensuring you find affordable, trustworthy accommodation easily.
+    </p>
 
-    <h2>What We Do</h2>
-    <p>We don’t take any commission. We’re not brokers. We provide a digital notice board where you post your space, and
-      someone finds it and contacts you — simple and direct.</p>
+    <h2>What We Offer</h2>
+    <p>
+      Our platform offers a simple, user-friendly interface where you can browse listings, contact owners directly, and
+      find rooms that suit your budget and needs.
+      No brokers, no commissions — just real listings by real people.
+    </p>
 
-    <h2>Who Is It For?</h2>
+    <h2>Who Can Use UrbanPune?</h2>
     <ul>
-      <li>Students searching for PGs or shared flats in Pune</li>
-      <li>Working professionals looking for rooms near offices</li>
-      <li>Owners or tenants who want to list available space</li>
+      <li>Students searching for affordable PGs or shared flats in Pune</li>
+      <li>Working professionals seeking convenient rooms near offices and IT parks</li>
+      <li>Property owners and tenants wanting to list available spaces quickly</li>
     </ul>
 
     <h2>Our Vision</h2>
-    <p>We aim to become Pune’s most trusted platform for room sharing and rentals — with real people, real listings, and
-      zero middlemen.</p>
+    <p>
+      To become Pune's most trusted and transparent platform for room sharing and rentals by fostering genuine
+      connections and eliminating unnecessary middlemen.
+    </p>
 
-    <h2>Connect With Us</h2>
-    <p>Have feedback, ideas, or want to collaborate? Feel free to reach out to our team anytime!</p>
+    <h2>Get in Touch</h2>
+    <p>
+      Have questions, feedback, or want to collaborate? Reach out to us anytime via WhatsApp or email. We're here to
+      help you find your perfect home in Pune.
+    </p>
 
     <footer>
-      Made with ❤️ in Pune | © 2025 Pune Rooms
+      Made with ❤️ in Pune | &copy; 2025 UrbanPune
     </footer>
-  </div>
+  </main>
+
+  <!-- WhatsApp Contact Button -->
+  <a href="https://wa.me/917066201454?text=Hello%20UrbanPune%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+    target="_blank" rel="noopener noreferrer" class="whatsapp-contact" aria-label="Contact UrbanPune on WhatsApp"
+    role="button" tabindex="0">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
 </body>
 
 </html>
