@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Title & Description -->
   <title>Urban Pune - Find Verified Rooms, Hostels & Flats in Pune</title>
   <meta name="description"
@@ -13,11 +13,11 @@
     content="Pune rooms, hostels in Pune, PG Pune, Pune flat rent, Karve Nagar hostel, Kothrud rooms, Pune rental, student room Pune, urban pune, FC road PG, girls hostel Pune, boys PG Pune, Viman Nagar rent, affordable room Pune, verified PG Pune, furnished flats Pune, shared room Pune, hostel near Pune college, MIT WPU hostel, SP College room, Pune student accommodation, UrbanPune.in, apartments in Pune, rent room Pune, college hostel Pune, cheap hostel Pune, mess Pune, room for students Pune, single room Pune, Pune shared accommodation, rent near Karve Nagar, rent near FC Road, rent near Kothrud, rooms near MIT, rooms near SP College, Urban Pune login, Urban Pune register, trusted PG Pune, Pune PG boys, Pune PG girls, safe room Pune, room with food Pune, student flat Pune, Pune PG with AC, Urban Pune verified listings, rental room app Pune, Pune accommodation website, best PG Pune, punehostel, roomrentalpune, hostelbookingpune, puneflats, hotels in Pune, 1BHK Pune, 2BHK Pune, flats for rent Pune, properties for rent Pune, PGs in Pune, furnished properties Pune, Pune hotel rooms, affordable flats Pune, Pune property listings, rent 1BHK Pune, rent 2BHK Pune, flats for working professionals Pune, hostels near FC Road Pune, PG for rent in Karve Nagar, Pune property agents, 1BHK 2BHK PG in Pune, student housing Pune, verified flats Pune" />
   <meta name="author" content="Urban Pune" />
   <meta name="robots" content="index, follow" />
-  
+
   <!-- Favicon -->
   <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.urbanpune.in/" />
@@ -25,7 +25,7 @@
   <meta property="og:description"
     content="Looking for rooms, hostels, flats, or PGs in Pune? Urban Pune offers verified, affordable hostels, PGs, flats, 1BHK, 2BHK & hotels for students and working professionals." />
   <meta property="og:image" content="/img/og.png" />
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.urbanpune.in/" />
@@ -33,50 +33,59 @@
   <meta name="twitter:description"
     content="Looking for rooms, hostels, flats, or PGs in Pune? Urban Pune offers verified, affordable hostels, PGs, flats, 1BHK, 2BHK & hotels for students and working professionals." />
   <meta name="twitter:image" content="/img/og.png" />
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
+
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  
+
   <!-- SweetAlert2 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet" />
-  
+
   <!-- Custom CSS -->
   <link href="css/login.css" rel="stylesheet" />
   <style>
-    // Add this to your login.css or create a new CSS class
-.loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-.loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #4a6bff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #4a6bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen" style="display: none;">
+    <div class="loading-spinner"></div>
+  </div>
+
   <!-- Header -->
   <header>
     <nav class="navbar navbar-expand-lg">
@@ -256,16 +265,24 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // API URL - Change this to your actual backend URL
-      const API_URL = '/api'; // FIXED: Changed to relative URL for better compatibility
+      const API_URL = '/api';
+      const loadingScreen = document.getElementById('loadingScreen');
 
+      // Function to show loading screen
+      function showLoading() {
+        loadingScreen.style.display = 'flex';
+      }
 
-
-
-      // API URL - Change this to your actual backend URL
+      // Function to hide loading screen
+      function hideLoading() {
+        loadingScreen.style.display = 'none';
+      }
 
       // Function to check authentication status
       async function checkAuthStatus() {
         try {
+          showLoading(); // Show loading screen while checking auth
+
           const response = await fetch(`/check-auth`, {
             method: 'GET',
             credentials: 'include' // Important for cookies
@@ -274,19 +291,23 @@
           const data = await response.json();
 
           if (data.authenticated) {
-            // Redirect to rooms if logged in
+            // If already authenticated, redirect to rooms page
             window.location.href = data.redirectTo || '/rooms';
+            return true; // Return true to indicate user is authenticated
+          } else {
+            // If not authenticated, just continue showing login page
+            hideLoading();
+            return false; // Return false to indicate user is not authenticated
           }
-          // If not authenticated, just continue showing login page
         } catch (error) {
           console.error('Auth check failed:', error);
-          // Continue with page load even if check fails
+          hideLoading();
+          return false; // Return false on error
         }
       }
 
       // Call this when page loads
-        checkAuthStatus();
-      
+      checkAuthStatus();
 
       // DOM Elements
       const loginTab = document.getElementById('login-tab');
@@ -489,7 +510,7 @@
         this.style.opacity = '0.5';
 
         try {
-          // FIXED: Proper request body structure
+          // Proper request body structure
           const requestBody = {
             mobile: cleanedMobile,
             type: type
@@ -508,7 +529,7 @@
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(requestBody),
-            credentials: 'include' // FIXED: Include credentials for session cookies
+            credentials: 'include' // Include credentials for session cookies
           });
 
           const data = await response.json();
@@ -560,6 +581,13 @@
       // Form submissions
       document.getElementById('loginInitForm').addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        // First check if user is already authenticated
+        const isAuthenticated = await checkAuthStatus();
+        if (isAuthenticated) {
+          return; // If authenticated, the checkAuthStatus function will handle redirection
+        }
+
         this.classList.add('was-validated');
 
         if (this.checkValidity()) {
@@ -579,7 +607,7 @@
                 mobile: cleanedMobile,
                 type: 'login'
               }),
-              credentials: 'include' // FIXED: Include credentials for session cookies
+              credentials: 'include' // Include credentials for session cookies
             });
 
             const data = await response.json();
@@ -627,6 +655,13 @@
 
       document.getElementById('registerInitForm').addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        // First check if user is already authenticated
+        const isAuthenticated = await checkAuthStatus();
+        if (isAuthenticated) {
+          return; // If authenticated, the checkAuthStatus function will handle redirection
+        }
+
         this.classList.add('was-validated');
 
         if (this.checkValidity()) {
@@ -652,7 +687,7 @@
                 lastName,
                 gender
               }),
-              credentials: 'include' // FIXED: Include credentials for session cookies
+              credentials: 'include' // Include credentials for session cookies
             });
 
             const data = await response.json();
@@ -720,9 +755,10 @@
 
         // Show loading state
         verifySpinner.classList.remove('d-none');
+        showLoading(); // Show full page loading
 
         try {
-          // FIXED: Proper request body structure
+          // Proper request body structure
           const requestBody = {
             mobile: cleanedMobile,
             otp: otp,
@@ -742,7 +778,7 @@
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(requestBody),
-            credentials: 'include' // FIXED: Include credentials for session cookies
+            credentials: 'include' // Include credentials for session cookies
           });
 
           const data = await response.json();
@@ -759,10 +795,11 @@
               timer: 2000,
               timerProgressBar: true
             }).then(() => {
-              // FIXED: Redirect to rooms page instead of dashboard
+              // Keep loading screen visible during redirect
               window.location.href = data.redirectTo || '/rooms';
             });
           } else {
+            hideLoading(); // Hide loading on error
             Swal.fire({
               title: 'Invalid OTP',
               text: data.message || 'The OTP you entered is incorrect. Please try again.',
@@ -777,6 +814,7 @@
 
           // Hide loading state
           verifySpinner.classList.add('d-none');
+          hideLoading();
 
           // Show error notification
           Swal.fire({
@@ -872,7 +910,6 @@
 
       console.log('Login page loaded and ready for production');
     });
-
   </script>
 </body>
 

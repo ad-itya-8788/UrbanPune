@@ -4,1045 +4,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Primary Meta Tags -->
-  <title>My Profile | Urban Pune</title>
-  <meta name="title" content="My Profile | Urban Pune">
-  <meta name="description" content="Manage your Urban Pune profile, listings, and account settings.">
-  <meta name="author" content="Urban Pune">
-  <meta name="robots" content="noindex, nofollow">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <title>User Profile - UrbanPure</title>
   <style>
-    :root {
-      --primary: #4e2a84;
-      --secondary: #ff6b35;
-      --light-bg: #f8f9fa;
-      --dark-bg: #212529;
-    }
-
     body {
-      background-color: #f5f7fa;
-      color: var(--dark);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
     }
 
-    /* Header styles */
-    .app-header {
-      background: var(--primary);
+    header,
+    footer {
+      background-color: #222;
       color: white;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 30px;
+      text-align: center;
     }
 
-    .profile-username {
-      font-weight: 600;
-      font-size: 18px;
-    }
-
-    .header-icon {
-      color: white;
-      font-size: 1.5rem;
-      transition: transform 0.2s;
-    }
-
-    .header-icon:hover {
-      transform: scale(1.1);
-    }
-
-    /* Profile section */
-    .profile-section {
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
       background: white;
-      padding: 30px 0;
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
-    .profile-avatar {
-      width: 110px;
-      height: 110px;
+    .profile-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-top img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .profile-avatar:hover {
-      transform: scale(1.05);
-    }
-
-    @media (min-width: 768px) {
-      .profile-avatar {
-        width: 130px;
-        height: 130px;
-      }
-    }
-
-    .camera-btn {
-      background: var(--primary);
-      color: white;
-      border: 2px solid white;
-      width: 36px;
-      height: 36px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-
-    .camera-btn:hover {
-      background: #3d2168;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      margin: 20px 0;
-      background: var(--light-bg);
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .profile-stat-count {
-      font-weight: 700;
-      font-size: 22px;
-      color: var(--primary);
-    }
-
-    .profile-stat-label {
-      color: #6c757d;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .profile-bio {
-      font-size: 14px;
-      margin-bottom: 20px;
-      padding: 0 15px;
-    }
-
-    .profile-bio h6 {
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--dark);
-    }
-
-    .profile-bio p {
-      margin-bottom: 8px;
-      color: var(--gray);
-    }
-
-    .edit-profile-btn {
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: 50px;
-      border: none;
-      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.3);
-      transition: all 0.3s;
-      width: 100%;
-    }
-
-    .edit-profile-btn:hover {
-      background: #3d2168;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(94, 23, 235, 0.4);
-    }
-
-    .verified-badge {
-      color: var(--primary);
-      margin-left: 5px;
-      font-size: 18px;
-    }
-
-    /* Tabs section */
-    .profile-tabs {
-      display: flex;
-      justify-content: space-around;
-      background: white;
-      border-radius: 10px;
-      margin: 0 10px 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .profile-tab {
-      flex: 1;
-      text-align: center;
-      padding: 15px 0;
-      color: #6c757d;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
-      border-bottom: 3px solid transparent;
-    }
-
-    .profile-tab.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--primary);
-      background-color: rgba(78, 42, 132, 0.05);
-    }
-
-    .profile-tab:hover {
-      background-color: rgba(78, 42, 132, 0.05);
-    }
-
-    .profile-tab i {
-      font-size: 20px;
-      margin-bottom: 5px;
-      display: block;
-    }
-
-    /* Tab content */
-    .tab-content {
-      display: none;
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      margin: 0 10px 20px;
-    }
-
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Grid layout for posts */
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .post-item {
-      position: relative;
-      padding-bottom: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .post-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .post-item img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .post-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .post-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .post-item:hover .post-overlay {
-      opacity: 1;
-    }
-
-    .post-stats {
-      color: white;
-      font-weight: 600;
-      display: flex;
-      gap: 20px;
-    }
-
-    .post-stats i {
-      margin-right: 5px;
-      color: var(--secondary);
-    }
-
-    /* Room card (for saved tab) */
-    .room-card {
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-      border: none;
-    }
-
-    .room-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .room-img {
-      width: 100%;
-      height: 180px;
+      margin-right: 30px;
+      border: 3px solid #ddd;
       object-fit: cover;
     }
 
-    .room-info {
-      padding: 15px;
+    .profile-top h2 {
+      margin: 0;
+      font-size: 26px;
     }
 
-    .room-title {
-      font-weight: 700;
-      margin-bottom: 5px;
-      font-size: 16px;
+    .profile-details {
+      margin-top: 20px;
     }
 
-    .room-location {
-      color: #6c757d;
-      font-size: 14px;
-      margin-bottom: 10px;
+    .detail {
+      margin-bottom: 15px;
     }
 
-    .room-price {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 18px;
-    }
-
-    .room-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 10px;
-    }
-
-    .room-badge {
-      background-color: rgba(78, 42, 132, 0.1);
-      color: var(--primary);
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-weight: 500;
-    }
-
-    .view-btn {
-      background: var(--primary);
-      border: none;
-      border-radius: 50px;
-      padding: 5px 15px;
+    .detail strong {
+      display: inline-block;
+      width: 150px;
       font-weight: 600;
-      transition: all 0.3s;
     }
 
-    .view-btn:hover {
-      background: #3d2168;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.2);
-    }
-
-    /* Messages styling */
-    .message-item {
-      border-radius: 10px;
-      margin-bottom: 10px;
-      transition: all 0.3s;
-      border: 1px solid #e9ecef;
-    }
-
-    .message-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      border-color: var(--primary);
-    }
-
-    .message-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .message-name {
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 0;
-    }
-
-    .message-time {
-      color: #6c757d;
-      font-size: 12px;
-    }
-
-    .message-preview {
-      color: #6c757d;
-      font-size: 13px;
-      margin-bottom: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .message-badge {
-      background: var(--primary);
-      color: white;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 50px;
-      font-weight: 500;
-    }
-
-    /* Bottom navigation (mobile) */
-    .mobile-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid #e9ecef;
-      display: flex;
-      justify-content: space-around;
-      padding: 12px 0;
-      z-index: 1000;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-      border-radius: 20px 20px 0 0;
-    }
-
-    .mobile-nav-item {
-      color: #6c757d;
-      font-size: 22px;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-
-    .mobile-nav-item:hover {
-      color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .mobile-nav-item.active {
-      color: var(--primary);
-    }
-
-    /* Toast notification */
-    .toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1100;
-    }
-
-    .custom-toast {
-      min-width: 280px;
-      background-color: white;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid var(--primary);
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 10px;
-      animation: slideIn 0.3s ease-out forwards;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
+    @media (max-width: 600px) {
+      .profile-top {
+        flex-direction: column;
+        text-align: center;
       }
 
-      to {
-        transform: translateX(0);
-        opacity: 1;
+      .profile-top img {
+        margin: 0 auto 15px auto;
       }
-    }
-
-    /* Modal styles */
-    .modal-content {
-      border-radius: 15px;
-      border: none;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal-header {
-      border-bottom: none;
-      padding: 20px 20px 10px;
-    }
-
-    .modal-footer {
-      border-top: none;
-      padding: 10px 20px 20px;
-    }
-
-    .modal-title {
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      border: none;
-      border-radius: 50px;
-      font-weight: 600;
-      padding: 8px 20px;
-      box-shadow: 0 4px 10px rgba(94, 23, 235, 0.2);
-      transition: all 0.3s;
-    }
-
-    .btn-primary:hover {
-      background: #3d2168;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(94, 23, 235, 0.3);
-    }
-
-    .btn-outline-secondary {
-      border-radius: 50px;
-      font-weight: 500;
-    }
-
-    .form-control,
-    .form-select {
-      border-radius: 8px;
-      padding: 10px 15px;
-      border: 1px solid #e9ecef;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-      border-color: var(--primary-light);
-      box-shadow: 0 0 0 0.25rem rgba(94, 23, 235, 0.25);
-    }
-
-    .form-label {
-      font-weight: 500;
-      color: var(--dark);
-    }
-
-    /* Hide mobile nav on larger screens */
-    @media (min-width: 768px) {
-      .mobile-nav {
-        display: none;
-      }
-
-      .main-container {
-        margin-bottom: 0;
-      }
-    }
-
-    /* Add padding to main container on mobile to account for bottom nav */
-    .main-container {
-      margin-bottom: 70px;
-    }
-
-    /* Badge styles */
-    .badge-verified {
-      background-color: var(--success);
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 50px;
-    }
-
-    .badge-pending {
-      background-color: var(--warning);
-      color: var(--dark);
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 50px;
-    }
-
-    /* Menu items */
-    .menu-item {
-      padding: 12px 15px;
-      border-radius: 10px;
-      transition: all 0.3s;
-      text-decoration: none;
-      color: #212529;
-      display: flex;
-      align-items: center;
-    }
-
-    .menu-item:hover {
-      background-color: rgba(78, 42, 132, 0.05);
-      transform: translateX(5px);
-    }
-
-    .menu-item i {
-      margin-right: 10px;
-      color: var(--primary);
-      font-size: 18px;
-      width: 24px;
-      text-align: center;
-    }
-
-    .menu-item.danger {
-      color: #dc3545;
-    }
-
-    .menu-item.danger i {
-      color: #dc3545;
     }
   </style>
 </head>
 
 <body>
-  <!-- Toast notification container -->
-  <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Header -->
-  <header class="app-header">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="fw-bold fs-5">Rahul_sharma</div>
-        <div>
-          <a href="/add" class="btn text-white">
-            <i class="fas fa-plus-square header-icon"></i>
-          </a>
-          <button class="btn text-white" data-bs-toggle="modal" data-bs-target="#menuModal">
-            <i class="fas fa-bars header-icon"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+  <header>
+    <h1>UrbanPure</h1>
   </header>
 
-  <div class="main-container">
-    <!-- Profile section -->
-    <section class="profile-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-4 text-center">
-            <div class="position-relative">
-              <img src="img/user.jpg" alt="Rahul Sharma" class="profile-avatar">
-              <div class="position-absolute bottom-0 end-0">
-                <label for="imageUpload" class="btn camera-btn rounded-circle">
-                  <i class="fas fa-camera"></i>
-                  <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="d-flex align-items-center mb-2">
-              <h5 class="mb-0 me-2">Rahul Sharma</h5>
-              <i class="fas fa-check-circle verified-badge" title="Verified User"></i>
-            </div>
-            <p class="text-muted mb-2 small"><i class="fas fa-map-marker-alt me-1"></i>Koregaon Park, Pune</p>
-            <button class="edit-profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-              <i class="fas fa-edit me-2"></i>Edit Profile
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-3 px-3">
-          <p class="mb-1">IT professional living in Pune for 5 years. I own multiple properties and am looking to
-            connect with reliable tenants.</p>
-          <p class="text-muted small mb-0">Member since June 2023</p>
-        </div>
-
-        <div class="profile-stats">
-          <div>
-            <div class="profile-stat-count">3</div>
-            <div class="profile-stat-label">Posts</div>
-          </div>
-          <div>
-            <div class="profile-stat-count">128</div>
-            <div class="profile-stat-label">Views</div>
-          </div>
-          <div>
-            <div class="profile-stat-count">15</div>
-            <div class="profile-stat-label">Messages</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tabs section -->
-    <section class="profile-tabs">
-      <div class="profile-tab active" data-tab="posts">
-        <i class="fas fa-th"></i>
-        <span>Posts</span>
-      </div>
-      <div class="profile-tab" data-tab="saved">
-        <i class="far fa-bookmark"></i>
-        <span>Saved</span>
-      </div>
-      <div class="profile-tab" data-tab="messages">
-        <i class="far fa-envelope"></i>
-        <span>Messages</span>
-      </div>
-    </section>
-
-    <!-- Tab content -->
-    <div class="container">
-      <!-- Posts tab -->
-      <div class="tab-content active" id="posts-tab">
-        <div class="posts-grid">
-          <!-- Post 1 -->
-          <div class="post-item">
-            <img
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="Single Room in Koregaon Park">
-            <div class="post-overlay">
-              <div class="post-stats">
-                <span><i class="fas fa-heart"></i> 24</span>
-                <span><i class="fas fa-comment"></i> 3</span>
-              </div>
-            </div>
-          </div>
-          <!-- Post 2 -->
-          <div class="post-item">
-            <img
-              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="Modern Shared Apartment in Hinjewadi">
-            <div class="post-overlay">
-              <div class="post-stats">
-                <span><i class="fas fa-heart"></i> 18</span>
-                <span><i class="fas fa-comment"></i> 5</span>
-              </div>
-            </div>
-          </div>
-          <!-- Post 3 -->
-          <div class="post-item">
-            <img
-              src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="Luxury Studio in Viman Nagar">
-            <div class="post-overlay">
-              <div class="post-stats">
-                <span><i class="fas fa-heart"></i> 32</span>
-                <span><i class="fas fa-comment"></i> 7</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Saved tab -->
-      <div class="tab-content" id="saved-tab">
-        <div class="row g-3">
-          <!-- Saved Room 1 -->
-          <div class="col-md-6">
-            <div class="room-card">
-              <img
-                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                class="room-img" alt="Luxury Apartment in Aundh">
-              <div class="p-3">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <div>
-                    <h5 class="room-title">Luxury Apartment - Aundh</h5>
-                    <p class="room-location mb-1"><i class="fas fa-map-marker-alt me-1"></i>Aundh, Pune</p>
-                  </div>
-                  <button class="btn btn-sm p-0">
-                    <i class="fas fa-heart text-danger fs-5"></i>
-                  </button>
-                </div>
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                  <span class="room-badge">3BHK</span>
-                  <span class="room-badge">Premium</span>
-                  <span class="room-badge">Pool</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="room-price">₹25,000 <span class="text-muted small">/month</span></div>
-                  <a href="#" class="btn btn-sm btn-primary view-btn">View</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Saved Room 2 -->
-          <div class="col-md-6">
-            <div class="room-card">
-              <img
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                class="room-img" alt="Cozy Studio in Kothrud">
-              <div class="p-3">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <div>
-                    <h5 class="room-title">Cozy Studio - Kothrud</h5>
-                    <p class="room-location mb-1"><i class="fas fa-map-marker-alt me-1"></i>Kothrud, Pune</p>
-                  </div>
-                  <button class="btn btn-sm p-0">
-                    <i class="fas fa-heart text-danger fs-5"></i>
-                  </button>
-                </div>
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                  <span class="room-badge">Studio</span>
-                  <span class="room-badge">Furnished</span>
-                  <span class="room-badge">Balcony</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="room-price">₹10,500 <span class="text-muted small">/month</span></div>
-                  <a href="#" class="btn btn-sm btn-primary view-btn">View</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Messages tab -->
-      <div class="tab-content" id="messages-tab">
-        <!-- Message 1 -->
-        <a href="#" class="d-block text-decoration-none">
-          <div class="message-item p-3">
-            <div class="d-flex align-items-center">
-              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Priya Patel" class="message-avatar me-3">
-              <div class="flex-grow-1">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h6 class="message-name">Priya Patel</h6>
-                  <small class="message-time">2h</small>
-                </div>
-                <p class="message-preview">Hi, I'm interested in your Viman Nagar apartment. Is it still available?</p>
-              </div>
-              <span class="message-badge ms-2">New</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Message 2 -->
-        <a href="#" class="d-block text-decoration-none">
-          <div class="message-item p-3">
-            <div class="d-flex align-items-center">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Kumar" class="message-avatar me-3">
-              <div class="flex-grow-1">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h6 class="message-name">Amit Kumar</h6>
-                  <small class="message-time">1d</small>
-                </div>
-                <p class="message-preview">Can I schedule a viewing for the Koregaon Park room this weekend?</p>
-              </div>
-              <span class="message-badge ms-2">New</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Message 3 -->
-        <a href="#" class="d-block text-decoration-none">
-          <div class="message-item p-3">
-            <div class="d-flex align-items-center">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Neha Singh" class="message-avatar me-3">
-              <div class="flex-grow-1">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h6 class="message-name">Neha Singh</h6>
-                  <small class="message-time">2d</small>
-                </div>
-                <p class="message-preview">Is WiFi included in the rent for the Hinjewadi apartment?</p>
-              </div>
-              <span class="message-badge ms-2">New</span>
-            </div>
-          </div>
-        </a>
+  <div class="container">
+    <div class="profile-top">
+      <img src="https://i.pravatar.cc/300" alt="Profile Picture">
+      <div>
+        <h2 id="fullname">Loading...</h2>
+        <p id="username" style="color: #666;">@username</p>
       </div>
     </div>
 
-    <!-- Mobile bottom navigation -->
-    <nav class="mobile-nav">
-      <a href="/" class="mobile-nav-item">
-        <i class="fas fa-home"></i>
-      </a>
-      <a href="/search" class="mobile-nav-item">
-        <i class="fas fa-search"></i>
-      </a>
-      <a href="/add" class="mobile-nav-item">
-        <i class="fas fa-plus-square"></i>
-      </a>
-      <a href="/notifications" class="mobile-nav-item">
-        <i class="fas fa-heart"></i>
-      </a>
-      <a href="/profile" class="mobile-nav-item active">
-        <i class="fas fa-user"></i>
-      </a>
-    </nav>
-  </div>
-
-  <!-- Edit Profile Modal -->
-  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="text-center mb-4">
-              <div class="position-relative d-inline-block">
-                <img src="img/user.jpg" alt="Rahul Sharma" class="rounded-circle"
-                  style="width: 100px; height: 100px; object-fit: cover;">
-                <label for="imageUploadModal" class="position-absolute bottom-0 end-0 btn camera-btn rounded-circle">
-                  <i class="fas fa-camera"></i>
-                  <input type="file" id="imageUploadModal" accept="image/*" style="display: none;" />
-                </label>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="modalFullName" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="modalFullName" value="Rahul Sharma">
-            </div>
-            <div class="mb-3">
-              <label for="modalUsername" class="form-label">Username</label>
-              <input type="text" class="form-control" id="modalUsername" value="rahul_sharma">
-            </div>
-            <div class="mb-3">
-              <label for="modalEmail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="modalEmail" value="rahul.sharma@example.com">
-            </div>
-            <div class="mb-3">
-              <label for="modalPhone" class="form-label">Phone Number</label>
-              <input type="tel" class="form-control" id="modalPhone" value="+91 98765 43210">
-            </div>
-            <div class="mb-3">
-              <label for="modalLocation" class="form-label">Location</label>
-              <input type="text" class="form-control" id="modalLocation" value="Koregaon Park, Pune">
-            </div>
-            <div class="mb-3">
-              <label for="modalBio" class="form-label">Bio</label>
-              <textarea class="form-control" id="modalBio"
-                rows="3">IT professional living in Pune for 5 years. I own multiple properties and am looking to connect with reliable tenants.</textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Save Changes</button>
-        </div>
-      </div>
+    <div class="profile-details">
+      <div class="detail"><strong>Phone:</strong> <span id="phone">Loading...</span></div>
+      <div class="detail"><strong>Gender:</strong> <span id="gender">Loading...</span></div>
+      <div class="detail"><strong>Account Type:</strong> <span id="account-type">Loading...</span></div>
+      <div class="detail"><strong>Member Since:</strong> <span id="join-date">Loading...</span></div>
     </div>
   </div>
 
-  <!-- Menu Modal -->
-  <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="menuModalLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="d-flex flex-column gap-2">
-            <a href="/settings" class="menu-item">
-              <i class="fas fa-cog"></i> Settings
-            </a>
-            <a href="/saved" class="menu-item">
-              <i class="fas fa-bookmark"></i> Saved Items
-            </a>
-            <a href="/activity" class="menu-item">
-              <i class="fas fa-history"></i> Your Activity
-            </a>
-            <a href="/help" class="menu-item">
-              <i class="fas fa-question-circle"></i> Help
-            </a>
-            <a href="/logout" class="menu-item danger">
-              <i class="fas fa-sign-out-alt"></i> Log Out
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 UrbanPure. All rights reserved. | <a href="https://www.urbanpune.in"
+        style="color: #ccc;">www.urbanpune.in</a></p>
+  </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom JS -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Tab switching
-      const tabs = document.querySelectorAll('.profile-tab');
-      const tabContents = document.querySelectorAll('.tab-content');
+    fetch('http://localhost:3000/api/user-data')
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          const user = data.user;
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function () {
-          // Remove active class from all tabs
-          tabs.forEach(t => t.classList.remove('active'));
+          document.getElementById('username').textContent = "@" + (user.username || user.name.split(" ")[0]);
+          document.getElementById('fullname').textContent = user.name;
+          document.getElementById('phone').textContent = user.phone || 'Not provided';
+          document.getElementById('gender').textContent = user.gender || 'Not specified';
+          document.getElementById('account-type').textContent = user.user_type || 'Standard';
 
-          // Add active class to clicked tab
-          this.classList.add('active');
-
-          // Hide all tab contents
-          tabContents.forEach(content => content.classList.remove('active'));
-
-          // Show the corresponding tab content
-          const tabId = this.getAttribute('data-tab');
-          document.getElementById(tabId + '-tab').classList.add('active');
-        });
+          const joinDate = new Date(user.created_at);
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          document.getElementById('join-date').textContent = joinDate.toLocaleDateString('en-US', options);
+        } else {
+          document.querySelector('.container').innerHTML = "<p style='color: red;'>User not found or unauthorized.</p>";
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.querySelector('.container').innerHTML = "<p style='color: red;'>Failed to load user data.</p>";
       });
-
-      // Image upload preview
-      const imageUpload = document.getElementById('imageUpload');
-      const profileAvatar = document.querySelector('.profile-avatar');
-
-      if (imageUpload) {
-        imageUpload.addEventListener('change', function () {
-          const file = this.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              profileAvatar.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-
-      // Modal image upload preview
-      const imageUploadModal = document.getElementById('imageUploadModal');
-      const modalAvatar = document.querySelector('#editProfileModal .rounded-circle');
-
-      if (imageUploadModal) {
-        imageUploadModal.addEventListener('change', function () {
-          const file = this.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              modalAvatar.src = e.target.result;
-              profileAvatar.src = e.target.result; // Update main avatar too
-            }
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-    });
   </script>
+
 </body>
 
 </html>
