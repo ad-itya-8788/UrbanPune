@@ -22,7 +22,7 @@
   <meta property="og:title" content="Urban Pune | No Brokerage Rooms, PG & Hostels in Pune">
   <meta property="og:description"
     content="Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.">
-  <meta property="og:image" content="https://www.urbanpune.in/img/og-image.jpg">
+  <meta property="og:image" content="https://www.urbanpune.in/img/urbanpune2.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -30,44 +30,23 @@
   <meta property="twitter:title" content="Urban Pune | No Brokerage Rooms, PG & Hostels in Pune">
   <meta property="twitter:description"
     content="Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune. Browse 1000+ listings in Koregaon Park, Hinjewadi, Viman Nagar, and Kothrud with zero brokerage fees.">
-  <meta property="twitter:image" content="https://www.urbanpune.in/img/og-image.jpg">
+  <meta property="twitter:image" content="https://www.urbanpune.in/img/urbanpune2.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="img/favicon.ico">
 
-  <!-- Preload critical assets -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" as="script">
 
   <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <meta name="fast2sms" content="Pj6o1XzNJw48qtaklgtRBNU29FeMJpxT">
 
-  <!-- Font Awesome (with performance optimization) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
-    onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  </noscript>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* Core variables */
     :root {
       --primary: #4e2a84;
       --secondary: #ff6b35;
-      --light-bg: #f8f9fa;
-      --dark-bg: #212529;
-      --transition: all 0.3s ease;
-      --border-radius: 12px;
-      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Base styles */
-    body {
-      overflow-x: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      color: #333;
-      line-height: 1.6;
     }
 
     .btn-primary,
@@ -76,37 +55,27 @@
       border-color: var(--primary) !important;
     }
 
-    .btn-primary:hover {
-      background-color: #3d2168 !important;
-      border-color: #3d2168 !important;
-    }
-
     .text-primary {
       color: var(--primary) !important;
     }
 
-    /* Animation effects */
     .hover-scale {
-      transition: var(--transition);
+      transition: transform 0.3s ease;
     }
 
     .hover-scale:hover {
       transform: scale(1.05);
     }
 
-    /* Area cards */
     .area-card {
       overflow: hidden;
-      border-radius: var(--border-radius);
+      border-radius: 12px;
       height: 180px;
-      position: relative;
-      box-shadow: var(--box-shadow);
     }
 
     .area-card img {
       transition: transform 0.5s ease;
       height: 100%;
-      width: 100%;
       object-fit: cover;
     }
 
@@ -116,18 +85,10 @@
 
     .area-card .overlay {
       background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 12px;
-      color: white;
     }
 
-    /* Room cards */
     .room-card {
-      transition: var(--transition);
-      border-radius: var(--border-radius);
+      transition: all 0.3s ease;
     }
 
     .room-card:hover {
@@ -135,83 +96,24 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
     }
 
-    .room-card .card-img-top {
-      border-top-left-radius: var(--border-radius);
-      border-top-right-radius: var(--border-radius);
-    }
-
-    /* Background styles */
     .bg-gradient-custom {
       background: linear-gradient(135deg, rgba(78, 42, 132, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
     }
 
-    /* Feature icons */
     .feature-icon {
       width: 60px;
       height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      transition: var(--transition);
     }
 
-    .feature-card:hover .feature-icon {
-      transform: translateY(-5px);
-    }
-
-    /* Navbar styles */
-    .navbar {
-      transition: var(--transition);
-      padding: 8px 0;
-    }
-
-    .navbar.scrolled {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      padding: 5px 0;
-      background-color: rgba(255, 255, 255, 0.98) !important;
-    }
-
-    .navbar-brand img {
-      height: 40px;
-      /* Smaller logo */
-      width: auto;
-      transition: var(--transition);
-    }
-
-    .nav-link {
-      position: relative;
-      transition: var(--transition);
-      font-weight: 600;
-      padding: 8px 16px !important;
-      margin: 0 4px;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Login button - fixed at top right on all screens */
+    /* Fixed login button for all screen sizes */
     .login-btn {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       right: 20px;
-      z-index: 1050;
+      z-index: 1000;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       border-radius: 50px;
-      padding: 8px 16px;
+      padding: 10px 20px;
       animation: pulse 2s infinite;
     }
 
@@ -229,7 +131,7 @@
       }
     }
 
-    /* Toast notifications */
+    /* Toast notification */
     .toast-container {
       position: fixed;
       top: 20px;
@@ -260,51 +162,43 @@
       }
     }
 
-    /* Hero section enhancements */
-    .hero-section {
-      position: relative;
-      overflow: hidden;
-      background-color: #f8f9fa;
+    /* Navbar animations */
+    .navbar {
+      transition: all 0.3s ease;
     }
 
-    .hero-section::before {
+    .navbar.scrolled {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      width: 0;
+      height: 2px;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(78, 42, 132, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
-      z-index: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
+    .nav-link:hover::after {
+      width: 100%;
     }
 
-    /* CTA section enhancement */
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary) 0%, #3d2168 100%);
+    .navbar-brand img {
+      transition: all 0.3s ease;
     }
 
-    /* Footer enhancements */
-    .footer-link {
-      transition: var(--transition);
-      display: inline-block;
-    }
-
-    .footer-link:hover {
-      transform: translateX(5px);
-    }
-
-    .social-icon {
-      transition: var(--transition);
-    }
-
-    .social-icon:hover {
-      transform: translateY(-5px);
-      background-color: rgba(255, 255, 255, 0.2) !important;
+    .navbar-brand:hover img {
+      transform: scale(1.05);
     }
 
     /* Mobile optimizations */
@@ -312,41 +206,22 @@
       .area-card {
         height: 150px;
       }
-
-      /* Ensure login button is visible on mobile */
-      .login-btn {
-        top: 15px;
-        right: 15px;
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-
-      /* Adjust navbar for login button */
-      .navbar-toggler {
-        margin-right: 60px;
-      }
-
-      .navbar-brand img {
-        height: 35px;
-        /* Even smaller on mobile */
-      }
     }
 
-    /* Lazy loading animation */
-    .lazy-placeholder {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: lazyLoading 1.5s infinite;
+    .logo-text {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 2rem;
     }
 
-    @keyframes lazyLoading {
-      0% {
-        background-position: 200% 0;
-      }
+    .blue {
+      color: #0b4a8c;
+      /* blue color */
+    }
 
-      100% {
-        background-position: -200% 0;
-      }
+    .orange {
+      color: #f68628;
+      /* orange color */
     }
   </style>
 
@@ -395,87 +270,67 @@
       }
     }
   </script>
+  <!-- Google Font (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Additional SEO Schema for Local Business -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Urban Pune",
-      "image": "https://www.urbanpune.in/img/urbanlogo.png",
-      "priceRange": "₹₹",
-      "description": "Find verified no brokerage rooms, PG and hostels in Pune at Urban Pune.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Main Street, Koregaon Park",
-        "addressLocality": "Pune",
-        "addressRegion": "Maharashtra",
-        "postalCode": "411001",
-        "addressCountry": "IN"
-      },
-      "telephone": "+919876543210",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "10:00",
-          "closes": "17:00"
-        }
-      ]
-    }
-  </script>
 </head>
 
 <body>
   <!-- Toast notification container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Fixed Login Button (visible on all screen sizes) -->
-  <a href="/login" class="btn btn-primary fw-bold login-btn" id="loginBtn" title="Login to Urban Pune">
-    <i class="fas fa-sign-in-alt me-2"></i>Login
-  </a>
-
   <!-- Navbar -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2" id="mainNav">
       <div class="container">
-        <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="/"
+
+
+
+
+
+
+
+
+
+        <!-- Google Font (Poppins) -->
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/"
+          style="font-family: 'Poppins', sans-serif; font-size: 1.8rem;"
           title="Urban Pune - No Brokerage Rooms in Pune">
-          <img src="img/urbanpune.jpg" alt="Urban Pune Logo - No Brokerage Rooms in Pune" class="me-2" width="auto"
-            height="40">
+          <i class="fas fa-home text-primary" style="font-size: 1.8rem;"></i>
+          <span>
+            <span style="color: #7b17c8;">Urban</span><span style="color: #fd7e14;">Pune</span><span
+              style="color: #212529;">.in</span>
+          </span>
         </a>
+
+
+
+
+
+
+
+
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link browse-rooms-link" href="#" title="Browse Rooms in Pune">
-                <i class="fas fa-search me-1"></i> Browse Rooms
+              <a class="nav-link fw-bold" href="/privacy-policy" title="Privacy Policy">
+                <i class="fas fa-shield-alt me-1"></i> Privacy Policy
               </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="/how-it-works" title="How Urban Pune Works">
-                <i class="fas fa-info-circle me-1"></i> How It Works
-              </a>
+              <a class="nav-link fw-bold" href="/how-it-works" title="How Urban Pune Works"><i
+                  class="fas fa-info-circle me-1"></i> How It Works</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/help" title="Urban Pune Help Center">
-                <i class="fas fa-question-circle me-1"></i> Help
-              </a>
+              <a class="nav-link fw-bold" href="/help" title="Urban Pune Help Center"><i
+                  class="fas fa-question-circle me-1"></i> Help</a>
             </li>
           </ul>
         </div>
@@ -483,12 +338,17 @@
     </nav>
   </header>
 
+  <!-- Fixed Login Button (visible on all screen sizes) -->
+  <a href="/login" class="btn btn-primary fw-bold login-btn" id="loginBtn" title="Login to Urban Pune">
+    <i class="fas fa-sign-in-alt me-2"></i>Login
+  </a>
+
   <main>
     <!-- Hero Section -->
-    <section class="py-5 hero-section">
+    <section class="py-5 bg-gradient-custom">
       <div class="container py-3">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0 hero-content">
+          <div class="col-lg-6 mb-4 mb-lg-0">
             <span class="badge bg-primary px-3 py-2 mb-2 fw-bold">Top Rated Room Rental in Pune</span>
             <h1 class="display-5 fw-bold mb-3">Find Your <span class="text-primary">Perfect Room</span> in Pune</h1>
             <p class="lead mb-4"><strong>Hundreds of verified rooms</strong> available across Pune. <strong>No brokerage
@@ -511,34 +371,37 @@
 
             <div class="d-flex gap-3 flex-wrap">
               <a href="#" class="btn btn-primary px-4 py-2 fw-bold hover-scale browse-rooms-link"
-                title="Browse Rooms in Pune">Browse Rooms</a>
+                title="Browse Rooms in Pune">Browse
+                Rooms</a>
               <a href="/how-it-works" class="btn btn-outline-dark px-4 py-2 fw-bold hover-scale"
                 title="How Urban Pune Works">How it works</a>
             </div>
           </div>
           <div class="col-lg-6">
             <img src="img/outdore.jpg" class="img-fluid rounded-4 shadow hover-scale"
-              alt="Modern room interior in Pune - Urban Pune" width="600" height="400" loading="eager">
+              alt="Modern room interior in Pune - Urban Pune" width="600" height="400" decoding="async">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Popular Areas in Pune -->
-    <section class="py-5 bg-light">
+    <section class="py-5">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">Popular Areas in Pune</h2>
           <a href="#" class="btn btn-outline-primary fw-bold d-none d-md-block browse-rooms-link"
-            title="View All Areas in Pune">View All</a>
+            title="View All Areas in Pune">View
+            All</a>
         </div>
 
         <div class="row g-3">
-          <!-- Area cards - using loading="lazy" for better performance -->
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Koregaon Park Pune">
-              <img src="img/kp.jpg" alt="Koregaon Park Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Koregaon Park Pune">
+              <img src="img/kp.jpg" class="w-100" alt="Koregaon Park Pune - Urban Pune Rooms" width="300" height="180"
+                decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Koregaon Park</h3>
                 <span class="badge bg-primary">220+ rooms</span>
               </div>
@@ -546,9 +409,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Hinjewadi Pune">
-              <img src="img/hing.jpg" alt="Hinjewadi IT Park Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Hinjewadi Pune">
+              <img src="img/hing.jpg" class="w-100" alt="Hinjewadi IT Park Pune - Urban Pune Rooms" width="300"
+                height="180" decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Hinjewadi</h3>
                 <span class="badge bg-primary">450+ rooms</span>
               </div>
@@ -556,9 +421,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Viman Nagar Pune">
-              <img src="img/VN.jpg" alt="Viman Nagar Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Viman Nagar Pune">
+              <img src="img/VN.jpg" class="w-100" alt="Viman Nagar Pune - Urban Pune Rooms" width="300" height="180"
+                decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Viman Nagar</h3>
                 <span class="badge bg-primary">500+ rooms</span>
               </div>
@@ -566,9 +433,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Kothrud Pune">
-              <img src="img/koth.jpg" alt="Kothrud Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Kothrud Pune">
+              <img src="img/koth.jpg" class="w-100" alt="Kothrud Pune - Urban Pune Rooms" width="300" height="180"
+                decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Kothrud</h3>
                 <span class="badge bg-primary">250+ rooms</span>
               </div>
@@ -576,9 +445,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Karve Nagar Pune">
-              <img src="img/karve.jpg" alt="Karve Nagar Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Karve Nagar Pune">
+              <img src="img/karve.jpg" class="w-100" alt="Karve Nagar Pune - Urban Pune Rooms" width="300" height="180"
+                decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Karve Nagar</h3>
                 <span class="badge bg-primary">200+ rooms</span>
               </div>
@@ -586,9 +457,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Shivaji Nagar Pune">
-              <img src="img/shivaji.jpeg" alt="Shivaji Nagar Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Shivaji Nagar Pune">
+              <img src="img/shivaji.jpeg" class="w-100" alt="Shivaji Nagar Pune - Urban Pune Rooms" width="300"
+                height="180" decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Shivaji Nagar</h3>
                 <span class="badge bg-primary">200+ rooms</span>
               </div>
@@ -596,9 +469,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Peth Area Pune">
-              <img src="img/path.jpg" alt="Peth Area Pune - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Peth Area Pune">
+              <img src="img/path.jpg" class="w-100" alt="Peth Area Pune - Urban Pune Rooms" width="300" height="180"
+                decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Peth Area</h3>
                 <span class="badge bg-primary">200+ rooms</span>
               </div>
@@ -606,9 +481,11 @@
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="area-card d-block shadow-sm browse-rooms-link" title="Rooms in Pune City Other Areas">
-              <img src="img/punecityother.jpg" alt="Pune City Other Areas - Urban Pune Rooms" loading="lazy">
-              <div class="overlay">
+            <a href="#" class="area-card d-block position-relative shadow-sm browse-rooms-link"
+              title="Rooms in Pune City Other Areas">
+              <img src="img/punecityother.jpg" class="w-100" alt="Pune City Other Areas - Urban Pune Rooms" width="300"
+                height="180" decoding="async">
+              <div class="overlay position-absolute bottom-0 start-0 end-0 text-white p-3">
                 <h3 class="h5 mb-0 fw-bold">Pune City Other</h3>
                 <span class="badge bg-primary">1000+ rooms</span>
               </div>
@@ -627,15 +504,16 @@
     <!-- Features Section -->
     <section class="py-5 bg-gradient-custom" id="how-it-works">
       <div class="container">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
           <h2 class="fw-bold mb-3">Why Choose Urban Pune?</h2>
           <p class="lead">The <strong>best platform</strong> for finding rooms in Pune</p>
         </div>
 
         <div class="row g-4">
           <div class="col-md-3 col-6">
-            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale feature-card">
-              <div class="feature-icon bg-primary bg-opacity-10 text-primary">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-primary bg-opacity-10 text-primary mb-3">
                 <i class="fas fa-search fs-3"></i>
               </div>
               <h3 class="h5 fw-bold mb-2">Easy Search</h3>
@@ -644,8 +522,9 @@
           </div>
 
           <div class="col-md-3 col-6">
-            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale feature-card">
-              <div class="feature-icon bg-success bg-opacity-10 text-success">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-success bg-opacity-10 text-success mb-3">
                 <i class="fas fa-shield-alt fs-3"></i>
               </div>
               <h3 class="h5 fw-bold mb-2">Verified</h3>
@@ -654,8 +533,9 @@
           </div>
 
           <div class="col-md-3 col-6">
-            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale feature-card">
-              <div class="feature-icon bg-warning bg-opacity-10 text-warning">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-warning bg-opacity-10 text-warning mb-3">
                 <i class="fas fa-rupee-sign fs-3"></i>
               </div>
               <h3 class="h5 fw-bold mb-2">No Brokerage</h3>
@@ -664,8 +544,9 @@
           </div>
 
           <div class="col-md-3 col-6">
-            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale feature-card">
-              <div class="feature-icon bg-info bg-opacity-10 text-info">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 hover-scale">
+              <div
+                class="feature-icon d-flex align-items-center justify-content-center mx-auto rounded-circle bg-info bg-opacity-10 text-info mb-3">
                 <i class="fas fa-comments fs-3"></i>
               </div>
               <h3 class="h5 fw-bold mb-2">Direct Contact</h3>
@@ -692,8 +573,8 @@
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  class="card-img-top" alt="Single Room in Koregaon Park Pune - Urban Pune" loading="lazy"
-                  style="height: 200px; object-fit: cover;">
+                  class="card-img-top" alt="Single Room in Koregaon Park Pune - Urban Pune" width="500" height="200"
+                  decoding="async" style="height: 200px; object-fit: cover;">
                 <span class="position-absolute top-0 end-0 bg-success m-3 badge">Available now</span>
               </div>
               <div class="card-body">
@@ -722,7 +603,8 @@
                     <span class="text-muted small">/month</span>
                   </div>
                   <a href="#" class="btn btn-sm btn-primary fw-bold browse-rooms-link"
-                    title="View details of Koregaon Park Room">View details</a>
+                    title="View details of Koregaon Park Room">View
+                    details</a>
                 </div>
               </div>
             </div>
@@ -734,8 +616,8 @@
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  class="card-img-top" alt="Modern Shared Apartment in Hinjewadi Pune - Urban Pune" loading="lazy"
-                  style="height: 200px; object-fit: cover;">
+                  class="card-img-top" alt="Modern Shared Apartment in Hinjewadi Pune - Urban Pune" width="500"
+                  height="200" decoding="async" style="height: 200px; object-fit: cover;">
                 <span class="position-absolute top-0 end-0 bg-success m-3 badge">Available now</span>
               </div>
               <div class="card-body">
@@ -763,7 +645,8 @@
                     <span class="text-muted small">/month</span>
                   </div>
                   <a href="#" class="btn btn-sm btn-primary fw-bold browse-rooms-link"
-                    title="View details of Hinjewadi Apartment">View details</a>
+                    title="View details of Hinjewadi Apartment">View
+                    details</a>
                 </div>
               </div>
             </div>
@@ -775,8 +658,8 @@
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  class="card-img-top" alt="Luxury Studio in Viman Nagar Pune - Urban Pune" loading="lazy"
-                  style="height: 200px; object-fit: cover;">
+                  class="card-img-top" alt="Luxury Studio in Viman Nagar Pune - Urban Pune" width="500" height="200"
+                  decoding="async" style="height: 200px; object-fit: cover;">
                 <span class="position-absolute top-0 end-0 bg-secondary m-3 badge">Available Jun 1</span>
               </div>
               <div class="card-body">
@@ -804,7 +687,8 @@
                     <span class="text-muted small">/month</span>
                   </div>
                   <a href="#" class="btn btn-sm btn-primary fw-bold browse-rooms-link"
-                    title="View details of Viman Nagar Studio">View details</a>
+                    title="View details of Viman Nagar Studio">View
+                    details</a>
                 </div>
               </div>
             </div>
@@ -819,13 +703,14 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-5 cta-section text-white">
+    <section class="py-5 bg-primary text-white">
       <div class="container text-center py-3">
         <h2 class="fw-bold mb-3">Ready to find your new home in Pune?</h2>
         <p class="lead mb-4">Join hundreds of happy renters who found their perfect space through Urban Pune.</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
           <a href="#" class="btn btn-light btn-lg px-4 fw-bold hover-scale browse-rooms-link"
-            title="Browse Rooms in Pune">Browse Rooms</a>
+            title="Browse Rooms in Pune">Browse
+            Rooms</a>
           <a href="#" class="btn btn-outline-light btn-lg px-4 fw-bold hover-scale"
             title="List Your Property on Urban Pune">List Your Property</a>
         </div>
@@ -834,7 +719,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-5">
+  <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
@@ -843,17 +728,17 @@
             brokerage fees.</p>
           <div class="social-icons">
             <a href="#" aria-label="Urban Pune on Facebook"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 social-icon"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
               style="width: 36px; height: 36px;">
               <i class="fab fa-facebook-f"></i>
             </a>
             <a href="#" aria-label="Urban Pune on Instagram"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 social-icon"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
               style="width: 36px; height: 36px;">
               <i class="fab fa-instagram"></i>
             </a>
             <a href="#" aria-label="Urban Pune on Twitter"
-              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 social-icon"
+              class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10 text-white me-2 hover-scale"
               style="width: 36px; height: 36px;">
               <i class="fab fa-twitter"></i>
             </a>
@@ -862,24 +747,20 @@
         <div class="col-lg-2 col-md-4">
           <h5 class="text-white mb-3 fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none footer-link">Home</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link footer-link">Browse
-                Rooms</a>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link">Browse Rooms</a>
             </li>
-            <li class="mb-2"><a href="/help" class="text-white-50 text-decoration-none footer-link">Support</a></li>
+            <li class="mb-2"><a href="/help" class="text-white-50 text-decoration-none">Support</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4">
           <h5 class="text-white mb-3 fw-bold">Popular Areas</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="#"
-                class="text-white-50 text-decoration-none browse-rooms-link footer-link">Koregaon Park</a>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link">Koregaon Park</a>
             </li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link footer-link">Viman
-                Nagar</a>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link">Viman Nagar</a>
             </li>
-            <li class="mb-2"><a href="#"
-                class="text-white-50 text-decoration-none browse-rooms-link footer-link">Hinjewadi</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none browse-rooms-link">Hinjewadi</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
@@ -887,8 +768,8 @@
           <ul class="list-unstyled">
             <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> 123 Main Street, Koregaon Park,
               Pune</li>
-            <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 98765 *****</li>
-            <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@urbanpune.in</li>
+            <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 7066201454</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> adityachav8799@gmail.com</li>
           </ul>
           <form class="mt-3" id="newsletter-form">
             <div class="input-group">
@@ -898,7 +779,7 @@
           </form>
         </div>
       </div>
-      <hr class="my-4 border-secondary">
+      <hr class="my-3 border-secondary">
       <div class="row">
         <div class="col-md-6 text-center text-md-start">
           <p class="small mb-0 text-white-50">© 2025 Urban Pune | urbanpune.in — All Rights Reserved.</p>
@@ -914,8 +795,8 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS (deferred for better performance) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Sitemap generation -->
   <script type="application/ld+json">
@@ -934,32 +815,7 @@
 
   <!-- Authentication and Performance optimizations -->
   <script>
-    // Defer non-critical JavaScript execution
     document.addEventListener('DOMContentLoaded', function () {
-      // Lazy load images that are below the fold
-      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
-        console.log('Browser supports native image lazy-loading');
-      } else {
-        // Browser doesn't support native lazy loading
-        // Use IntersectionObserver as a fallback
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              img.classList.remove('lazy-placeholder');
-              imageObserver.unobserve(img);
-            }
-          });
-        });
-
-        lazyImages.forEach(img => {
-          imageObserver.observe(img);
-        });
-      }
-
       // Navbar animation on scroll
       const navbar = document.getElementById('mainNav');
       window.addEventListener('scroll', function () {
@@ -981,7 +837,7 @@
         if (loginBtn) {
           if (isLoggedIn()) {
             loginBtn.innerHTML = '<i class="fas fa-user me-2"></i>My Account';
-            loginBtn.href = '/profile';
+            loginBtn.href = '/dashboard';
           } else {
             loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login';
             loginBtn.href = '/login';
@@ -1048,18 +904,30 @@
         });
       };
 
-      // Handle newsletter form submission
-      const handleNewsletterForm = () => {
-        const form = document.getElementById('newsletter-form');
-        if (form) {
-          form.addEventListener('submit', function (e) {
+      // Room card hover effect
+      const setupRoomCardHoverEffects = () => {
+        const roomCards = document.querySelectorAll('.room-card');
+        roomCards.forEach(card => {
+          card.addEventListener('mouseenter', function () {
+            this.classList.add('shadow');
+          });
+          card.addEventListener('mouseleave', function () {
+            this.classList.remove('shadow');
+          });
+        });
+      };
+
+      // Newsletter form
+      const setupNewsletterForm = () => {
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            const email = form.querySelector('input[type="email"]').value;
-            if (email && email.includes('@')) {
-              showToast('Thank you for subscribing to our newsletter!', 'success');
-              form.reset();
-            } else {
-              showToast('Please enter a valid email address', 'error');
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+              // Here you would normally send this to your server
+              showToast('Thank you for subscribing to Urban Pune updates!', 'success');
+              this.reset();
             }
           });
         }
@@ -1068,21 +936,13 @@
       // Initialize all functions
       updateLoginButton();
       handleBrowseRoomsLinks();
-      handleNewsletterForm();
+      setupRoomCardHoverEffects();
+      setupNewsletterForm();
 
       // Check for redirect after login
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('login_success') && urlParams.get('login_success') === 'true') {
         showToast('Login successful! Welcome back.', 'success');
-      }
-    });
-
-    // Add page load performance metrics
-    window.addEventListener('load', () => {
-      // Use Performance API to measure page load time
-      if (window.performance) {
-        const pageLoadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-        console.log(`Page loaded in: ${pageLoadTime}ms`);
       }
     });
   </script>

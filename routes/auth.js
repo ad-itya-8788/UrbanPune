@@ -389,5 +389,17 @@ router.get("/session-check", async (req, res) => {
     return res.json({ authenticated: false, error: "Session check failed" });
   }
 });
-
+router.get("/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        return res.status(500).json({ success: false, message: "Logout failed" });
+      } else {
+        return res.json({ success: true, message: "Logged out successfully" });
+      }
+    });
+  } else {
+    return res.json({ success: true, message: "No active session" });
+  }
+});
 module.exports = router;

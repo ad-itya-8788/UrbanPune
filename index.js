@@ -5,7 +5,7 @@ const crypto = require("crypto");
 const cookieParser = require("cookie-parser");
 const db = require("./dbconnect");
 const twilio = require("./twlingo");
-const rateLimit = require('express-rate-limit');
+const rateLimilo = require('express-rate-limit');
 
 // Import route modules
 const authRoutes = require('./routes/auth');
@@ -297,6 +297,14 @@ app.get("/api/cleanup-sessions", async (req, res) => {
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).send("Something went wrong!");
+});
+app.post('/api/logout', requireAuth, async (req, res) => {
+  const sessionId = req.cookies.sessionId;
+  if (sessionId) {
+    await sessionManager.deleteSession(sessionId);
+    res.clearCookie('sessionId');
+  }
+  res.json({ success: true, message: "Logged out successfully" });
 });
 
 // Serve 404.html for any undefined route
